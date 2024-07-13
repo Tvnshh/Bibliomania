@@ -33,7 +33,7 @@ button {
     height: 8vw;  
     display: flex;
     justify-content: center;
-    font-size: 5vw;
+    font-size: 4vw;
     color: aliceblue;
     -webkit-text-stroke: 0.3vw black;
     border-radius: 1vw;
@@ -43,10 +43,14 @@ button {
 }
 
 button:hover{
-  font-size: 5.3vw;
+  font-size: 4.3vw;
   background-color: rgb(151, 11, 11);
   color: aliceblue;
   -webkit-text-stroke: 0.1vw rgb(110, 26, 26);
+}
+
+a{
+  color: aliceblue;
 }
 
 .title {
