@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url(font/QuartzoBold-W9lv.ttf) format('truetype');
+
+
+}
+body {
+    background-image: url('images/background_image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    font-family: 'CustomFont';
+    color: rgb(248, 0, 0);
+    height: 720px;
+    transition: font-size 0.2s ease;
+}
+  .content {
+    padding: 1em;
+    margin: 1em;
+    background-color: hsl(0, 100%, 50%, 10%);
+    border-radius: 1vw;
+  }
+
+button {
+    font-family: 'CustomFont';
+    position: relative;
+    background-color: rgb(92, 11, 11);
+    display: flex;
+    align-items: center;
+    width: 32vw;
+    height: 8vw;  
+    display: flex;
+    justify-content: center;
+    font-size: 5vw;
+    color: aliceblue;
+    -webkit-text-stroke: 0.3vw black;
+    border-radius: 1vw;
+    border-color: rgb(131, 33, 33);
+    transition: font-size 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover{
+  font-size: 5.3vw;
+  background-color: rgb(151, 11, 11);
+  color: aliceblue;
+  -webkit-text-stroke: 0.1vw rgb(110, 26, 26);
+}
+
+.title {
+    font-size: 6vw;
+}
+
+.popup {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.popup:target {
+  display: block; /* Show the popup when targeted */
+}
+
+.popup-content {
+  position: relative;
+  background-color: white;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px; /* Max width */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  text-align: center;
+}
+
+a {
+  text-decoration:none;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
