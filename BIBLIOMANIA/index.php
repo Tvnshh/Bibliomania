@@ -9,20 +9,12 @@
 <body>
     <div class="container">
         <img src="index.png" alt="Background" class="background-image">
-        <div class="content">
-            <div class="shapes">
-                <div class="shape triangle"></div>
-                <div class="shape circle"></div>
-                <div class="shape cross"></div>
-                <div class="shape square"></div>
-            </div>
             <div class="buttons">
                 <form method="post">
                     <button type="submit" name="action" value="start">START</button>
                     <button type="submit" name="action" value="exit">EXIT</button>
                 </form>
             </div>
-        </div>
     </div>
     <script src="scripts.js"></script>
 </body>
