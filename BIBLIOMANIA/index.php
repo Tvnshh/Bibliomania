@@ -17,6 +17,9 @@
             </div>
     </div>
     <div>
+
+    </div>
+    <div>
     <center>
         <button style="margin: 1vw; width: 50vw;"><a href="Admin/Admin_Menu.html">Admin Main Page</a></button>
         <button style="margin: 1vw; width: 50vw;"><a href="Moderator/Mod_Menu.html">Moderator Main Page</a></button>
@@ -25,6 +28,7 @@
         <button style="margin: 1vw; width: 50vw;"><a href="Choose_Account.html">Choose Account Page</a></button>
         <button style="margin: 1vw; width: 50vw;"><a href="Registration_Page.html">Registration Page</a></button>
         <button style="margin: 1vw; width: 50vw;"><a href="Login_Page.html">Login Page</a></button>
+        <button style="margin: 1vw; width: 50vw;"><a href="test.php">Example PHP</a></button>
     </center>
     </div>
     <script src="scripts.js"></script>
