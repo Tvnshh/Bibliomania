@@ -10,7 +10,7 @@
     <div class="container">
         <img src="index.png" alt="Background" class="background-image">
             <div class="buttons">
-                <form method="post">
+                <form method="">
                     <button type="submit" name="action" value="start">START</button>
                     <button type="submit" name="action" value="exit">EXIT</button>
                 </form>

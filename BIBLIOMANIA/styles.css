@@ -1,9 +1,8 @@
 @font-face {
     font-family: 'CustomFont';
-    src: url(font/QuartzoBold-W9lv.ttf) format('truetype');
+    src: url(font/SairaStencilOne-Regular.ttf) format('truetype');
+  }
 
-
-}
 body {
     background-image: url('images/background_image.png');
     background-size: cover;
@@ -15,18 +14,19 @@ body {
     color: rgb(248, 0, 0);
     height: 720px;
     transition: font-size 0.2s ease;
-}
-  .content {
-    padding: 1em;
-    margin: 1em;
-    background-color: hsl(0, 100%, 50%, 10%);
-    border-radius: 1vw;
   }
 
-button {
-    font-family: 'CustomFont';
+.content {
+  padding: 1em;
+  margin: 1em;
+  background-color: hsl(0, 100%, 50%, 10%);
+  border-radius: 1vw;
+}
+
+.container button {
+  font-family: 'CustomFont';
     position: relative;
-    background-color: rgb(92, 11, 11);
+    background-color: rgb(221, 83, 49);
     display: flex;
     align-items: center;
     width: 32vw;
@@ -34,23 +34,54 @@ button {
     display: flex;
     justify-content: center;
     font-size: 4vw;
-    color: aliceblue;
-    -webkit-text-stroke: 0.3vw black;
+    color: rgb(27, 27, 27);
     border-radius: 1vw;
-    border-color: rgb(131, 33, 33);
+    border-color: rgb(0, 0, 0);
+    transition: font-size 0.2s ease;
+    cursor: pointer;
+
+}
+
+button {
+    font-family: 'CustomFont';
+    position: relative;
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    align-items: center;
+    width: 32vw;
+    height: 8vw;  
+    display: flex;
+    justify-content: center;
+    font-size: 4vw;
+    color: rgb(221, 83, 49);
+
+    border-radius: 1vw;
+    border-color: rgb(221, 83, 49);
     transition: font-size 0.2s ease;
     cursor: pointer;
 }
 
+.container button:hover{
+  font-size: 4.3vw;
+  background-color: rgb(27, 27, 27);
+  color: rgb(221, 83, 49);
+  -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
+  border-color: rgb(221, 83, 49);
+}
+
 button:hover{
   font-size: 4.3vw;
-  background-color: rgb(151, 11, 11);
+  background-color: rgb(221, 83, 49);
   color: aliceblue;
-  -webkit-text-stroke: 0.1vw rgb(110, 26, 26);
+  -webkit-text-stroke: 0.1vw rgb(27, 27, 27);
 }
 
 a{
-  color: aliceblue;
+  color: rgb(221, 83, 49);
+}
+
+a:hover{
+  color: rgb(27, 27, 27);
 }
 
 .title {
