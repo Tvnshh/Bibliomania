@@ -6,38 +6,26 @@
     <title>Document</title>
 </head>
 <body>
+    
 <?php
-// Establishing the connection
-$con = mysqli_connect("localhost", "root", "", "bibliomania");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$servername = "0.tcp.ap.ngrok.io";
+$username = "your_username";  // Replace with your MySQL username
+$password = "your_password";  // Replace with your MySQL password
+$dbname = "your_database";    // Replace with your database name
+$port = "18160";              // Port provided by ngrok
+
+phpinfo();
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname, $port);
 
 // Check connection
-if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
+if (mysqli_connect_errno()) {
+    die("Connection failed: " . $conn->connect_error);
 }
-
-// Query to select admin
-$query = "SELECT * FROM admin WHERE admin_id = '001'";
-$result = mysqli_query($con, $query);
-
-// Check if query executed successfully
-if (!$result) {
-    die("Query failed: " . mysqli_error($con));
-}
-
-// Fetching the result
-while ($userinfo = mysqli_fetch_assoc($result)) {
-    $admin_id = $userinfo['admin_id'];
-}
-
-// Close the connection
-mysqli_close($con);
+echo "Connected successfully";
 ?>
-<div>
-    <button>Hi <?php echo isset($admin_id) ? $admin_id : 'Guest'; ?></button>
-</div>
-
-    <div>
-        <button>Hi <?php echo $admin_id; ?></button>
-    </div>
-</body>
-</html>
