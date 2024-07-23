@@ -16,4 +16,4 @@ First time -- Instructions
 
 3) Open the folder in VS CODE
 
-3) Connect to github remote repo (Only during first time)
+3) Connect to github remote repo (Only during first time, yeah)
