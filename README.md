@@ -14,6 +14,8 @@ First time -- Instructions
 
 Next usages -- Instruction
 
+1) 'git status' - to check connection status and updates to the code
+
 1) git pull origin main
 
 2) Ready to code
