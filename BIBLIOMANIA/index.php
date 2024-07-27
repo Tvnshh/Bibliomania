@@ -19,7 +19,7 @@
     <div>
 
     </div>
-    <div>
+    <div class="menu">
     <center>
         <button style="margin: 1vw; width: 50vw;"><a href="Admin/Admin_Menu.html">Admin Main Page</a></button>
         <button style="margin: 1vw; width: 50vw;"><a href="Moderator/Mod_Menu.html">Moderator Main Page</a></button>

@@ -25,24 +25,24 @@ body {
 
 .container button {
   font-family: 'CustomFont';
-    position: relative;
-    background-color: rgb(221, 83, 49);
-    display: flex;
-    align-items: center;
-    width: 32vw;
-    height: 8vw;  
-    display: flex;
-    justify-content: center;
-    font-size: 4vw;
-    color: rgb(27, 27, 27);
-    border-radius: 1vw;
-    border-color: rgb(0, 0, 0);
-    transition: font-size 0.2s ease;
-    cursor: pointer;
+  position: relative;
+  background-color: rgb(221, 83, 49);
+  display: flex;
+  align-items: center;
+  width: 32vw;
+  height: 8vw;  
+  display: flex;
+  justify-content: center;
+  font-size: 4vw;
+  color: rgb(27, 27, 27);
+  border-radius: 1vw;
+  border-color: rgb(0, 0, 0);
+  transition: font-size 0.2s ease;
+  cursor: pointer;
 
 }
 
-button {
+.menu button {
     font-family: 'CustomFont';
     position: relative;
     background-color: rgb(27, 27, 27);
@@ -50,11 +50,9 @@ button {
     align-items: center;
     width: 32vw;
     height: 8vw;  
-    display: flex;
     justify-content: center;
     font-size: 4vw;
     color: rgb(221, 83, 49);
-
     border-radius: 1vw;
     border-color: rgb(221, 83, 49);
     transition: font-size 0.2s ease;
@@ -69,10 +67,10 @@ button {
   border-color: rgb(221, 83, 49);
 }
 
-button:hover{
+.menu button:hover{
   font-size: 4.3vw;
   background-color: rgb(221, 83, 49);
-  color: aliceblue;
+  color: rgb(27, 27, 27);
   -webkit-text-stroke: 0.1vw rgb(27, 27, 27);
 }
 
@@ -80,7 +78,7 @@ a{
   color: rgb(221, 83, 49);
 }
 
-a:hover{
+a:hover {
   color: rgb(27, 27, 27);
 }
 
