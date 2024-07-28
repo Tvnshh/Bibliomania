@@ -4,11 +4,75 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles.css">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: auto;
+            padding-top: 150px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .backbtn{
+            position: absolute;
+        }
+        .backbtn button {
+            font-family: 'CustomFont';
+            margin-top: 150px;
+            margin-left: 90px;
+            background-color: rgb(221, 83, 49);
+            align-items: center;
+            width: 15vw;
+            height: 4.5vw;  
+            justify-content: center;
+            font-size: 30pt;
+            color: rgb(0, 0, 0);
+            border-radius: 1vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
+            cursor: pointer;
+        }
+        .backbtn button:hover {
+            font-size: 35pt;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
+        }        
+        .gm {
+            color: rgb(221, 83, 49);
+            background-color: rgb(27, 27, 27);
+            border: solid;
+            border-color: rgb(221, 83, 49);
+            border-radius: 0;
+            width: 50%;
+            height: 400px;
+            padding: 0px 5px 0px 10px;
+            font-size: 23pt;
+        }
+    </style>
 </head>
 <body>
-    <h1>Testing BACK functionality. Click on BACK button to go to previous page</h1>
-    <div class="container">
+
+    <div class="backbtn">
         <button onclick="history.back()">BACK</button>
+    </div>
+
+    <div class="container">
+
+        <div class="gm">
+
+        </div>             
+
+    </div>
+
+    <div class="backbtn">
+        <button>SLIDES</button>
     </div>
 </body>
 </html>
