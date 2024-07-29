@@ -16,21 +16,6 @@
                 </form>
             </div>
     </div>
-    <div>
-
-    </div>
-    <div class="menu">
-    <center>
-        <button style="margin: 1vw; width: 50vw;"><a href="Admin/Admin_Menu.html">Admin Main Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Moderator/Mod_Menu.html">Moderator Main Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Student/Student_Menu.html">Student Main Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Example CSS.html">Example CSS</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Choose_Account.html">Choose Account Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Registration_Page.html">Registration Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Login_Page.html">Login Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="test.php">Example PHP</a></button>
-    </center>
-    </div>
     <script src="scripts.js"></script>
 </body>
 </html>
@@ -39,11 +24,11 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $action = $_POST['action'];
     if ($action == 'start') {
-        echo "<script>alert('Start button clicked');</script>";
-        // Add your start button functionality here
+        header('Location: start.php');
+        exit();
     } elseif ($action == 'exit') {
-        echo "<script>alert('Exit button clicked');</script>";
-        // Add your exit button functionality here
+        header('Location: exit.php');
+        exit();
     }
 }
 ?>
