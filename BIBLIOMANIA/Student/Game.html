@@ -55,13 +55,43 @@
             padding: 0px 5px 0px 10px;
             font-size: 23pt;
         }
+        .pausebtn a {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(27, 27, 27);
+            border-radius: 100%;
+            border: solid;
+            position: relative;
+            text-indent: 0;
+            text-decoration: none;
+            color: transparent;
+            cursor: pointer;
+        }
+        .pausebtn a span {
+            height: 60px;
+            border-style: double;
+            border-width: 0px 0px 0px 37px;
+            border-color: rgb(221, 83, 49);
+            position: absolute;
+            top: 20%;
+            left: 33%;
+            transition: transform 0.2s
+        }
+        .pausebtn a:hover {
+            background-color: rgb(221, 83, 49);
+        }
+        .pausebtn a:hover span {
+            border-color: rgb(27, 27, 27);
+            transform: scale(1.2)
+        }
     </style>
 </head>
 <body>
 
-    <div class="backbtn">
+   <!-- <div class="backbtn">
         <button onclick="history.back()">BACK</button>
-    </div>
+    </div> -->
 
     <div class="container">
 
@@ -71,8 +101,22 @@
 
     </div>
 
-    <div class="backbtn">
-        <button>SLIDES</button>
+   <div class="backbtn">
+        <button onclick="window.location.href = 'Ready_Menu.html';">SLIDES</button>
     </div>
+
+    <div class="pausebtn">
+        <a href="#pausepopup">
+            <span></span>
+        </a>
+    </div>
+
+    <div id="pausepopup" class="popup">
+        <div class="popup-content">
+          <a href="#" class="close-btn">x</a>
+          <h2>Popup Title</h2>
+          <p>This is a simple CSS-only popup example.</p>
+        </div>
+      </div>
 </body>
 </html>
