@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose an Account</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Choose An Account</title>
 </head>
-<div class="menu">
-    <center>
-        <button style="margin: 1vw; width: 50vw;"><a href="Admin/Admin_Menu.html">Admin Main Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Moderator/Mod_Menu.html">Moderator Main Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Student/Student_Menu.html">Student Main Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Example CSS.html">Example CSS</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Choose_Account.html">Choose Account Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Registration_Page.html">Registration Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="Login_Page.html">Login Page</a></button>
-        <button style="margin: 1vw; width: 50vw;"><a href="test.php">Example PHP</a></button>
-    </center>
-    </div>
 <body>
-    Content
+    <div class="container">
+        <img src="background_image.png" alt="Background" class="background-image">
+        <div class="content">
+            <div class="title">BIBLIOMANIA</div>
+            <div class="buttons">
+                <button onclick="redirectTo('Moderator/Mod_Menu.html')">MODERATOR</button>
+                <button onclick="redirectTo('Student/Student_Menu.html')">STUDENT</button>
+                <button onclick="redirectTo('Admin/Admin_Menu.html')">ADMIN</button>
+                <button onclick="redirectTo('Guest_Dashboard.html')">PLAY AS GUEST</button>
+                <button onclick="redirectTo('Registration_Page.html')">REGISTER</button>
+                <button onclick="redirectTo('exit.html')">EXIT</button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>

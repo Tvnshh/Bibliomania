@@ -24,7 +24,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $action = $_POST['action'];
     if ($action == 'start') {
-        header('Location: start.php');
+        header('Location: Choose_Account.html');
         exit();
     } elseif ($action == 'exit') {
         header('Location: exit.php');
