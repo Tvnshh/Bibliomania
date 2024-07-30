@@ -11,8 +11,10 @@
         <img src="index.png" alt="Background" class="background-image">
             <div class="buttons">
                 <form method="">
-                    <button type="submit" name="action" value="start">START</button>
+                <centre>
+                    <button type="submit" name="action" value="start">START</button> 
                     <button type="submit" name="action" value="exit">EXIT</button>
+                </centre>
                 </form>
             </div>
     </div>
