@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARS Gamified Learning System</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('images/index.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <img src="index.png" alt="Background" class="background-image">
-            <div class="menu2">
-                <form method="post">
+        <div class="menu2">
+            <form method="post">
                 <center>
                     <button type="submit" name="action" value="start">START</button> 
                     <button type="submit" name="action" value="exit">EXIT</button>
                 </center>
-                </form>
-            </div>
+            </form>
+        </div>
     </div>
     <script src="scripts.js"></script>
 </body>
