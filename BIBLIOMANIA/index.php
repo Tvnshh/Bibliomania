@@ -14,6 +14,7 @@
                 <center>
                     <button type="submit" name="action" value="start">START</button> 
                     <button type="submit" name="action" value="exit">EXIT</button>
+                    <button>Hello</button>
                 </center>
                 </form>
             </div>
