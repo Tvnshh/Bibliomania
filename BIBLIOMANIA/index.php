@@ -8,13 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <img src="index.png" alt="Background">
-        <div class="buttons">
-            <form method="">
-                <button type="submit" name="action" value="start">START</button>
-                <button type="submit" name="action" value="exit">EXIT</button>
-            </form>
-        </div>
+        <img src="index.png" alt="Background" class="background-image">
+            <div class="buttons">
+                <form method="">
+                <centre>
+                    <button type="submit" name="action" value="start">START</button> 
+                    <button type="submit" name="action" value="exit">EXIT</button>
+                </centre>
+                </form>
+            </div>
     </div>
     <script src="scripts.js"></script>
 </body>
