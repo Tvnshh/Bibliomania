@@ -58,32 +58,6 @@ body {
     cursor: pointer;
 }
 
-.menu2 {
-  display: flex;
-  justify-content: space-between;
-}
-.menu2 button {
-  font-family: 'CustomFont';
-  position: relative;
-  display: flex;
-  background-color: rgb(221, 83, 49);
-  align-items: center;
-  width: 25vw;
-  height: 6vw;  
-  justify-content: center;
-  font-size: 30pt;
-  color: rgb(27, 27, 27);
-  border-radius: 1vw;
-  border-color: rgb(27, 27, 27);
-  transition: font-size 0.2s ease;
-  cursor: pointer;
-  margin: auto;
-  margin-top: 10px;
-}
-.menu2 button:hover{
-font-size: 33pt;
-background-color: rgb(221, 83, 49);
-color: rgb(255, 255, 255);
 
 .container button:hover{
   font-size: 4.3vw;

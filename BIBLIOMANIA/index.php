@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <div class="menu2">
+    <div class="menu">
         <form method="post">
             <centre>
                 <button type="submit" name="action" value="start">START</button> 
