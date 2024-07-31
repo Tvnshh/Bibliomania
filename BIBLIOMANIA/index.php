@@ -16,15 +16,13 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="menu2">
-            <form method="post">
-                <center>
-                    <button type="submit" name="action" value="start">START</button> 
-                    <button type="submit" name="action" value="exit">EXIT</button>
-                </center>
-            </form>
-        </div>
+    <div class="menu2">
+        <form method="post">
+            <centre>
+                <button type="submit" name="action" value="start">START</button> 
+                <button type="submit" name="action" value="exit">EXIT</button>
+            </centre>
+        </form>
     </div>
     <script src="scripts.js"></script>
 </body>
