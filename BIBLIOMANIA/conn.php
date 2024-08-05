@@ -33,5 +33,15 @@ function loginUser($username, $password) {
         return false; 
     }
 }
+function insertUser($username, $password, $age, $email, $name) {
+    global $mysqli;
+
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT); 
+
+    $stmt = $mysqli->prepare("INSERT INTO Student (username, password, age, email, name) VALUES (?, ?, ?)");
+    $stmt->bind_param('sss', $username, $hashed_password, $age, $email, $name);
+    $stmt->execute();
+    $stmt->close();
+}
 
 ?>
