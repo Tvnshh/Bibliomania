@@ -1,5 +1,5 @@
 <?php
-require_once('connection.php');
+require_once('conn.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     insertUser($username, $password, $age, $email, $name);
 
 
-    header('Location: login.php');
+    header('Location: Login_Page.php');
 }
 ?>
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="signup.php" method="post">
+    <form action="Registration_Page.php" method="post">
         <h1>Sign Up</h1>
         <label for="username">Username:</label>
             <input type="text" name="username" id="username" required><br>

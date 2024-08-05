@@ -35,7 +35,7 @@ if (loginUser($username, $password)) {
     <h1>Login</h1> 
     <?php if (isset($_GET['error'])): ?>  <p style="color: red;"><?php echo htmlspecialchars($_GET['error']); ?></p> 
     <?php endif; ?> 
-    <form action="login.php" method="post"> 
+    <form action="Login_Page.php" method="post"> 
         <div class="form-group"> 
             <label for="username">Username:</label> 
             <input type="text" name="username" id="username" required> 
@@ -45,7 +45,7 @@ if (loginUser($username, $password)) {
             <input type="password" name="password" id="password" required> 
 
         <button type="submit">Login</button><br>
-        <a href="signup.php">Sign Up</a>
+        <a href="Registration_Page.php">Sign Up</a>
     </form> 
     <?php if ($login_error): ?> 
         <p style="color: red;"><?php echo $login_error; ?></p> 
