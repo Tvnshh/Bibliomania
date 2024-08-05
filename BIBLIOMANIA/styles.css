@@ -74,7 +74,7 @@ body {
 }
 
 a{
-  color: rgb(221, 83, 49);
+  color: #dd5331;
 }
 
 a:hover {
@@ -132,3 +132,4 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+

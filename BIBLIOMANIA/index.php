@@ -12,6 +12,7 @@
             <div class="buttons">
                 <form method="post">
                 <center>
+                    <div><img src="images\bibliomania-logo-2.png" alt="" width=50%></div>
                     <button type="submit" name="action" value="start">START</button> 
                     <button type="submit" name="action" value="exit">EXIT</button>
                 </center>
