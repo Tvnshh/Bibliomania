@@ -17,4 +17,21 @@ if (mysqli_connect_errno()) {
     die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
+function loginUser($username, $password) {
+    global $mysqli;
+
+    $stmt = $mysqli->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->bind_param('s', $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+
+    if ($user && password_verify($password, $user['password'])) {
+        return true; 
+    } else {
+        return false; 
+    }
+}
+
 ?>
