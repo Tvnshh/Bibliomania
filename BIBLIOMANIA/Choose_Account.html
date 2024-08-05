@@ -2,10 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose an Account</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Choose An Account</title>
+    <style>
+    .header {
+        background-color: rgb(221, 83, 49);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32vw;
+        height: 7vw;  
+        font-size: 35pt;
+        color: black;
+        border-radius: 1vw;
+        border-color: rgb(221, 83, 49);
+        margin-bottom: 5px;
+        margin: auto;
+    }
+    .menu button {
+        margin: auto;
+        margin-top: 10px;
+    }
+    .menu2 {
+        display: flex;
+        justify-content: space-between;
+    }
+    .menu2 button {
+        font-family: 'CustomFont';
+        position: relative;
+        display: flex;
+        background-color: rgb(221, 83, 49);
+        align-items: center;
+        width: 25vw;
+        height: 6vw;  
+        justify-content: center;
+        font-size: 30pt;
+        color: rgb(27, 27, 27);
+        border-radius: 1vw;
+        border-color: rgb(27, 27, 27);
+        transition: font-size 0.2s ease;
+        cursor: pointer;
+        margin: auto;
+        margin-top: 10px;
+    }
+    .menu2 button:hover{
+    font-size: 33pt;
+    background-color: rgb(221, 83, 49);
+    color: rgb(255, 255, 255);
+    }
+    </style>
 </head>
 <body>
-    Content
+    <div class="container">
+        <img src="background_image.png" alt="Background" class="background-image">
+        <div class="content">
+            <div class="header">BIBLIOMANIA</div>
+            <div class="menu">
+                <button onclick="window.location.href = 'Moderator/Mod_Menu.html';">MODERATOR</button>
+                <button onclick="window.location.href = 'Student/Student_Menu.html';">STUDENT</button>
+                <button onclick="window.location.href ='Admin/Admin_Menu.html';">ADMIN</button>
+                <button onclick="window.location.href = 'Guest_Dashboard.html';">PLAY AS GUEST</button>
+            </div>
+            <div class="menu2">
+                <button onclick="window.location.href = 'Registration_Page.html';">REGISTER</button>
+                <button onclick="window.location.href = 'index.php';">EXIT</button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
