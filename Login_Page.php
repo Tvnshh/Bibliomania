@@ -14,10 +14,6 @@ if (loginUser($username, $password)) {
   session_start(); 
   $_SESSION['username'] = $username; 
 
-  $role = getrole($username); 
-  $_SESSION['role'] = $role; 
-
-
 } else {
   $login_error = 'Invalid username or password.';
 }
