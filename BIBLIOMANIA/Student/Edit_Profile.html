@@ -2,11 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/styles.css">
-    <title>Document</title>
-    <h1>Hi guys, its Veva</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="menu">
+            <button class="back-button">BACK</button>
+            <div class="menu">
+                <span class="profile-icon">👤</span>
+                <span>MY PROFILE</span>
+            </div>
+        </div>
+        <form class="profile-content">
+            <div class="profile-item">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </div>
+            <div class="profile-item">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="profile-item">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="profile-item">
+                <label for="placeholder">PLACEHOLDER</label>
+                <input type="text" id="placeholder" name="placeholder" placeholder="Placeholder content">
+            </div>
+            <button type="submit" class="save-button">SAVE</button>
+        </form>
+    </div>
 </body>
 </html>

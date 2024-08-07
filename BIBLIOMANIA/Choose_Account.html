@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="styles.css">
     <style>
     .header {
-        background-color: rgb(221, 83, 49);
+        background-color: #1a0000;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 32vw;
-        height: 7vw;  
+        width: 60vw;
+        height: 10vw;  
         font-size: 35pt;
         color: black;
         border-radius: 1vw;
@@ -57,16 +57,16 @@
     <div class="container">
         <img src="background_image.png" alt="Background" class="background-image">
         <div class="content">
-            <div class="header">BIBLIOMANIA</div>
+            <div class="header"><img src="images\bibliomania-logo-2.png" alt="" width=50%></div>
             <div class="menu">
-                <button onclick="redirectTo('Moderator/Mod_Menu.html')">MODERATOR</button>
+                <button onclick="window.location.href = 'Moderator/Mod_Menu.html';">MODERATOR</button>
                 <button onclick="window.location.href = 'Student/Student_Menu.html';">STUDENT</button>
-                <button onclick="redirectTo('Admin/Admin_Menu.html')">ADMIN</button>
-                <button onclick="redirectTo('Guest_Dashboard.html')">PLAY AS GUEST</button>
+                <button onclick="window.location.href ='Admin/Admin_Menu.html';">ADMIN</button>
+                <button onclick="window.location.href = 'Guest_Dashboard.html';">PLAY AS GUEST</button>
             </div>
             <div class="menu2">
-                <button onclick="redirectTo('Registration_Page.html')">REGISTER</button>
-                <button onclick="redirectTo('exit.html')">EXIT</button>
+                <button onclick="window.location.href = 'Registration_Page.html';">REGISTER</button>
+                <button onclick="window.location.href = 'index.php';">EXIT</button>
             </div>
         </div>
     </div>

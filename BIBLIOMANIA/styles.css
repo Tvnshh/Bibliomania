@@ -58,6 +58,7 @@ body {
     cursor: pointer;
 }
 
+
 .container button:hover{
   font-size: 4.3vw;
   background-color: rgb(27, 27, 27);
@@ -74,7 +75,7 @@ body {
 }
 
 a{
-  color: rgb(221, 83, 49);
+  color: #dd5331;
 }
 
 a:hover {
