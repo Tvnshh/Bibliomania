@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <style>
     .header {
-        background-color: #1a0000;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -17,16 +16,22 @@
         color: black;
         border-radius: 1vw;
         border-color: rgb(221, 83, 49);
-        margin-bottom: 5px;
         margin: auto;
+        margin-bottom: 2vw;
+    }
+    .content {
+        background-color: transparent;
     }
     .menu button {
         margin: auto;
-        margin-top: 10px;
+        margin-top: 25px;
+        border: none;
+        border-radius: 0.5vw;
     }
     .menu2 {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 5vw;
     }
     .menu2 button {
         font-family: 'CustomFont';
@@ -34,22 +39,24 @@
         display: flex;
         background-color: rgb(221, 83, 49);
         align-items: center;
-        width: 25vw;
+        width: 23vw;
         height: 6vw;  
         justify-content: center;
-        font-size: 30pt;
+        font-size: 3.0vw;
         color: rgb(27, 27, 27);
-        border-radius: 1vw;
-        border-color: rgb(27, 27, 27);
+        border-radius: 0.5vw;
+        border: none;
         transition: font-size 0.2s ease;
         cursor: pointer;
-        margin: auto;
-        margin-top: 10px;
+        margin: 0;
+        margin-top: 2vw;
     }
     .menu2 button:hover{
-    font-size: 33pt;
-    background-color: rgb(221, 83, 49);
-    color: rgb(255, 255, 255);
+        font-size: 3.3vw;
+        background-color: rgb(221, 83, 49);
+        border: none;
+        color: rgb(255, 255, 255);
+        -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
     }
     </style>
 </head>
@@ -66,7 +73,7 @@
             </div>
             <div class="menu2">
                 <button onclick="window.location.href = 'Registration_Page.html';">REGISTER</button>
-                <button onclick="window.location.href = 'index.php';">EXIT</button>
+                <button onclick="window.location.href = 'index.html';">BACK</button>
             </div>
         </div>
     </div>
