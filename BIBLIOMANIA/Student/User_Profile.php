@@ -1,27 +1,26 @@
 <?php
-// Database connection settings
-$servername = "localhost";
-$username = "root"; // Your MySQL username
-$password = ""; // Your MySQL password
-$dbname = "bibliomania"; // Your database name
 
-// Create connection
+$servername = "localhost";
+$username = "root"; 
+$password = ""; 
+$dbname = "bibliomania"; 
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Assuming the student ID is S001
+
 $student_id = 'S001';
 
-// Fetch user data from the database
+
 $sql = "SELECT name, username, email FROM student WHERE student_id = '$student_id'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Output data of each row
+
     $row = $result->fetch_assoc();
     $name = $row["name"];
     $username = $row["username"];

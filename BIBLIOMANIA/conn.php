@@ -16,7 +16,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (mysqli_connect_errno()) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
 function loginUser($username, $password) {
     global $mysqli;
 
