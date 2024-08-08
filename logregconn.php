@@ -44,4 +44,13 @@ function insertUser($username, $password, $age, $email, $name) {
     $stmt->close();
 }
 
+function insertModerator($username, $password, $age, $email, $name) {
+    global $mysqli;
+
+
+    $stmt = $mysqli->prepare("INSERT INTO Moderator (username, password, age, email, name) VALUES (?, ?, ?)");
+    $stmt->bind_param('sss', $username, $password, $age, $email, $name);
+    $stmt->execute();
+    $stmt->close();
+}
 ?>
