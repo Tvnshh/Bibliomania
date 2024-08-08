@@ -1,5 +1,5 @@
 <?php 
-require_once('conn.php'); 
+require_once('logregconn.php'); 
 
 $username = '';  
 $password = '';  
@@ -13,10 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (loginUser($username, $password)) {
   session_start(); 
   $_SESSION['username'] = $username; 
-
-  $role = getrole($username); 
-  $_SESSION['role'] = $role; 
-
 
 } else {
   $login_error = 'Invalid username or password.';
