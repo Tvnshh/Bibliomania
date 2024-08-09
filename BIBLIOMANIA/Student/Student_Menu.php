@@ -12,6 +12,7 @@ if(!isset($_SESSION['studentID'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Student Dashboard</title>
     <style>
         body {
@@ -91,9 +92,9 @@ if(!isset($_SESSION['studentID'])){
         </div>
         
         <div class="top-right-container">
-        <button class="logout-button" onclick="location.href='../index.php'">LOGOUT</button></span>
+        <button class="logout-button" onclick="location.href='../index.php'">LOGOUT</button>
             <div class="user-icon">
-            <span onclick="location.href='User_Profile.php'">&#xf2bd;</span>
+                <span onclick="location.href='User_Profile.php'"><i style="font-size:40px" class="fa">&#xf2bd;</i></span>
             </div>
         </div>
         

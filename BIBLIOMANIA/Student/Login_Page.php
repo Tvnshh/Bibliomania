@@ -171,7 +171,7 @@
         <div class="form-container">
             <form action="" method="post">
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="jdoe@example.com" required>
+                <input type="email" id="email" name="email" required>
                 <br/><br/>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
@@ -180,7 +180,7 @@
         </div>
 
         <div class="register">
-            <p>Don't have an account? <a href="">Register</a></p>
+            <p>Don't have an account? <a href="../Registration_Page.php">Register</a></p>
         </div>
         <?php } ?>
     </div>
