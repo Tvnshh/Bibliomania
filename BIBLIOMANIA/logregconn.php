@@ -1,23 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-$servername = "localhost";
-$username = "root";  // Replace with your MySQL username
-$password = "";  // Replace with your MySQL password
-$dbname = "bibliomania";    // Replace with your database name
-
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if (mysqli_connect_errno()) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-function loginUser($name, $password) {
+include("conn.php");
+/*function loginUser($name, $password) {
     global $mysqli;
 
     $stmt = $mysqli->prepare("SELECT * FROM users WHERE name = ?");
@@ -32,22 +15,22 @@ function loginUser($name, $password) {
     } else {
         return false; 
     }
-}
+}*/
 function insertUser($name, $password, $age, $email) {
-    global $mysqli;
+    include("conn.php");
 
-    if ($mysqli) {
-        $stmt = $mysqli->prepare("INSERT INTO student (name, password, age, email) VALUES (?, ?, ?, ?)");
-        if ($stmt) {
-            $stmt->bind_param('ssis', $name, $password, $age, $email); // Note the 's' for string and 'i' for integer
-            $stmt->execute();
-            $stmt->close();
-        } else {
-            die('Prepare failed: ' . $mysqli->error);
-        }
-    } else {
-        die('Database connection failed.');
-    }
+    $result = mysqli_query($conn,"SELECT MAX(CAST(SUBSTRING(student_id, 2) AS UNSIGNED)) AS max_num FROM student");
+
+    $row = $result->fetch_assoc();
+    $maxNum = $row['max_num'] ?? 0; // Default to 0 if no rows are returned
+
+    // Generate the new username
+    $newNum = str_pad($maxNum + 1, 3, '0', STR_PAD_LEFT); // Format as 3-digit number
+    $username = 'S' . $newNum;
+
+    // Prepare and execute the insert statement
+    mysqli_query($conn,"INSERT INTO student (student_id, name, password, age, email) VALUES ('$username','$name','$password','$age', '$email')");
+    echo 'User inserted successfully';
 }
 
 function insertModerator($username, $password, $age, $email, $name) {
