@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    include("config.php");
+    if(!isset($_SESSION['studentID'])){
+        header("Location: Bibliomania/BIBLIOMANIA/Student/Login_Page.php")
+        }
 
 $servername = "localhost";
 $username = "root"; 
@@ -13,7 +18,8 @@ if ($conn->connect_error) {
 }
 
 
-$student_id = 'S001';
+$student_id = $_SESSION['student_id'];
+$query = mysqli_query($conn)
 
 
 $sql = "SELECT name, student_id , email FROM student WHERE student_id = '$student_id'";
