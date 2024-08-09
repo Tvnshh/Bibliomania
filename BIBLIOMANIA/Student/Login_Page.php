@@ -155,7 +155,7 @@
                     $_SESSION['age'] = $row['age'];
 
                     if ($_SESSION['password'] === $password) {
-                        header("Location: Student_Menu.html");
+                        header("Location: Student_Menu.php");
                     }
                 }else{
                     echo "<div>
