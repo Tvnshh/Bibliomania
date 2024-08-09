@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles.css">
-    <title>Question Library</title>
+    <title>Edit Question</title>
     <style>
         body {
             margin: 0;
@@ -82,41 +82,6 @@
             cursor: pointer;
             width: 200px;
         }
-        #edit-container {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .edit-box {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            position: relative;
-        }
-        .question-number {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .text-area {
-            width: 300px;
-            height: 100px;
-            margin-bottom: 10px;
-        }
-        .save-button {
-            padding: 5px 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -131,63 +96,41 @@
         include "../conn.php";
 
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            die("Connection failed: " . $conn.connect_error);
         }
 
-        // Update question if form is submitted
+        $question_id = isset($_GET['question_ID']) ? $_GET['question_ID'] : null;
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $question_id = $_POST["question_id"];
             $question_text = $_POST["question_text"];
             $update_sql = "UPDATE Questions SET question='$question_text' WHERE question_ID='$question_id'";
             if ($conn->query($update_sql) === TRUE) {
-                echo "Record updated successfully";
+                echo "<p>Record updated successfully</p>";
             } else {
-                echo "Error updating record: " . $conn->error;
+                echo "<p>Error updating record: " . $conn->error . "</p>";
             }
         }
 
-        // Fetch questions from database
-        $sql = "SELECT question_ID, question FROM Questions";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo '<div class="question-item">
-                        <div class="question-text" id="question-' . $row["question_ID"] . '">' . $row["question"] . '</div>
-                        <button class="edit-button" onclick="Edit_Question(' . $row["question_ID"] . ')">Edit</button>
-                      </div>';
+        if ($question_id) {
+            $sql = "SELECT question_ID, question FROM Questions WHERE question_ID = $question_id";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                echo '<form method="post" action="Edit_Questions.php">
+                        <input type="hidden" name="question_id" value="' . $row["question_ID"] . '">
+                        <textarea name="question_text" class="text-area">' . htmlspecialchars($row["question"]) . '</textarea>
+                        <button type="submit" class="save-button">Save</button>
+                      </form>';
+            } else {
+                echo "<p>No question found.</p>";
             }
         } else {
-            echo "No questions found.";
+            echo "<p>No question selected.</p>";
         }
 
         $conn->close();
         ?>
     </div>
-
-    <div id="edit-container">
-        <button class="back-button" onclick="Close_Edit()">Back</button>
-        <div class="edit-box">
-            <div id="question-number" class="question-number"></div>
-            <form method="post" action="Edit_Questions.php">
-                <input type="hidden" id="question_id" name="question_id" value="">
-                <textarea id="question_text" name="question_text" class="text-area"></textarea>
-                <button type="submit" class="save-button">Save</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function Edit_Question(questionId) {
-            document.getElementById('edit-container').style.display = 'flex';
-            document.getElementById('question-number').textContent = 'Question ' + questionId;
-            document.getElementById('question_id').value = questionId;
-            document.getElementById('question_text').value = document.getElementById('question-' + questionId).textContent;
-        }
-
-        function Close_Edit() {
-            document.getElementById('edit-container').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
