@@ -53,4 +53,3 @@ function insertModerator($username, $password, $age, $email, $name) {
     $stmt->execute();
     $stmt->close();
 }
-?>
