@@ -38,7 +38,7 @@ function insertUser($username, $password, $age, $email, $name) {
 
     $hashed_password = password_hash($password, PASSWORD_BCRYPT); 
 
-    $stmt = $mysqli->prepare("INSERT INTO Student (username, password, age, email, name) VALUES (?, ?, ?)");
+    $stmt = $mysqli->prepare("INSERT INTO student (username, password, age, email, name) VALUES (?, ?, ?)");
     $stmt->bind_param('sss', $username, $hashed_password, $age, $email, $name);
     $stmt->execute();
     $stmt->close();
@@ -48,9 +48,8 @@ function insertModerator($username, $password, $age, $email, $name) {
     global $mysqli;
 
 
-    $stmt = $mysqli->prepare("INSERT INTO Moderator (username, password, age, email, name) VALUES (?, ?, ?)");
+    $stmt = $mysqli->prepare("INSERT INTO moderator (username, password, age, email, name) VALUES (?, ?, ?)");
     $stmt->bind_param('sss', $username, $password, $age, $email, $name);
     $stmt->execute();
     $stmt->close();
 }
-?>

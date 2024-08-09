@@ -13,8 +13,8 @@ if ($conn->connect_error) {
 }
 
 // SQL queries for both tables
-$sql_moderator = "SELECT name, email, username FROM Moderator";
-$sql_student = "SELECT name, email, username FROM Student";
+$sql_moderator = "SELECT name, email, username FROM moderator";
+$sql_student = "SELECT name, email, username FROM student";
 
 // Execute queries
 $result_moderator = $conn->query($sql_moderator);
