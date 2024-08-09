@@ -33,13 +33,11 @@ function loginUser($username, $password) {
         return false; 
     }
 }
-function insertUser($username, $password, $age, $email, $name) {
+function insertUser($name, $password, $age, $email) {
     global $mysqli;
 
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT); 
-
-    $stmt = $mysqli->prepare("INSERT INTO student (username, password, age, email, name) VALUES (?, ?, ?)");
-    $stmt->bind_param('sss', $username, $hashed_password, $age, $email, $name);
+    $stmt = $mysqli->prepare("INSERT INTO student (name, password, age, email) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param('sss', $name, $password, $age, $email);
     $stmt->execute();
     $stmt->close();
 }
@@ -53,4 +51,3 @@ function insertModerator($username, $password, $age, $email, $name) {
     $stmt->execute();
     $stmt->close();
 }
-?>

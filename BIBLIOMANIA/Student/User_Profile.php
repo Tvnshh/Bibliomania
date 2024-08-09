@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    include("config.php");
+    if(!isset($_SESSION['studentID'])){
+        header("Location: Bibliomania/BIBLIOMANIA/Student/Login_Page.php")
+        }
 
 $servername = "localhost";
 $username = "root"; 
@@ -13,17 +18,18 @@ if ($conn->connect_error) {
 }
 
 
-$student_id = 'S001';
+$student_id = $_SESSION['student_id'];
+$query = mysqli_query($conn)
 
 
-$sql = "SELECT name, username, email FROM student WHERE student_id = '$student_id'";
+$sql = "SELECT name, student_id , email FROM student WHERE student_id = '$student_id'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 
     $row = $result->fetch_assoc();
     $name = $row["name"];
-    $username = $row["username"];
+    $student_id = $row["student_id"];
     $email = $row["email"];
 } else {
     echo "0 results";
@@ -37,6 +43,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <div class="container">
@@ -44,7 +51,7 @@ $conn->close();
             <button class="button" onclick="window.location.href='Student_Menu.html'">BACK</button>
             <h2>MY PROFILE</h2>
             <div>Name: <?php echo $name; ?></div>
-            <div>Username: <?php echo $username; ?></div>
+            <div>Student_ID: <?php echo $student_id; ?></div>
             <div>Email: <?php echo $email; ?></div>
             <button class="button" onclick="window.location.href='Edit_Profile.html'">EDIT</button>
         </div>
