@@ -92,7 +92,7 @@ if(!isset($_SESSION['studentID'])){
         </div>
         
         <div class="top-right-container">
-        <button class="logout-button" onclick="location.href='../index.php'">LOGOUT</button>
+        <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>
             <div class="user-icon">
                 <span onclick="location.href='User_Profile.php'"><i style="font-size:40px" class="fa">&#xf2bd;</i></span>
             </div>
