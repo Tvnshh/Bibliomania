@@ -17,11 +17,11 @@ if (mysqli_connect_errno()) {
     die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
-function loginUser($username, $password) {
+function loginUser($name, $password) {
     global $mysqli;
 
-    $stmt = $mysqli->prepare("SELECT * FROM users WHERE username = ?");
-    $stmt->bind_param('s', $username);
+    $stmt = $mysqli->prepare("SELECT * FROM users WHERE name = ?");
+    $stmt->bind_param('s', $name);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
@@ -33,15 +33,21 @@ function loginUser($username, $password) {
         return false; 
     }
 }
-function insertUser($username, $password, $age, $email, $name) {
+function insertUser($name, $password, $age, $email) {
     global $mysqli;
 
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT); 
-
-    $stmt = $mysqli->prepare("INSERT INTO student (username, password, age, email, name) VALUES (?, ?, ?)");
-    $stmt->bind_param('sss', $username, $hashed_password, $age, $email, $name);
-    $stmt->execute();
-    $stmt->close();
+    if ($mysqli) {
+        $stmt = $mysqli->prepare("INSERT INTO student (name, password, age, email) VALUES (?, ?, ?, ?)");
+        if ($stmt) {
+            $stmt->bind_param('ssis', $name, $password, $age, $email); // Note the 's' for string and 'i' for integer
+            $stmt->execute();
+            $stmt->close();
+        } else {
+            die('Prepare failed: ' . $mysqli->error);
+        }
+    } else {
+        die('Database connection failed.');
+    }
 }
 
 function insertModerator($username, $password, $age, $email, $name) {
