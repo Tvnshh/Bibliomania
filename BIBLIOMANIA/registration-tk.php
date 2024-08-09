@@ -1,24 +1,20 @@
-<?php
-    session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Brainiac Quiz</title>
-    <link rel="website icon" type="png" href="http://localhost/GRP_Assignment/Webpage_items/quiz_icon.png">
-    <link rel="stylesheet" href="../styles.css">
+    <title>Sign Up - Brainiac Quiz</title>
+    <link rel="website icon" type="png" href="./Webpage_items/quiz_icon.png">
+    <link rel="stylesheet" href="styles.css">
     <style>
     body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: rgb(221, 83, 49);
     }
     .image {
         margin-right: 150px;
@@ -54,20 +50,22 @@
     }
     label {
         display: block;
-        margin-top: 1.5vw;
+        margin-top: 0.5vw;
         color: rgb(221, 83, 49);
         font-size: 1.3vw;
         text-align: left;
     }
+    input[type="text"],
     input[type="email"],
-    input[type="password"] {
+    input[type="password"],
+    input[type="number"] {
         width: 100%;
         font-size: 1.1vw;
         padding: 0.65vw;
         box-shadow: 5px 5px 10px rgba(221, 83, 49, 0.5);
         border: 1px solid #ccc;
         border-radius: 0.5vw;
-        margin-top: 0.3vw;
+        margin-top: 0.1vw;
     }
     input[type="submit"] {
         background-color: rgb(221, 83, 49);
@@ -90,13 +88,13 @@
         border-color: rgb(221, 83, 49);
         font-size: 1.8vw;
     }
-    .register p {
-        margin-top: 3vw;
+    .login p {
+        margin-top:0vw;
+        margin-bottom: 0;
         font-size: 1vw;
         text-align: center;
-        color: rgb(221, 83, 49);
     }
-    .register a {
+    .login a {
         color: #93c7ff;
         text-decoration: none;
     }
@@ -128,59 +126,76 @@
     }
     </style>
 </head>
+
 <body>
+
     <div class="image">
-        <img src="../images/bibliomania-logo-2.png" alt="logo.png">
+        <img src="/BIBLIOMANIA/images/bibliomania-logo-2.png" alt="logo.png">
     </div>
 
     <div class="container">
+
         <div class="header">
-            <h1>Log In</h1>
+            <h1>Register</h1>
         </div>
 
         <?php
-            include("../conn.php");
-            if(isset($_POST['submit'])){
-                $email = mysqli_real_escape_string($conn,$_POST['email']);
-                $password = mysqli_real_escape_string($conn,$_POST['password']);
+            include("config.php");
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $age = $_POST['age'];
 
-                $userinfo = mysqli_query($conn,"SELECT * FROM student WHERE email='$email' AND password='$password'");
-                $row = mysqli_fetch_assoc($userinfo);
-
-                if(is_array($row) && !empty($row)){
-                    $_SESSION['email'] = $row['email'];
-                    $_SESSION['name'] = $row['name'];
-                    $_SESSION['password'] = $row['password'];
-                    $_SESSION['studentID'] = $row['student_id'];
-                    $_SESSION['age'] = $row['age'];
-
-                    if ($_SESSION['password'] === $password) {
-                        header("Location: Student_Menu.php");
-                    }
-                }else{
-                    echo "<div>
-                                <p>Wrong Email or Password. Please try again</p>
+                $verify_query = mysqli_query($con, "SELECT email FROM student WHERE email='$email'");
+                if(mysqli_num_rows($verify_query) !=0 ){
+                    echo "<div class='message'>
+                                <p>This email is already in use, Try different email</p>
                             </div> <br/>";
-                    echo "<a href='Login_page.php'><button>Back</button>";
+                    echo "<a href='javascript:self.history.back()'><button>BACK</button>";
+                }
+                else{
+                    $result = mysqli_query($conn,"SELECT MAX(CAST(SUBSTRING(student_id, 2) AS UNSIGNED)) AS max_num FROM student");
+                    
+                    $row = $result->fetch_assoc();
+                    $maxNum = $row['max_num'] ?? 0; // Default to 0 if no rows are returned
+                    
+                    // Generate the new username
+                    $newNum = str_pad($maxNum + 1, 3, '0', STR_PAD_LEFT); // Format as 3-digit number
+                    $username = 'S' . $newNum;
+
+                    mysqli_query($conn,"INSERT INTO student(student_id,name,password,age,email) VALUES('$username','$name','$password','$age','$email')");
+
+                    echo "<div class='message'>
+                                <p>Succesfully created account</p>
+                            </div> <br/>";
+                    echo "<a href='Login_page.php'><button>LOGIN NOW</button>";
                 }
             }else{
 
-                
         ?>
 
         <div class="form-container">
             <form action="" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name"  name="name" required>
+                <br/><br/>
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="jdoe@example.com" required>
+                <input type="email" id="email" name="email" required>
                 <br/><br/>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-                <input type="submit" name="submit" value="Log In">
+                <br/><br/>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+                <input type="submit" name="submit" value="Register">
             </form>
         </div>
 
-        <div class="register">
-            <p>Don't have an account? <a href="">Register</a></p>
+        <br/>
+
+        <div class="login">
+            <p>Have an account? <a href="">Login</a></p>
         </div>
         <?php } ?>
     </div>

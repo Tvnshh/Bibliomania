@@ -10,17 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     insertUser($name, $password, $age, $email);
 
 
-    header('Location: Choose_Account.html');
+    header('Location: Login_Page.php');
 }
 ?>
 
 <!DOCTYPE html>
+<link rel="stylesheet" href="styles.css">
 <html>
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Sign Up</title> 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form action="Registration_Page.php" method="post">
