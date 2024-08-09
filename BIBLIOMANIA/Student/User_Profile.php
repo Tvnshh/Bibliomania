@@ -1,28 +1,17 @@
 <?php
     session_start();
-    include("config.php");
+    include("../conn.php");
     if(!isset($_SESSION['studentID'])){
-        header("Location: Bibliomania/BIBLIOMANIA/Student/Login_Page.php")
-        }
-
-$servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "bibliomania"; 
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+        header("Location: Bibliomania/BIBLIOMANIA/Student/Login_Page.php");
+    }
 
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$student_id = $_SESSION['studentID'];
+$email = $_SESSION['email'];
+$name = $_SESSION['name'];
 
 
-$student_id = $_SESSION['student_id'];
-$query = mysqli_query($conn)
-
-
-$sql = "SELECT name, student_id , email FROM student WHERE student_id = '$student_id'";
+/*$sql = "SELECT name, student_id , email FROM student WHERE student_id = '$student_id'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -33,8 +22,7 @@ if ($result->num_rows > 0) {
     $email = $row["email"];
 } else {
     echo "0 results";
-}
-$conn->close();
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -48,12 +36,12 @@ $conn->close();
 <body>
     <div class="container">
         <div class="profile">
-            <button class="button" onclick="window.location.href='Student_Menu.html'">BACK</button>
+            <button class="button" onclick="window.location.href='Student_Menu.php'">BACK</button>
             <h2>MY PROFILE</h2>
             <div>Name: <?php echo $name; ?></div>
             <div>Student_ID: <?php echo $student_id; ?></div>
             <div>Email: <?php echo $email; ?></div>
-            <button class="button" onclick="window.location.href='Edit_Profile.html'">EDIT</button>
+            <button class="button" onclick="window.location.href='Edit_Profile.php'">EDIT</button>
         </div>
     </div>
 </body>
