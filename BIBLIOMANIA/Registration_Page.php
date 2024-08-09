@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Brainiac Quiz</title>
+    <title>Sign Up - Bibliomania</title>
     <link rel="website icon" type="png" href="./Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="styles.css">
     <style>
