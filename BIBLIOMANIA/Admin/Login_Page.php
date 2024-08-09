@@ -144,7 +144,7 @@
                 $email = mysqli_real_escape_string($conn,$_POST['userName']);
                 $password = mysqli_real_escape_string($conn,$_POST['password']);
 
-                $userinfo = mysqli_query($conn,"SELECT * FROM admin WHERE username='$email' AND password='$password'");
+                $userinfo = mysqli_query($conn,"SELECT * FROM admin WHERE admin_id='$email' AND password='$password'");
                 $row = mysqli_fetch_assoc($userinfo);
 
                 if(is_array($row) && !empty($row)){
