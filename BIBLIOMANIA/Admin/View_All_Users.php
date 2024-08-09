@@ -13,8 +13,8 @@ if ($conn->connect_error) {
 }
 
 // SQL queries for both tables
-$sql_moderator = "SELECT moderator_id, name, email FROM moderator";
-$sql_student = "SELECT student_id, name, email FROM student";
+$sql_moderator = "SELECT moderator_id, name, email, date_of_birth FROM moderator";
+$sql_student = "SELECT student_id, name, email, date_of_birth FROM student";
 
 // Execute queries
 $result_moderator = $conn->query($sql_moderator);
@@ -28,6 +28,7 @@ $result_student = $conn->query($sql_student);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users from Moderator and Student Tables</title>
     <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             color: rgb(221, 83, 49);
@@ -52,6 +53,20 @@ $result_student = $conn->query($sql_student);
         }
         th {
             background-color: rgb(27,27,27);
+        }
+        .action {
+            border-radius: 2vw;
+            border: none;
+            background-color: transparent;
+        }
+        .action a button {
+            font-family: 'CustomFont';
+            cursor: pointer;
+            background-color: rgb(50, 50, 50);
+            border: solid;
+            border-radius: 2vw;
+            color: red;
+            font-size: 1.5vw;
         }
         .backbtn button {
             font-family: 'CustomFont';
@@ -85,12 +100,13 @@ $result_student = $conn->query($sql_student);
     <table align = center>
         <thead>
             <tr>
-                <th colspan = "3">Moderators</th>
+                <th colspan = "4">Moderators</th>
             </tr>
             <tr>
-                <th>Moderator ID</th>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Email Address</th>
+                <th>Date of Birth</th>
             </tr>
         </thead>
         <tbody>
@@ -101,6 +117,8 @@ $result_student = $conn->query($sql_student);
                     echo "<td>" . htmlspecialchars($row["moderator_id"]) . "</td>";
                     echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
                     echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+                    echo "<td>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
+                    echo "<td class='action'><a href=''><button>Delete</button></td>";
                     echo "</tr>";
                 }
             } else {
@@ -114,12 +132,13 @@ $result_student = $conn->query($sql_student);
     <table align = center>
         <thead>
             <tr>
-                <th colspan = "3">Students</th>
+                <th colspan = "4">Students</th>
             </tr>
             <tr>
-                <th>Student ID</th>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Email Adress</th>
+                <th>Date of Birth</th>
             </tr>
         </thead>
         <tbody>
@@ -131,10 +150,12 @@ $result_student = $conn->query($sql_student);
                     echo "<td>" . htmlspecialchars($row["student_id"]) . "</td>";
                     echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
                     echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
+                    echo "<td>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
+                    echo "<td class='action'><a href=''><button>Delete</button></td>";
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='3'>No results found</td></tr>";
+                echo "<tr><td colspan='4'>No results found</td></tr>";
             }
             ?>
         </tbody>
