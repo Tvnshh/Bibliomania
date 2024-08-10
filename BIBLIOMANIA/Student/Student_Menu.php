@@ -99,7 +99,7 @@ if(!isset($_SESSION['studentID'])){
         </div>
         
         <div class="icon-container">
-            <span onclick="location.href='Slides_Library.html'">&#128278;</span>
+            <span onclick="location.href='Slides_Library.php'">&#128278;</span>
             <span onclick="location.href='Leaderboard.html'" style="margin-left: 20px;">&#128101;</span>
         </div>
     </div>

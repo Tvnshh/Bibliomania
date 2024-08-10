@@ -172,7 +172,7 @@
             <form action="#" method="post">
 
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="jdoe@example.com" required>
+                <input type="email" id="email" name="email" required>
                 <br/><br/>
 
                 <label for="password">Password:</label>

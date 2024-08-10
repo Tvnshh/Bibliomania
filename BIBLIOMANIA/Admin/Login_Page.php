@@ -153,7 +153,7 @@
                     $_SESSION['adminID'] = $row['admin_id'];
 
                     if ($_SESSION['password'] === $password) {
-                        header("Location: Admin_Menu.html");
+                        header("Location: Admin_Menu.php");
                     }
                 }else{
                     echo "<div>
