@@ -46,6 +46,7 @@ if(!isset($_SESSION['studentID'])){
             background-color: #f05340;
             color: #000;
         }
+
         .top-right-container {
             position: absolute;
             top: 20px;
@@ -53,27 +54,36 @@ if(!isset($_SESSION['studentID'])){
             display: flex;
             align-items: center;
         }
+
         .logout-button {
             background-color: #f05340;
             border: none;
-            padding: 10px 20px;
+            padding: 3px 6px; 
             color: #fff;
             cursor: pointer;
-            border-radius: 5px;
-            margin-left: 10px;
+            border-radius: 3px;
+            font-size: 12px; 
+            width: 80px; 
+            height: 25px; 
+            line-height: 25px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
         .user-icon {
             cursor: pointer;
             font-size: 24px;
         }
-
         .icon-container {
             position: absolute;
             bottom: 20px;
-            left: 20px;
+            left: 50%;
+            transform: translateX(-50%);  
             color: #f05340;
             font-size: 24px;
+            display: flex;
+            gap: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -91,15 +101,15 @@ if(!isset($_SESSION['studentID'])){
         </div>
         
         <div class="top-right-container">
-        <button class="logout-button" onclick="location.href='../index.php'">LOGOUT</button></span>
-            <div class="user-icon">
-            <span onclick="location.href='User_Profile.php'">&#xf2bd;</span>
-            </div>
+            <button class="logout-button" onclick="location.href='../index.php'">LOGOUT</button>
+                <div class="user-icon">
+                <span onclick="location.href='User_Profile.php'">&#xf406;</span>
+                </div>
         </div>
         
         <div class="icon-container">
             <span onclick="location.href='Slides_Library.html'">&#128278;</span>
-            <span onclick="location.href='Leaderboard.html'" style="margin-left: 20px;">&#128101;</span>
+            <span onclick="location.href='Leaderboard.html'">&#128101;</span>
         </div>
     </div>
 </body>
