@@ -102,14 +102,14 @@ if(!isset($_SESSION['studentID'])){
         </div>
         
         <div class="top-right-container">
-        <button class="logout-button" onclick="location.href='../index.php'">LOGOUT</button></span>
+        <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>
             <div class="user-icon">
-            <span onclick="location.href='User_Profile.php'">&#xf2bd;</span>
+                <span onclick="location.href='User_Profile.php'"><i style="font-size:40px" class="fa">&#xf2bd;</i></span>
             </div>
         </div>
         
         <div class="icon-container">
-            <span onclick="location.href='Slides_Library.html'">&#128278;</span>
+            <span onclick="location.href='Slides_Library.php'">&#128278;</span>
             <span onclick="location.href='Leaderboard.html'" style="margin-left: 20px;">&#128101;</span>
         </div>
     </div>
