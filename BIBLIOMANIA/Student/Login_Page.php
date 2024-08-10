@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Brainiac Quiz</title>
+    <title>Log In</title>
     <link rel="website icon" type="png" href="http://localhost/GRP_Assignment/Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="../styles.css">
     <style>
@@ -152,7 +152,7 @@
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['password'] = $row['password'];
                     $_SESSION['studentID'] = $row['student_id'];
-                    $_SESSION['age'] = $row['age'];
+                    $_SESSION['dob'] = $row['date_of_birth'];
 
                     if ($_SESSION['password'] === $password) {
                         header("Location: Student_Menu.php");
@@ -169,18 +169,21 @@
         ?>
 
         <div class="form-container">
-            <form action="#" method="post">
+            <form action="" method="post">
+                
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="jdoe@example.com" required>
+                <input type="email" id="email" name="email" required>
                 <br/><br/>
+
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
+
                 <input type="submit" name="submit" value="Log In">
             </form>
         </div>
 
         <div class="register">
-            <p>Don't have an account? <a href="">Register</a></p>
+            <p>Don't have an account? <a href="../Registration_Page.php">Register</a></p>
         </div>
         <?php } ?>
     </div>
