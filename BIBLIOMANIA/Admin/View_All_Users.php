@@ -164,10 +164,10 @@ $result_student = $conn->query($sql_student);
         if ($result_moderator->num_rows > 0) {
             while ($row = $result_moderator->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td width='85vw'>" . htmlspecialchars($row["moderator_id"]) . "</td>";
-                echo "<td width='300vw'>" . htmlspecialchars($row["name"]) . "</td>";
-                echo "<td width='400vw'>" . htmlspecialchars($row["email"]) . "</td>";
-                echo "<td width='200vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
+                echo "<td width='80vw'>" . htmlspecialchars($row["moderator_id"]) . "</td>";
+                echo "<td width='370vw'>" . htmlspecialchars($row["name"]) . "</td>";
+                echo "<td width='370vw'>" . htmlspecialchars($row["email"]) . "</td>";
+                echo "<td width='160vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
                 echo "<td class='action'><a href='Delete.php?id=$row[moderator_id]'><button>Delete</button></td>";
                 echo "</tr>";
             }
@@ -193,10 +193,10 @@ $result_student = $conn->query($sql_student);
             // Output data of each row
             while ($row = $result_student->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td width='85vw'>" . htmlspecialchars($row["student_id"]) . "</td>";
-                echo "<td width='300vw'>" . htmlspecialchars($row["name"]) . "</td>";
-                echo "<td width='400vw'>" . htmlspecialchars($row["email"]) . "</td>";
-                echo "<td width='200vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
+                echo "<td width='80vw'>" . htmlspecialchars($row["student_id"]) . "</td>";
+                echo "<td width='370vw'>" . htmlspecialchars($row["name"]) . "</td>";
+                echo "<td width='370vw'>" . htmlspecialchars($row["email"]) . "</td>";
+                echo "<td width='160vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
                 echo "<td class='action'><a href='Delete.php?id=$row[student_id]'><button>Delete</button></td>";
                 echo "</tr>";
             }
