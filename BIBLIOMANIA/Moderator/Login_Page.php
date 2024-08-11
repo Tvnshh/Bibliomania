@@ -155,7 +155,7 @@
                     $_SESSION['dob'] = $row['date_of_birth'];
 
                     if ($_SESSION['password'] === $password) {
-                        header("Location: Mod_Menu.html");
+                        header("Location: Mod_Menu.php");
                     }
                 }else{
                     echo "<div>

@@ -49,8 +49,8 @@ if(!isset($_SESSION['studentID'])){
         }
         .top-right-container {
             position: absolute;
-            top: 95px;
-            right: 230px;
+            top: 6.2vw;
+            right: 15.4vw;
             display: flex;
             align-items: center;
         }
@@ -64,7 +64,7 @@ if(!isset($_SESSION['studentID'])){
             border-radius: 1vw;
             font-size: 1.3vw; 
             position: absolute;
-            left: 80px; 
+            left: 5.4vw; 
             width: 7vw;
             height: 3.5vw;
             transition: font-size 0.2s ease;
@@ -75,7 +75,7 @@ if(!isset($_SESSION['studentID'])){
         }
         .user-icon {
             cursor: pointer;
-            font-size: 24px;
+            font-size: 1.5vw;
         }
         .user-icon:hover {
             color: whitesmoke;
@@ -107,7 +107,7 @@ if(!isset($_SESSION['studentID'])){
         
         <div class="top-right-container">
             <div class="user-icon">
-                <span onclick="location.href='User_Profile.php'"><i style="font-size:55px" class="fa">&#xf2bd;</i></span>
+                <span onclick="location.href='User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
             </div>
             <button onclick="location.href='../Logout_Page.php'">LOGOUT</button>
         </div>
