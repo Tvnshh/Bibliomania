@@ -88,17 +88,16 @@ body {
     <title>My Profile</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
     <div class="container">
         <div class="profile-field">
         <h2>MY PROFILE</h2>
-            <button class="back-btn" onclick="window.location.href='Student_Menu.php'">BACK</button>
 
             <div>Name: <?php echo $name; ?></div>
             <div>Student_ID: <?php echo $student_id; ?></div>
             <div>Email: <?php echo $email; ?></div>
-
-            <button class="edit-btn" onclick="window.location.href='Edit_Profile.php'">EDIT</button>
+            
         </div>
     </div>
 </body>

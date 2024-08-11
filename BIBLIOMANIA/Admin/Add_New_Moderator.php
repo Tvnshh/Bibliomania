@@ -168,7 +168,7 @@ if(!isset($_SESSION['adminID'])){
                     echo "<div class='message'>
                                 <p>Succesfully registered new Moderator</p>
                             </div> <br/>";
-                    echo "<a href='Admin_Menu.html'><button>Back to Menu</button>";
+                    echo "<a href='Admin_Menu.php'><button>Back to Menu</button>";
                 }
             }else{
 

@@ -47,33 +47,38 @@ if(!isset($_SESSION['studentID'])){
             background-color: #f05340;
             color: #000;
         }
-
         .top-right-container {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 95px;
+            right: 230px;
             display: flex;
             align-items: center;
         }
-
-        .logout-button {
-            background-color: #f05340;
-            border: none;
-            padding: 3px 6px; 
-            color: #fff;
+        .top-right-container button {
+            font-family: 'CustomFont';
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border: solid;
+            border-color: rgb(221, 83, 49);
             cursor: pointer;
-            border-radius: 3px;
-            font-size: 12px; 
-            width: 80px; 
-            height: 25px; 
-            line-height: 25px; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            border-radius: 1vw;
+            font-size: 1.3vw; 
+            position: absolute;
+            left: 80px; 
+            width: 7vw;
+            height: 3.5vw;
+            transition: font-size 0.2s ease;
+        }
+        .top-right-container button:hover {
+            font-size: 1.5vw;
+            -webkit-text-stroke: 0vw;
         }
         .user-icon {
             cursor: pointer;
             font-size: 24px;
+        }
+        .user-icon:hover {
+            color: whitesmoke;
         }
         .icon-container {
             position: absolute;
@@ -81,10 +86,9 @@ if(!isset($_SESSION['studentID'])){
             left: 50%;
             transform: translateX(-50%);  
             color: #f05340;
-            font-size: 24px;
+            font-size: 50px;
             display: flex;
             gap: 20px;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -102,15 +106,15 @@ if(!isset($_SESSION['studentID'])){
         </div>
         
         <div class="top-right-container">
-        <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>
             <div class="user-icon">
-                <span onclick="location.href='User_Profile.php'"><i style="font-size:40px" class="fa">&#xf2bd;</i></span>
+                <span onclick="location.href='User_Profile.php'"><i style="font-size:55px" class="fa">&#xf2bd;</i></span>
             </div>
+            <button onclick="location.href='../Logout_Page.php'">LOGOUT</button>
         </div>
         
         <div class="icon-container">
-            <span onclick="location.href='Slides_Library.php'">&#128278;</span>
-            <span onclick="location.href='Leaderboard.html'" style="margin-left: 20px;">&#128101;</span>
+            <span style="cursor:pointer" onclick="location.href='Slides_Library.php'">&#128278;</span>
+            <span style="cursor:pointer" onclick="location.href='Leaderboard.html'" style="margin-left: 20px;">&#128101;</span>
         </div>
     </div>
 </body>
