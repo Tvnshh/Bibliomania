@@ -13,8 +13,8 @@ if ($conn->connect_error) {
 }
 
 // SQL queries for both tables
-$sql_moderator = "SELECT moderator_id, name, email FROM moderator";
-$sql_student = "SELECT student_id, name, email FROM student";
+$sql_moderator = "SELECT moderator_id, name, email, date_of_birth FROM moderator";
+$sql_student = "SELECT student_id, name, email, date_of_birth FROM student";
 
 // Execute queries
 $result_moderator = $conn->query($sql_moderator);
@@ -26,19 +26,36 @@ $result_student = $conn->query($sql_student);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users from Moderator and Student Tables</title>
+    <title>Users</title>
     <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             color: rgb(221, 83, 49);
         }
         h1 {
+            position: relative;
+            top: 70px;
+            display: block;
+            align-items: center;
+            background-color: rgb(221, 83, 49);
+            color: black;
+            border-radius: 0.5vw;
+            width: 23vw;
+            margin: auto;
             text-align: center;
             font-size: 3vw;
-            margin-bottom: 4vw;
+            margin-bottom: 10vw;
         }
-        table {
-            width: 80%;
+        .mod-table {
+            width: 75%;
+            border-collapse: collapse;
+            margin-bottom: 5vw;
+            font-size: 1.5vw;
+        }
+        .stu-table {
+            width: 75%;
             border-collapse: collapse;
             margin-bottom: 5vw;
             font-size: 1.5vw;
@@ -52,6 +69,58 @@ $result_student = $conn->query($sql_student);
         }
         th {
             background-color: rgb(27,27,27);
+        }
+        .action {
+            border: none;
+            background-color: transparent;
+        }
+        .action a button {
+            font-family: 'CustomFont';
+            cursor: pointer;
+            color: black;
+            background-color: rgb(221, 83, 49);
+            border: solid;
+            border-radius: 1vw;
+            border-color: black;
+            font-size: 1.5vw;
+        }
+        .action a button:hover {
+            color: rgb(221, 83, 49);
+            background-color: rgb(27, 27, 27);
+            border-color: rgb(221, 83, 49);
+
+        }
+        .top-right-container {
+            position: absolute;
+            top: 95px;
+            right: 230px;
+            display: flex;
+            align-items: center;
+        }
+        .logout-button {
+            font-family: 'CustomFont';
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border: solid;
+            border-color: rgb(221, 83, 49);
+            cursor: pointer;
+            border-radius: 1vw;
+            font-size: 1.3vw; 
+            position: absolute;
+            left: 80px; 
+            width: 7vw;
+            height: 3.5vw;
+            transition: font-size 0.2s ease;
+        }
+        .logout-button:hover {
+            font-size: 1.5vw;
+        }
+        .user-icon {
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .user-icon:hover {
+            color: whitesmoke;
         }
         .backbtn button {
             font-family: 'CustomFont';
@@ -79,69 +148,74 @@ $result_student = $conn->query($sql_student);
     </style>
 </head>
 <body>
-    <h1>View All Users</h1>
+    <h1>USERS</h1>
 
-    <!-- Moderator Table -->
-    <table align = center>
-        <thead>
-            <tr>
-                <th colspan = "3">Moderators</th>
-            </tr>
-            <tr>
-                <th>Moderator ID</th>
-                <th>Name</th>
-                <th>Email Address</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if ($result_moderator->num_rows > 0) {
-                while ($row = $result_moderator->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . htmlspecialchars($row["moderator_id"]) . "</td>";
-                    echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
-                    echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='3'>No results found</td></tr>";
+    <table class="mod-table" align="center">
+        <tr>
+            <th colspan = "4">Moderators</th>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email Address</th>
+            <th>Date of Birth</th>
+        </tr>
+        <?php
+        if ($result_moderator->num_rows > 0) {
+            while ($row = $result_moderator->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td width='85vw'>" . htmlspecialchars($row["moderator_id"]) . "</td>";
+                echo "<td width='300vw'>" . htmlspecialchars($row["name"]) . "</td>";
+                echo "<td width='400vw'>" . htmlspecialchars($row["email"]) . "</td>";
+                echo "<td width='200vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
+                echo "<td class='action'><a href='Delete.php?id=$row[moderator_id]'><button>Delete</button></td>";
+                echo "</tr>";
             }
-            ?>
-        </tbody>
+        } else {
+            echo "<tr><td colspan='3'>No results found</td></tr>";
+        }
+        ?>
     </table>
 
-    <!-- Student Table -->
-    <table align = center>
-        <thead>
-            <tr>
-                <th colspan = "3">Students</th>
-            </tr>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Email Adress</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if ($result_student->num_rows > 0) {
-                // Output data of each row
-                while ($row = $result_student->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . htmlspecialchars($row["student_id"]) . "</td>";
-                    echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
-                    echo "<td>" . htmlspecialchars($row["email"]) . "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='3'>No results found</td></tr>";
+
+    <table class="stu-table" align = center>
+        <tr>
+            <th colspan = "4">Students</th>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email Adress</th>
+            <th>Date of Birth</th>
+        </tr>
+        <?php
+        if ($result_student->num_rows > 0) {
+            // Output data of each row
+            while ($row = $result_student->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td width='85vw'>" . htmlspecialchars($row["student_id"]) . "</td>";
+                echo "<td width='300vw'>" . htmlspecialchars($row["name"]) . "</td>";
+                echo "<td width='400vw'>" . htmlspecialchars($row["email"]) . "</td>";
+                echo "<td width='200vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
+                echo "<td class='action'><a href='Delete.php?id=$row[student_id]'><button>Delete</button></td>";
+                echo "</tr>";
             }
-            ?>
-        </tbody>
+        } else {
+            echo "<tr><td colspan='4'>No results found</td></tr>";
+        }
+        ?>
     </table>
+
+    <div class="top-right-container">
+        <div class="user-icon">
+            <span onclick="location.href='User_Profile.php'"><i style="font-size:55px" class="fa">&#xf2bd;</i></span>
+        </div>
+        <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>  
+    </div>
+
 
     <div class="backbtn">
-        <button onclick="history.back()">BACK</button>
+        <button onclick="location.href='Admin_Menu.php'">BACK</button>
     </div>
 
 </body>

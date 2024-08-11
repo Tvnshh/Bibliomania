@@ -11,11 +11,11 @@ if(!isset($_SESSION['adminID'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Brainiac Quiz</title>
+    <title>Register New Moderator</title>
     <link rel="website icon" type="png" href="./Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="../styles.css">
     <style>
-    body {
+        body {
         margin: 0;
         padding: 0;
         display: flex;
@@ -39,7 +39,7 @@ if(!isset($_SESSION['adminID'])){
         border-color: rgb(221, 83, 49);
         border-radius: 1.5vw;
         padding: 1.5vw;
-        padding-right: 2vw;
+        padding-right: 3vw;
         width: 29vw;
         text-align: center;
     }
@@ -48,13 +48,13 @@ if(!isset($_SESSION['adminID'])){
         text-align: left;
     }
     h1 {
-        font-size: 2.3vw;
+        font-size: 3vw;
         text-align: center;
         margin-bottom: 0;
         color: rgb(221, 83, 49);
     }
     .form-container {
-        margin-bottom: -1vw;
+        margin-bottom: 1vw;
     }
     label {
         display: block;
@@ -66,10 +66,10 @@ if(!isset($_SESSION['adminID'])){
     input[type="text"],
     input[type="email"],
     input[type="password"],
-    input[type="number"] {
+    input[type="date"] {
         width: 100%;
         font-size: 1.1vw;
-        height: 2.3vw;
+        padding: 0.65vw;
         box-shadow: 5px 5px 10px rgba(221, 83, 49, 0.5);
         border: 1px solid #ccc;
         border-radius: 0.5vw;
@@ -89,7 +89,6 @@ if(!isset($_SESSION['adminID'])){
         cursor: pointer;
         transition: font-size 0.2s ease;
         margin-top: 3vw;
-        margin-bottom: -1vw;
     }
     input[type="submit"]:hover {
         background-color: rgb(27,27,27);
@@ -143,16 +142,15 @@ if(!isset($_SESSION['adminID'])){
             $adminID = $_SESSION['adminID'];
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $username = $_POST['username'];
                 $name = $_POST['name'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                $age = $_POST['age'];
+                $dob = date('Y-m-d', strtotime($_POST['dob']));
 
-                $verify_query = mysqli_query($conn, "SELECT email AND username FROM moderator WHERE email='$email'");
+                $verify_query = mysqli_query($conn, "SELECT email FROM moderator WHERE email='$email'");
                 if(mysqli_num_rows($verify_query) !=0 ){
                     echo "<div class='message'>
-                                <p>This email or username is already in use, Try different</p>
+                                <p>This email is already in use, Try different</p>
                             </div> <br/>";
                     echo "<a href='javascript:self.history.back()'><button>BACK</button>";
                 }
@@ -165,26 +163,19 @@ if(!isset($_SESSION['adminID'])){
                     $newNum = str_pad($maxNum + 1, 3, '0', STR_PAD_LEFT);
                     $modID = 'M' . $newNum;
 
-                    mysqli_query($conn,"INSERT INTO moderator(moderator_id,name,username,password,age,email,admin_id) VALUES('$modID','$name','$username','$password','$age','$email','$adminID')");
+                    mysqli_query($conn,"INSERT INTO moderator(moderator_id,name,password,date_of_birth,email,admin_id) VALUES('$modID','$name','$password','$dob','$email','$adminID')");
 
                     echo "<div class='message'>
                                 <p>Succesfully registered new Moderator</p>
                             </div> <br/>";
-                    echo "<a href='Admin_Menu.html'><button>Back to Menu</button>";
+                    echo "<a href='Admin_Menu.php'><button>Back to Menu</button>";
                 }
             }else{
 
         ?>
 
-
-
-
         <div class="form-container">
             <form action="" method="post">
-
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <br/><br/>
 
                 <label for="name">Name:</label>
                 <input type="text" id="name"  name="name" required>
@@ -198,15 +189,15 @@ if(!isset($_SESSION['adminID'])){
                 <input type="password" id="password" name="password" required>
                 <br/><br/>
 
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
                 <input type="submit" name="submit" value="Register">
             </form>
         </div>
 
         <br/>
 
-        
         <?php } ?>
 
     </div>

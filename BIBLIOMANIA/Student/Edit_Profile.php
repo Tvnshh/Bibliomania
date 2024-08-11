@@ -1,29 +1,15 @@
 <?php
+    session_start();
+    include("../conn.php");
+    if(!isset($_SESSION['studentID'])){
+        header("Location: Bibliomania/BIBLIOMANIA/Student/Login_Page.php");
+    }
 
-$servername = "localhost";
-$username = "root"; 
-$password = "";
-$dbname = "bibliomania"; 
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-$student_id = 'S001';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $name = $_POST['name'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-
+    $student_id = $_SESSION['studentID'];
+    $email = $_SESSION['email'];
+    $name = $_SESSION['name'];
  
-    $sql = "UPDATE student SET name='$name', username='$username', email='$email' WHERE student_id='$student_id'";
+    $sql = "UPDATE student SET name='$name', email='$email' WHERE student_id='$student_id'";
 
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
@@ -32,18 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
 
-    header("Location: profile.php");
+    header("Location: User_Profile.php");
     exit();
-} else {
+    else {
 
-    $sql = "SELECT name, username, email FROM student WHERE student_id = '$student_id'";
+    $sql = "SELECT name, email FROM student WHERE student_id = '$student_id'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
 
         $row = $result->fetch_assoc();
         $name = $row["name"];
-        $username = $row["username"];
+        $studentID = $row["student_id"];
         $email = $row["email"];
     } else {
         echo "0 results";
@@ -58,6 +44,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
     <title>Edit Profile</title>
 </head>
 <body>

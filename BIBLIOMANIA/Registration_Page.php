@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Bibliomania</title>
+    <title>Register Account</title>
     <link rel="website icon" type="png" href="./Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -58,7 +58,7 @@
     input[type="text"],
     input[type="email"],
     input[type="password"],
-    input[type="number"] {
+    input[type="date"] {
         width: 100%;
         font-size: 1.1vw;
         padding: 0.65vw;
@@ -145,7 +145,7 @@
                 $name = $_POST['name'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                $age = $_POST['age'];
+                $dob = date('Y-m-d', strtotime($_POST['dob']));
 
                 $verify_query = mysqli_query($conn, "SELECT email FROM student WHERE email='$email'");
                 if(mysqli_num_rows($verify_query) !=0 ){
@@ -164,7 +164,7 @@
                     $newNum = str_pad($maxNum + 1, 3, '0', STR_PAD_LEFT); // Format as 3-digit number
                     $username = 'S' . $newNum;
 
-                    mysqli_query($conn,"INSERT INTO student(student_id,name,password,age,email) VALUES('$username','$name','$password','$age','$email')");
+                    mysqli_query($conn,"INSERT INTO student(student_id,name,password,date_of_birth,email) VALUES('$username','$name','$password','$dob','$email')");
 
                     echo "<div class='message'>
                                 <p>Succesfully created account</p>
@@ -177,17 +177,22 @@
 
         <div class="form-container">
             <form action="" method="post">
+
                 <label for="name">Name:</label>
                 <input type="text" id="name"  name="name" required>
                 <br/><br/>
+
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" required>
                 <br/><br/>
+
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <br/><br/>
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
                 <input type="submit" name="submit" value="Register">
             </form>
         </div>
