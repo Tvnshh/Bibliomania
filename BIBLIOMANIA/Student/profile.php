@@ -11,7 +11,7 @@ if(!isset($_SESSION['studentID'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Edit Profile</title>
     <link rel="website icon" type="png" href="http://localhost/GRP_Assignment/Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="../styles.css">
     <style>
@@ -89,6 +89,21 @@ if(!isset($_SESSION['studentID'])){
         background-color: rgb(174, 57, 28);
         color: black;
     }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+        font-family: 'CustomFont';
+        width: 100%;
+        font-size: 1.3vw;
+        padding: 0.65vw;
+        box-shadow: 5px 5px 10px rgba(221, 83, 49, 0.5);
+        border: 1px solid #ccc;
+        border-radius: 0.5vw;
+        margin-top: 0.3vw;
+        text-align: left;
+        background-color: whitesmoke;
+        color: black;
+    }
     .form-container button {
         background-color: rgb(221, 83, 49);
         text-align: center;
@@ -110,7 +125,7 @@ if(!isset($_SESSION['studentID'])){
         border-color: rgb(221, 83, 49);
         font-size: 2.3vw;
     }
-    .container button {
+    input[type="submit"] {
         background-color: rgb(221, 83, 49);
         text-align: center;
         font-size: 1.7vw;
@@ -123,41 +138,47 @@ if(!isset($_SESSION['studentID'])){
         border-radius: 0.5vw;
         cursor: pointer;
         transition: font-size 0.2s ease;
-        margin-top: 3vw;
-        margin: auto;
+        margin-top: 2.8vw;
     }
-    .container button:hover {
+    input[type="submit"]:hover {
         background-color: rgb(27,27,27);
         border: solid;
         border-color: rgb(221, 83, 49);
         font-size: 1.9vw;
+        color: rgb(221, 83, 49);
     }
     </style>
 </head>
 <body>
     <div class="backbtn">
-        <button onclick="location.href='Student_Menu.php'">BACK</button>
+        <button onclick="history.back()">BACK</button>
     </div>
 
     <div class="container">
         <div class="header">
-            <h1>My Profile</h1>
+            <h1>Edit Profile</h1>
         </div>
 
         <div class="form-container">
-            <label for="id">Student ID:</label>
-            <p><?php echo $_SESSION['studentID']?></p>
-            <label for="name">Name:</label>
-            <p><?php echo $_SESSION['name']?></p>
-            <label for="email">Email Address:</label>
-            <p><?php echo $_SESSION['email']?></p>
-            <label for="dob">Date of Birth:</label>
-            <p><?php echo $_SESSION['dob']?></p>
-            <label for="password">Password:</label>
-            <p><?php echo $_SESSION['password']?></p>
-            <br/><br/>
+            <form action="">
+                <label for="id">Student ID:</label>
+                <p><?php echo $_SESSION['studentID']?></p>
 
-            <button onclick="location.href='profile.php'">EDIT</button>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Name" value="<?php echo $_SESSION['name'] ?>" name="name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" placeholder="Email" value="<?php echo $_SESSION['email'] ?>" name="email" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" placeholder="yyyy-mm-dd" value="<?php echo $_SESSION['dob'] ?>" name="dob" required>
+
+                <label for="password">Password:</label>
+                <input type="email" id="email" placeholder="Email" value="<?php echo $_SESSION['password'] ?>" name="email" required>
+                <br/><br/>
+
+                <input type="submit" name="submit" value="SAVE">
+            </form>
         </div>
     </div>
 </body>

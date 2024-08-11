@@ -2,7 +2,7 @@
 session_start();
 include("../conn.php");
 if(!isset($_SESSION['studentID'])){
-    header("Location: Bibliomania/BIBLIOMANIA/Student/Login_Page.php");
+    header("location:Login_Page.php");
 }
 ?>
 
