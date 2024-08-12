@@ -59,8 +59,6 @@ if(!isset($_SESSION['modID'])){
         <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Slides.php'">Edit Slides</button>
         <button style="margin: 1vw; width: 50vw;" onclick="location.href='Question_Library.php'">Question Library</button>
         <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Questions.php'">Edit Question</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Mod_User_Profile.php'">User Profile</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Mod_Edit_Profile.php'">Edit Profile</button>
         </div>
     </center>
 
