@@ -100,7 +100,7 @@ if(!isset($_SESSION['adminID'])){
 
     <div class="container">
         <button onclick="location.href='View_All_Users.php'">VIEW USERS</button>
-        <button onclick="location.href='Add_New_Moderator.php'">MANAGE MODERATOR</button>
+        <button onclick="location.href='Add_New_Moderator.php'">REGISTER MODERATOR</button>
     </div>
 
     <div class="top-right-container">

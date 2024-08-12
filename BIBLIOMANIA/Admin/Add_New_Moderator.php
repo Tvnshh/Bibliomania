@@ -134,7 +134,7 @@ if(!isset($_SESSION['adminID'])){
     <div class="container">
 
         <div class="header">
-            <h1>Register a New Moderator</h1>
+            <h1>Register Moderator</h1>
         </div>
 
         <?php
