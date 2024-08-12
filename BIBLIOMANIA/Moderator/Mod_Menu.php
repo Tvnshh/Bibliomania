@@ -55,12 +55,12 @@ if(!isset($_SESSION['modID'])){
 <body>
     <center>
         <div class="container">
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Slides_Library.html'">Slides Library</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Slides.html'">Edit Slides</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Question_Library.html'">Question Library</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Questions.html'">Edit Question</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='User_Profile'">User Profile</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Profile.html'">Edit Profile</button>
+        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Slides_Library.php'">Slides Library</button>
+        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Slides.php'">Edit Slides</button>
+        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Question_Library.php'">Question Library</button>
+        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Questions.php'">Edit Question</button>
+        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Mod_User_Profile.php'">User Profile</button>
+        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Mod_Edit_Profile.php'">Edit Profile</button>
         </div>
     </center>
 
