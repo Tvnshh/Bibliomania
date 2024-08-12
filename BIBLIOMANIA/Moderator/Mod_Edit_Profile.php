@@ -20,6 +20,7 @@
 
     header("Location: Mod_User_Profile.php");
     exit();
+    
     else {
 
     $sql = "SELECT name, email FROM moderator WHERE moderator_id = '$modID'";
