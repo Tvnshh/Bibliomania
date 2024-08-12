@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Brainiac Quiz</title>
+    <title>Log In</title>
     <link rel="website icon" type="png" href="http://localhost/GRP_Assignment/Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="../styles.css">
     <style>
@@ -59,7 +59,7 @@
         font-size: 1.3vw;
         text-align: left;
     }
-    input[type="userName"],
+    input[type="text"],
     input[type="password"] {
         width: 100%;
         font-size: 1.1vw;
@@ -141,24 +141,23 @@
         <?php
             include("../conn.php");
             if(isset($_POST['submit'])){
-                $email = mysqli_real_escape_string($conn,$_POST['userName']);
+                $adminID = mysqli_real_escape_string($conn,$_POST['adminID']);
                 $password = mysqli_real_escape_string($conn,$_POST['password']);
 
-                $userinfo = mysqli_query($conn,"SELECT * FROM admin WHERE username='$email' AND password='$password'");
+                $userinfo = mysqli_query($conn,"SELECT * FROM admin WHERE admin_id='$adminID' AND password='$password'");
                 $row = mysqli_fetch_assoc($userinfo);
 
                 if(is_array($row) && !empty($row)){
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['password'] = $row['password'];
                     $_SESSION['adminID'] = $row['admin_id'];
-                    $_SESSION['userName'] = $row['username'];
 
                     if ($_SESSION['password'] === $password) {
-                        header("Location: Admin_Menu.html");
+                        header("Location: Admin_Menu.php");
                     }
                 }else{
                     echo "<div>
-                                <p>Wrong Username or Password. Please try again</p>
+                                <p>Wrong Admin ID or Password. Please try again</p>
                             </div> <br/>";
                     echo "<a href='Login_page.php'><button>Back</button>";
                 }
@@ -169,11 +168,14 @@
 
         <div class="form-container">
             <form action="#" method="post">
-                <label for="userName">Username:</label>
-                <input type="userName" id="userName" name="userName" required>
+
+                <label for="adminID">ID:</label>
+                <input type="text" id="adminID" name="adminID" required>
                 <br/><br/>
+
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
+                
                 <input type="submit" name="submit" value="Log In">
             </form>
         </div>

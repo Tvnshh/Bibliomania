@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../conn.php");
-if(!isset($_SESSION['studentID'])){
+if(!isset($_SESSION['modID'])){
     header("location:Login_Page.php");
 }
 ?>
@@ -162,9 +162,9 @@ if(!isset($_SESSION['studentID'])){
                 $dob = date('Y-m-d', strtotime($_POST['dob']));
                 $password = $_POST['password'];
 
-                $id = $_SESSION['studentID'];
+                $id = $_SESSION['modID'];
 
-                $edit_profile = mysqli_query($conn,"UPDATE student SET name='$name', password='$password', date_of_birth='$dob', email='$email' WHERE student_id='$id'");
+                $edit_profile = mysqli_query($conn,"UPDATE moderator SET name='$name', password='$password', date_of_birth='$dob', email='$email' WHERE moderator_id='$id'");
 
                 if($edit_profile){
                     $_SESSION['email'] = $email;
@@ -173,11 +173,11 @@ if(!isset($_SESSION['studentID'])){
                     $_SESSION['studentID'] = $id;
                     $_SESSION['dob'] = $dob;
 
-                    header("Location: User_Profile.php");
+                    header("Location: Mod_User_Profile.php");
                 }
             }else{
-                $id = $_SESSION['studentID'];
-                $query = mysqli_query($conn,"SELECT * FROM student WHERE student_id='$id'");
+                $id = $_SESSION['modID'];
+                $query = mysqli_query($conn,"SELECT * FROM moderator WHERE moderator_id='$id'");
 
                 while($userinfo = mysqli_fetch_assoc($query)){
                     $user_name = $userinfo['name'];
@@ -194,8 +194,8 @@ if(!isset($_SESSION['studentID'])){
 
         <div class="form-container">
             <form action="#" method="post">
-                <label for="id">Student ID:</label>
-                <p><?php echo $_SESSION['studentID']?></p>
+                <label for="id">Moderator ID:</label>
+                <p><?php echo $_SESSION['modID']?></p>
 
                 <label for="name">Name:</label>
                 <input type="text" id="name" placeholder="Name" value="<?php echo $user_name ?>" name="name" required>

@@ -1,35 +1,20 @@
-<?php
-require_once('logregconn.php');
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $age = $_POST['age'];
-    $email = $_POST['email'];
-
-    insertUser($name, $password, $age, $email);
-
-
-    header('Location: Choose_Account.html');
-}
-?>
-
 <!DOCTYPE html>
-<html>
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Sign Up</title> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account</title>
+    <link rel="website icon" type="png" href="./Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="styles.css">
-</head>
-<style>
+    <style>
     body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: rgb(221, 83, 49);
     }
     .image {
         margin-right: 150px;
@@ -65,23 +50,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     label {
         display: block;
-        margin-top: 1.5vw;
+        margin-top: 0.5vw;
         color: rgb(221, 83, 49);
         font-size: 1.3vw;
         text-align: left;
     }
-    input[type="name"],
-    input[type="password"],
+    input[type="text"],
     input[type="email"],
-    input[type="age"],
-     {
+    input[type="password"],
+    input[type="date"] {
         width: 100%;
         font-size: 1.1vw;
         padding: 0.65vw;
         box-shadow: 5px 5px 10px rgba(221, 83, 49, 0.5);
         border: 1px solid #ccc;
         border-radius: 0.5vw;
-        margin-top: 0.3vw;
+        margin-top: 0.1vw;
     }
     input[type="submit"] {
         background-color: rgb(221, 83, 49);
@@ -104,13 +88,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border-color: rgb(221, 83, 49);
         font-size: 1.8vw;
     }
-    .register p {
-        margin-top: 3vw;
+    .login p {
+        margin-top:0vw;
+        margin-bottom: 0;
         font-size: 1vw;
         text-align: center;
-        color: rgb(221, 83, 49);
     }
-    .register a {
+    .login a {
         color: #93c7ff;
         text-decoration: none;
     }
@@ -123,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         text-align: center;
         font-size: 1.5vw;
         font-family: 'CustomFont';
-        width: 11vw;
+        width: 13vw;
         height: 3.5vw;
         color: whitesmoke;
         border: solid;
@@ -141,23 +125,83 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         font-size: 1.8vw;
     }
     </style>
+</head>
 <body>
-    <form action="Registration_Page.php" method="post">
-        <h1>Sign Up</h1>
-        <label for="name">Name:</label>
-            <input type="text" name="name" id="name" required><br>
 
-        <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required><br>
+    <div class="image">
+        <img src="images/bibliomania-logo-2.png" alt="logo.png">
+    </div>
 
-        <label for="email">E-Mail:</label>
-            <input type="text" name="email" id="email" required><br>
+    <div class="container">
 
-        <label for="age">Age:</label>
-            <input type="number" name="age" id="age" required><br>
+        <div class="header">
+            <h1>Register</h1>
+        </div>
 
-        <div class="form-group">
-        <button type="submit">Sign Up</button>
-    </form>
+        <?php
+            include("conn.php");
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $dob = date('Y-m-d', strtotime($_POST['dob']));
+
+                $verify_query = mysqli_query($conn, "SELECT email FROM student WHERE email='$email'");
+                if(mysqli_num_rows($verify_query) !=0 ){
+                    echo "<div class='message'>
+                                <p>This email is already in use, Try different email</p>
+                            </div> <br/>";
+                    echo "<a href='javascript:self.history.back()'><button>BACK</button>";
+                }
+                else{
+                    $result = mysqli_query($conn,"SELECT MAX(CAST(SUBSTRING(student_id, 2) AS UNSIGNED)) AS max_num FROM student");
+                    
+                    $row = $result->fetch_assoc();
+                    $maxNum = $row['max_num'] ?? 0; // Default to 0 if no rows are returned
+                    
+                    // Generate the new username
+                    $newNum = str_pad($maxNum + 1, 3, '0', STR_PAD_LEFT); // Format as 3-digit number
+                    $username = 'S' . $newNum;
+
+                    mysqli_query($conn,"INSERT INTO student(student_id,name,password,date_of_birth,email) VALUES('$username','$name','$password','$dob','$email')");
+
+                    echo "<div class='message'>
+                                <p>Succesfully created account</p>
+                            </div> <br/>";
+                    echo "<a href='Student/Login_page.php'><button>LOGIN NOW</button>";
+                }
+            }else{
+
+        ?>
+
+        <div class="form-container">
+            <form action="" method="post">
+
+                <label for="name">Name:</label>
+                <input type="text" id="name"  name="name" required>
+                <br/><br/>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+                <br/><br/>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br/><br/>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <input type="submit" name="submit" value="Register">
+            </form>
+        </div>
+
+        <br/>
+
+        <div class="login">
+            <p>Have an account? <a href="Student/Login_Page.php">Login</a></p>
+        </div>
+        <?php } ?>
+    </div>
 </body>
 </html>
