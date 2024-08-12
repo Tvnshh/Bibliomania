@@ -17,31 +17,40 @@
         }
         .container {
             text-align: center;
-            max-width: 700px;
+            max-width: 50vw;
+            width: 25vw;
             background: rgb(27, 27, 27);
             border: solid;
             border-color: rgb(221, 83, 49);
             padding: 20px;
-            border-radius: 15px;
-            position: relative;  
-            padding-top: 70px;  
+            border-radius: 1vw;
+            position: relative; 
         }
         .back-button {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 10vw;
+            left: 7vw;
             font-family: 'CustomFont';
             background-color: rgb(221, 83, 49);
+            align-items: center;
+            left: ;
+            width: 15vw;
+            height: 4.5vw;  
+            justify-content: center;
+            font-size: 2.5vw;
             color: rgb(0, 0, 0);
-            border: solid 2px rgb(0, 0, 0);
-            border-radius: 10px;
-            padding: 10px 20px;
+            border-radius: 1vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
             cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            margin: auto;
         }
         .back-button:hover {
+            font-size: 2.8vw;
             background-color: rgb(27, 27, 27);
             color: rgb(221, 83, 49);
+            -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
             border-color: rgb(221, 83, 49);
         }
         .slides-list {
@@ -52,21 +61,23 @@
             background-color: rgb(27, 27, 27);
             color: rgb(221, 83, 49);
             border: solid 2px rgb(221, 83, 49);
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 10px;
+            padding: 1vw;
+            margin: 1vw;
+            border-radius: 0.5vw;
             cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            font-size: 1.3vw;
+            transition: font-size 0.2s ease;    
         }
         .slide-item:hover {
+            font-size: 1.5vw;
+            color: black;
             background-color: rgb(221, 83, 49);
-            color: rgb(0, 0, 0);
         }
     </style>
 </head>
 <body>
+    <button class="back-button" onclick="history.back()">BACK</button>
     <div class="container">
-        <button class="back-button" onclick="history.back()">BACK</button>
         <ul class="slides-list">
             <?php
             // Include database connection file
@@ -85,7 +96,9 @@
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo '<li class="slide-item"><a href="Slides.php?slides_ID=' . $row["slides_ID"] . '" style="color: rgb(221, 83, 49); text-decoration: none;">' . $row["topic_name"] . ' - ' . $row["content_1"] . '</a></li>';
+                    echo '<li class="slide-item">
+                    <a href="Slides.php?slides_ID=' . $row["slides_ID"] . '">' . $row["topic_name"] . ' - ' . $row["content_1"] . '</a>
+                    </li>';
                 }
             } else {
                 echo "No slides found.";

@@ -36,7 +36,7 @@ $result_student = $conn->query($sql_student);
         }
         h1 {
             position: relative;
-            top: 70px;
+            top: 4.6vw;
             display: block;
             align-items: center;
             background-color: rgb(221, 83, 49);
@@ -92,12 +92,12 @@ $result_student = $conn->query($sql_student);
         }
         .top-right-container {
             position: absolute;
-            top: 95px;
-            right: 230px;
+            top: 6.2vw;
+            right: 15.4vw;
             display: flex;
             align-items: center;
         }
-        .logout-button {
+        .top-right-container button {
             font-family: 'CustomFont';
             background-color: rgb(27, 27, 27);
             color: rgb(221, 83, 49);
@@ -107,17 +107,18 @@ $result_student = $conn->query($sql_student);
             border-radius: 1vw;
             font-size: 1.3vw; 
             position: absolute;
-            left: 80px; 
+            left: 5.4vw; 
             width: 7vw;
             height: 3.5vw;
             transition: font-size 0.2s ease;
         }
-        .logout-button:hover {
+        .top-right-container button:hover {
             font-size: 1.5vw;
+            -webkit-text-stroke: 0vw;
         }
         .user-icon {
             cursor: pointer;
-            font-size: 24px;
+            font-size: 1.5vw;
         }
         .user-icon:hover {
             color: whitesmoke;
@@ -164,10 +165,10 @@ $result_student = $conn->query($sql_student);
         if ($result_moderator->num_rows > 0) {
             while ($row = $result_moderator->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td width='85vw'>" . htmlspecialchars($row["moderator_id"]) . "</td>";
-                echo "<td width='300vw'>" . htmlspecialchars($row["name"]) . "</td>";
-                echo "<td width='400vw'>" . htmlspecialchars($row["email"]) . "</td>";
-                echo "<td width='200vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
+                echo "<td width='80vw'>" . htmlspecialchars($row["moderator_id"]) . "</td>";
+                echo "<td width='370vw'>" . htmlspecialchars($row["name"]) . "</td>";
+                echo "<td width='370vw'>" . htmlspecialchars($row["email"]) . "</td>";
+                echo "<td width='160vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
                 echo "<td class='action'><a href='Delete.php?id=$row[moderator_id]'><button>Delete</button></td>";
                 echo "</tr>";
             }
@@ -193,10 +194,10 @@ $result_student = $conn->query($sql_student);
             // Output data of each row
             while ($row = $result_student->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td width='85vw'>" . htmlspecialchars($row["student_id"]) . "</td>";
-                echo "<td width='300vw'>" . htmlspecialchars($row["name"]) . "</td>";
-                echo "<td width='400vw'>" . htmlspecialchars($row["email"]) . "</td>";
-                echo "<td width='200vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
+                echo "<td width='80vw'>" . htmlspecialchars($row["student_id"]) . "</td>";
+                echo "<td width='370vw'>" . htmlspecialchars($row["name"]) . "</td>";
+                echo "<td width='370vw'>" . htmlspecialchars($row["email"]) . "</td>";
+                echo "<td width='160vw'>" . htmlspecialchars($row["date_of_birth"]) . "</td>";
                 echo "<td class='action'><a href='Delete.php?id=$row[student_id]'><button>Delete</button></td>";
                 echo "</tr>";
             }
@@ -208,7 +209,7 @@ $result_student = $conn->query($sql_student);
 
     <div class="top-right-container">
         <div class="user-icon">
-            <span onclick="location.href='User_Profile.php'"><i style="font-size:55px" class="fa">&#xf2bd;</i></span>
+            <span onclick="location.href='User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
         </div>
         <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>  
     </div>

@@ -157,7 +157,7 @@
                     }
                 }else{
                     echo "<div>
-                                <p>Wrong Username or Password. Please try again</p>
+                                <p>Wrong Admin ID or Password. Please try again</p>
                             </div> <br/>";
                     echo "<a href='Login_page.php'><button>Back</button>";
                 }

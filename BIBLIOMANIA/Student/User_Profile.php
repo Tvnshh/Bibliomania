@@ -11,7 +11,7 @@ if(!isset($_SESSION['studentID'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Profile</title>
     <link rel="website icon" type="png" href="http://localhost/GRP_Assignment/Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="../styles.css">
     <style>
@@ -157,7 +157,7 @@ if(!isset($_SESSION['studentID'])){
             <p><?php echo $_SESSION['password']?></p>
             <br/><br/>
 
-            <button onclick="location.href='profile.php'">EDIT</button>
+            <button onclick="location.href='Edit_Profile.php'">EDIT</button>
         </div>
     </div>
 </body>

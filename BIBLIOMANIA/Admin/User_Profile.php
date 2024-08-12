@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../conn.php");
-if(!isset($_SESSION['studentID'])){
+if(!isset($_SESSION['adminID'])){
     header("location:Login_Page.php");
 }
 ?>
@@ -11,16 +11,13 @@ if(!isset($_SESSION['studentID'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
+    <title>Profile</title>
     <link rel="website icon" type="png" href="http://localhost/GRP_Assignment/Webpage_items/quiz_icon.png">
     <link rel="stylesheet" href="../styles.css">
     <style>
     body {
         margin: 0;
         padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         height: 100vh;
     }
     .backbtn{
@@ -54,18 +51,22 @@ if(!isset($_SESSION['studentID'])){
         padding-right: 3vw;
         width: 29vw;
         text-align: center;
-    }
-    .header {
-        margin-bottom: 1.5vw;
-        text-align: left;
+        margin: auto;
     }
     h1 {
-        font-size: 3vw;
-        text-align: center;
-        margin-bottom: 4vw;
-        color: black;
+        position: relative;
+        top: 5vw;
+        display: block;
+        align-items: center;
         background-color: rgb(221, 83, 49);
+        color: black;
         border-radius: 0.5vw;
+        width: 35vw;
+        height: 5vw;
+        margin: auto;
+        text-align: center;
+        font-size: 3.3vw;
+        margin-bottom: 10vw;
     }
     .form-container {
         margin-bottom: 1vw;
@@ -89,21 +90,6 @@ if(!isset($_SESSION['studentID'])){
         background-color: rgb(174, 57, 28);
         color: black;
     }
-    input[type="text"],
-    input[type="email"],
-    input[type="date"] {
-        font-family: 'CustomFont';
-        width: 100%;
-        font-size: 1.3vw;
-        padding: 0.65vw;
-        box-shadow: 5px 5px 10px rgba(221, 83, 49, 0.5);
-        border: 1px solid #ccc;
-        border-radius: 0.5vw;
-        margin-top: 0.3vw;
-        text-align: left;
-        background-color: whitesmoke;
-        color: black;
-    }
     .form-container button {
         background-color: rgb(221, 83, 49);
         text-align: center;
@@ -125,7 +111,7 @@ if(!isset($_SESSION['studentID'])){
         border-color: rgb(221, 83, 49);
         font-size: 2.3vw;
     }
-    input[type="submit"] {
+    .container button {
         background-color: rgb(221, 83, 49);
         text-align: center;
         font-size: 1.7vw;
@@ -138,14 +124,14 @@ if(!isset($_SESSION['studentID'])){
         border-radius: 0.5vw;
         cursor: pointer;
         transition: font-size 0.2s ease;
-        margin-top: 2.8vw;
+        margin-top: 3vw;
+        margin: auto;
     }
-    input[type="submit"]:hover {
+    .container button:hover {
         background-color: rgb(27,27,27);
         border: solid;
         border-color: rgb(221, 83, 49);
         font-size: 1.9vw;
-        color: rgb(221, 83, 49);
     }
     </style>
 </head>
@@ -154,31 +140,16 @@ if(!isset($_SESSION['studentID'])){
         <button onclick="history.back()">BACK</button>
     </div>
 
+    <h1>Admin Profile</h1>
+
     <div class="container">
-        <div class="header">
-            <h1>Edit Profile</h1>
-        </div>
-
         <div class="form-container">
-            <form action="">
-                <label for="id">Student ID:</label>
-                <p><?php echo $_SESSION['studentID']?></p>
-
-                <label for="name">Name:</label>
-                <input type="text" id="name" placeholder="Name" value="<?php echo $_SESSION['name'] ?>" name="name" required>
-
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" placeholder="Email" value="<?php echo $_SESSION['email'] ?>" name="email" required>
-
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" placeholder="yyyy-mm-dd" value="<?php echo $_SESSION['dob'] ?>" name="dob" required>
-
-                <label for="password">Password:</label>
-                <input type="email" id="email" placeholder="Email" value="<?php echo $_SESSION['password'] ?>" name="email" required>
-                <br/><br/>
-
-                <input type="submit" name="submit" value="SAVE">
-            </form>
+            <label for="id">Admin ID:</label>
+            <p><?php echo $_SESSION['adminID']?></p>
+            <label for="name">Name:</label>
+            <p><?php echo $_SESSION['name']?></p>
+            <label for="password">Password:</label>
+            <p><?php echo $_SESSION['password']?></p>
         </div>
     </div>
 </body>
