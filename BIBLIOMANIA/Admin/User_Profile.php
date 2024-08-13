@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../conn.php");
-if(!isset($_SESSION['studentID'])){
+if(!isset($_SESSION['adminID'])){
     header("location:Login_Page.php");
 }
 ?>
@@ -18,9 +18,6 @@ if(!isset($_SESSION['studentID'])){
     body {
         margin: 0;
         padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         height: 100vh;
     }
     .backbtn{
@@ -54,18 +51,22 @@ if(!isset($_SESSION['studentID'])){
         padding-right: 3vw;
         width: 29vw;
         text-align: center;
-    }
-    .header {
-        margin-bottom: 1.5vw;
-        text-align: left;
+        margin: auto;
     }
     h1 {
-        font-size: 3vw;
-        text-align: center;
-        margin-bottom: 4vw;
-        color: black;
+        position: relative;
+        top: 5vw;
+        display: block;
+        align-items: center;
         background-color: rgb(221, 83, 49);
+        color: black;
         border-radius: 0.5vw;
+        width: 35vw;
+        height: 5vw;
+        margin: auto;
+        text-align: center;
+        font-size: 3.3vw;
+        margin-bottom: 10vw;
     }
     .form-container {
         margin-bottom: 1vw;
@@ -136,28 +137,19 @@ if(!isset($_SESSION['studentID'])){
 </head>
 <body>
     <div class="backbtn">
-        <button onclick="location.href='Student_Menu.php'">BACK</button>
+        <button onclick="history.back()">BACK</button>
     </div>
 
-    <div class="container">
-        <div class="header">
-            <h1>My Profile</h1>
-        </div>
+    <h1>Admin Profile</h1>
 
+    <div class="container">
         <div class="form-container">
-            <label for="id">Student ID:</label>
-            <p><?php echo $_SESSION['studentID']?></p>
+            <label for="id">Admin ID:</label>
+            <p><?php echo $_SESSION['adminID']?></p>
             <label for="name">Name:</label>
             <p><?php echo $_SESSION['name']?></p>
-            <label for="email">Email Address:</label>
-            <p><?php echo $_SESSION['email']?></p>
-            <label for="dob">Date of Birth:</label>
-            <p><?php echo $_SESSION['dob']?></p>
             <label for="password">Password:</label>
             <p><?php echo $_SESSION['password']?></p>
-            <br/><br/>
-
-            <button onclick="location.href='Edit_Profile.php'">EDIT</button>
         </div>
     </div>
 </body>

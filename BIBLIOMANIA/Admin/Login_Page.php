@@ -153,11 +153,11 @@
                     $_SESSION['adminID'] = $row['admin_id'];
 
                     if ($_SESSION['password'] === $password) {
-                        header("Location: Admin_Menu.html");
+                        header("Location: Admin_Menu.php");
                     }
                 }else{
                     echo "<div>
-                                <p>Wrong Username or Password. Please try again</p>
+                                <p>Wrong Admin ID or Password. Please try again</p>
                             </div> <br/>";
                     echo "<a href='Login_page.php'><button>Back</button>";
                 }

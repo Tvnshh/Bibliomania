@@ -155,7 +155,7 @@
                     $_SESSION['dob'] = $row['date_of_birth'];
 
                     if ($_SESSION['password'] === $password) {
-                        header("Location: Mod_Menu.html");
+                        header("Location: Mod_Menu.php");
                     }
                 }else{
                     echo "<div>
@@ -172,7 +172,7 @@
             <form action="#" method="post">
 
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="jdoe@example.com" required>
+                <input type="email" id="email" name="email" required>
                 <br/><br/>
 
                 <label for="password">Password:</label>

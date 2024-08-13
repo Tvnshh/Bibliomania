@@ -18,11 +18,34 @@
             align-items: flex-end;
             height: 95vh;
         }
+        .container button {
+            font-family: 'CustomFont';
+            position: relative;
+            background-color: rgb(221, 83, 49);
+            display: flex;
+            align-items: center;
+            width: 32vw;
+            height: 8vw;  
+            display: flex;
+            justify-content: center;
+            font-size: 4vw;
+            color: rgb(27, 27, 27);
+            border-radius: 1vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            cursor: pointer;
+        }
+        .container button:hover{
+            font-size: 4.3vw;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
+        }
         .menu2 {
             display: flex;
-            gap: 100px; /* Adds space between buttons */
             margin: auto;
-            margin-bottom: 45px;
+            margin-bottom: 3vw;
         }
         .menu2 button {
             cursor: pointer;

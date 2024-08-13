@@ -92,7 +92,7 @@
     
     <div class="question-container">
         <?php
-        // Include database connection file
+
         include "../conn.php";
 
         if ($conn->connect_error) {
@@ -113,12 +113,12 @@
         }
 
         if ($question_id) {
-            $sql = "SELECT question_ID, question FROM Questions WHERE question_ID = $question_id";
+            $sql = "SELECT question_id, question FROM questions WHERE question_id = '$question_id'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 echo '<form method="post" action="Edit_Questions.php">
-                        <input type="hidden" name="question_id" value="' . $row["question_ID"] . '">
+                        <input type="hidden" name="question_id" value="' . $row["question_id"] . '">
                         <textarea name="question_text" class="text-area">' . htmlspecialchars($row["question"]) . '</textarea>
                         <button type="submit" class="save-button">Save</button>
                       </form>';

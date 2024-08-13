@@ -126,7 +126,6 @@
     }
     </style>
 </head>
-
 <body>
 
     <div class="image">
