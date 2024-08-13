@@ -73,7 +73,6 @@
                 'T001' => 'Topic 1',
                 'T002' => 'Topic 2',
                 'T003' => 'Topic 3',
-                'T004' => 'Final'
             ];
             foreach ($topics as $id => $name) {
                 echo "<a href='edit_slides.php?topic_id=$id' class='topic'>$name</a>";
