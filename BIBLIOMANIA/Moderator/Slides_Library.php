@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slides Library</title>
     <link rel="stylesheet" href="../styles.css">
-
     <style>
-        body {
-            margin: 0;
-        }
-
+        body { margin: 0; }
         .container {
             display: flex;
             flex-direction: column;
@@ -20,7 +16,6 @@
             padding: 20px;
             box-sizing: border-box;
         }
-
         .header {
             width: 100%;
             display: flex;
@@ -28,7 +23,6 @@
             align-items: center;
             margin-bottom: 20px;
         }
-
         .back-button, .logout-button {
             background-color: #ff4500;
             border: none;
@@ -40,18 +34,16 @@
             font-size: 16px;
             cursor: pointer;
         }
-
         .header-title {
             font-size: 24px;
             font-weight: bold;
+            text-align: center;
         }
-
         .content {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         .topic {
             background-color: #333;
             border: 1px solid #ff4500;
@@ -64,7 +56,6 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
         .topic:hover {
             background-color: #444;
         }
@@ -73,14 +64,21 @@
 <body>
     <div class="container">
         <div class="header">
-            <button class="back-button">Back</button>
+            <button class="back-button" onclick="window.history.back();">Back</button>
             <div class="header-title">Slides Library</div>
-            <button class="logout-button">Logout</button>
         </div>
         <div class="content">
-            <a href="Edit_Slides.html" class="topic">Topic 1</a>
-            <a href="Edit_Slides.html" class="topic">Topic 2</a>
-            <a href="Edit_Slides.html" class="topic">Topic 3</a>
+            <?php
+            $topics = [
+                'T001' => 'Topic 1',
+                'T002' => 'Topic 2',
+                'T003' => 'Topic 3',
+                'T004' => 'Final'
+            ];
+            foreach ($topics as $id => $name) {
+                echo "<a href='edit_slides.php?topic_id=$id' class='topic'>$name</a>";
+            }
+            ?>
         </div>
     </div>
 </body>

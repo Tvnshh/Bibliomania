@@ -94,15 +94,16 @@ if(!isset($_SESSION['studentID'])){
 </head>
 <body>
     <div class="container">
-        <div class="header">WELCOME, <?php echo $_SESSION['name']?></div>
+        <div class="header">Welcome, <?php echo $_SESSION['name']?></div>
 
         <div class="grid-container">
-            <div class="grid-item" onclick="location.href='slide1.php'">SLIDE 1</div>
-            <div class="grid-item" onclick="location.href='test1.php'">TEST 1</div>
-            <div class="grid-item" onclick="location.href='slide2.php'">SLIDE 2</div>
-            <div class="grid-item" onclick="location.href='test2.php'">TEST 2</div>
-            <div class="grid-item" onclick="location.href='slide3.php'">SLIDE 3</div>
-            <div class="grid-item" onclick="location.href='test3.php'">TEST 3</div>
+            <div class="grid-item" onclick="location.href='Game/Topic_1'">SLIDE 1</div>
+            <div class="grid-item" onclick="location.href='Quiz/Topic_1.php'">TEST 1</div>
+            <div class="grid-item" onclick="location.href='Game/Topic_2'">SLIDE 2</div>
+            <div class="grid-item" onclick="location.href='Quiz/Topic_2.php'">TEST 2</div>
+            <div class="grid-item" onclick="location.href='Game/Topic_3'">SLIDE 3</div>
+            <div class="grid-item" onclick="location.href='Quiz/Topic_3.php'">TEST 3</div>
+            <div class="grid-item" onclick="location.href='Quiz/Topic_4'">Final Test</div>
         </div>
         
         <div class="top-right-container">
