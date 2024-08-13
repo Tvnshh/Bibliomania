@@ -48,17 +48,13 @@
             if ($result->num_rows > 0) {
                 echo "<form method='POST'>";
                 while ($row = $result->fetch_assoc()) {
-                    echo "<div><strong>Slide ID:</strong> {$row['slides_id']}</div>";
-                    foreach (['1', '2', '3'] as $index) {
-                        echo "<div><label for='content_{$row["content_id_$index"]}'>Content $index:</label>";
-                        echo "<textarea name='contents[{$row["content_id_$index"]}]' id='content_{$row["content_id_$index"]}'>{$row["content_$index"]}</textarea></div>";
-                    }
-                    echo "<hr>";
+                echo "<div><strong>Slide ID:</strong> {$row['slides_id']}</div>";
+                echo "<div><strong>Content 1:</strong> {$row['content_1']}</div>";
+                echo "<div><strong>Content 2:</strong> {$row['content_2']}</div>";
+                echo "<div><strong>Content 3:</strong> {$row['content_3']}</div><hr>";
                 }
-                echo "<input type='submit' value='Save Changes'>";
-                echo "</form>";
             } else {
-                echo "No slides found for the specified topic.";
+            echo "No slides found for the specified topic.";
             }
             $stmt->close();
             ?>
