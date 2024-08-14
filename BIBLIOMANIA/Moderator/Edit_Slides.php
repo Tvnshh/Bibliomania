@@ -5,6 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Slides</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { margin: 0; }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            background-color: #ff4500;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slide {
+            background-color: #333;
+            border: 1px solid #ff4500;
+            padding: 20px;
+            margin: 10px 0;
+            width: 200px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .slide:hover {
+            background-color: #444;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -13,48 +68,24 @@
             <div class="header-title">Edit Slides</div>
         </div>
         <div class="content">
-            <h2>Editing Slides for the Selected Topic</h2>
             <?php
             include '../conn.php'; // Assuming your database connection file is conn.php
             $topic_id = $_GET['topic_id'] ?? 'T001'; // Default to T001 if no topic_id is provided
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Processing form submission for updates
-                $update_stmt = $conn->prepare("UPDATE content SET content=? WHERE content_id=?");
-            
-                foreach ($_POST['contents'] as $content_id => $new_content) {
-                    // Bind parameters for each loop iteration separately
-                    $update_stmt->bind_param("si", $new_content, $content_id);
-                    $update_stmt->execute();
-                }
-                echo "<p>Changes saved successfully!</p>";
-            }
-
-            $query = "SELECT s.slides_id,
-            c1.content as content_1, c1.content_id as content_id_1,
-            c2.content as content_2, c2.content_id as content_id_2,
-            c3.content as content_3, c3.content_id as content_id_3
-            FROM slides s
-            JOIN content c1 ON s.content_1 = c1.content_id
-            JOIN content c2 ON s.content_2 = c2.content_id
-            JOIN content c3 ON s.content_3 = c3.content_id
-            WHERE s.topic_id = ?";
-    
+            $query = "SELECT slides_id, content_1, content_2, content_3 FROM Slides WHERE topic_id = ?";
             $stmt = $conn->prepare($query);
             $stmt->bind_param("s", $topic_id);
             $stmt->execute();
             $result = $stmt->get_result();
 
+            $slideNumber = 1; // Counter to label slides as "Slide 1", "Slide 2", etc.
             if ($result->num_rows > 0) {
-                echo "<form method='POST'>";
                 while ($row = $result->fetch_assoc()) {
-                echo "<div><strong>Slide ID:</strong> {$row['slides_id']}</div>";
-                echo "<div><strong>Content 1:</strong> {$row['content_1']}</div>";
-                echo "<div><strong>Content 2:</strong> {$row['content_2']}</div>";
-                echo "<div><strong>Content 3:</strong> {$row['content_3']}</div><hr>";
+                    echo "<a href='Edit_Slide_Content.php?slide_id={$row['slides_id']}' class='slide'>Slide $slideNumber</a>";
+                    $slideNumber++; // Increment the slide counter
                 }
             } else {
-            echo "No slides found for the specified topic.";
+                echo "<p>No slides found for this topic.</p>";
             }
             $stmt->close();
             ?>
