@@ -75,7 +75,7 @@
                 'T003' => 'Topic 3',
             ];
             foreach ($topics as $id => $name) {
-                echo "<a href='Edit_Slides.php?topic_id=$id' class='topic'>$name</a>";
+                echo "<a href='Slide_Number.php?topic_id=$id' class='topic'>$name</a>";
             }
             ?>
         </div>
