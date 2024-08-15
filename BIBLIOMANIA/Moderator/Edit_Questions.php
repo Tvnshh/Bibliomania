@@ -2,131 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles.css">
-    <title>Edit Question</title>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Edit Questions</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            height: 900px;
-            display: flex;
-        }
-        .backbtn {
-            position: absolute;
-        }
-        .backbtn button {
+            background-color: #000;
+            color: #fff;
             font-family: 'CustomFont';
-            margin-top: 150px;
-            margin-left: 90px;
-            background-color: rgb(221, 83, 49);
-            align-items: center;
-            width: 15vw;
-            height: 4.5vw;  
+            display: flex;
             justify-content: center;
-            font-size: 30pt;
-            color: rgb(0, 0, 0);
-            border-radius: 1vw;
-            border-color: rgb(0, 0, 0);
-            transition: font-size 0.2s ease;
-            display: flex;
-            cursor: pointer;
-        }
-        .backbtn button:hover {
-            font-size: 35pt;
-            background-color: rgb(27, 27, 27);
-            color: rgb(221, 83, 49);
-            -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
-            border-color: rgb(221, 83, 49);
-        }
-        .question-container {
-            text-align: center;
-            margin: auto;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
             align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
             max-width: 700px;
             background: rgb(27, 27, 27);
             border: solid;
             border-color: rgb(221, 83, 49);
-            margin-top: 250px;
+            padding: 20px;
+            border-radius: 15px;
+            position: relative;  
+            padding-top: 70px;  
         }
-        .question-item {
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'CustomFont';
+            background-color: rgb(221, 83, 49);
+            color: rgb(0, 0, 0);
+            border: solid 2px rgb(0, 0, 0);
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .back-button:hover {
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
+        }
+        .subject-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+        }
+        .subject-item {
             margin: 10px 0;
         }
-        .question-text {
-            margin-right: 20px;
-            padding: 5px 10px;
+        .subject-button {
             font-family: 'CustomFont';
-            font-size: 30pt;
+            font-size: 20pt;
             background-color: rgb(27, 27, 27);
-            color:  rgb(221, 83, 49);
+            color: rgb(221, 83, 49);
             border: solid;
             border-color: rgb(221, 83, 49);
             border-radius: 15px;
+            padding: 10px 20px;
             cursor: pointer;
-            width: 400px;
+            width: 300px;
         }
-        .edit-button {
-            padding: 5px 10px;
-            font-family: 'CustomFont';
-            font-size: 30pt;
-            background-color: rgb(27, 27, 27);
-            color:  rgb(221, 83, 49);
-            border: solid;
-            border-color: rgb(221, 83, 49);
-            border-radius: 15px;
-            cursor: pointer;
-            width: 200px;
+        .subject-button:hover {
+            background-color: rgb(221, 83, 49);
+            color: rgb(27, 27, 27);
         }
     </style>
 </head>
 <body>
-
-    <div class="backbtn">
-        <button onclick="history.back()">BACK</button>
-    </div>
+    <button class="back-button" onclick="window.history.back()">Back</button>
     
-    <div class="question-container">
+    <div class="subject-container">
         <?php
-
+        // Include database connection file
         include "../conn.php";
 
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn.connect_error);
+            die("Connection failed: " . $conn->connect_error);
         }
 
-        $question_id = isset($_GET['question_ID']) ? $_GET['question_ID'] : null;
+        // Fetch topics from database
+        $sql = "SELECT topic_id, topic_name FROM topic";
+        $result = $conn->query($sql);
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $question_id = $_POST["question_id"];
-            $question_text = $_POST["question_text"];
-            $update_sql = "UPDATE Questions SET question='$question_text' WHERE question_ID='$question_id'";
-            if ($conn->query($update_sql) === TRUE) {
-                echo "<p>Record updated successfully</p>";
-            } else {
-                echo "<p>Error updating record: " . $conn->error . "</p>";
-            }
-        }
-
-        if ($question_id) {
-            $sql = "SELECT question_id, question FROM questions WHERE question_id = '$question_id'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                echo '<form method="post" action="Edit_Questions.php">
-                        <input type="hidden" name="question_id" value="' . $row["question_id"] . '">
-                        <textarea name="question_text" class="text-area">' . htmlspecialchars($row["question"]) . '</textarea>
-                        <button type="submit" class="save-button">Save</button>
-                      </form>';
-            } else {
-                echo "<p>No question found.</p>";
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '<div class="subject-item">
+                        <button class="subject-button" onclick="window.location.href=\'Editing.php?topic_id=' . $row["topic_id"] . '\'">' . htmlspecialchars($row["topic_name"]) . '</button>
+                      </div>';
             }
         } else {
-            echo "<p>No question selected.</p>";
+            echo "No subjects found.";
         }
 
         $conn->close();

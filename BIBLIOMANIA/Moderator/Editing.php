@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/styles.css">
-    <title>Question Library</title>
+    <title>Editing Questions</title>
     <style>
         body {
             background-color: #000;
@@ -44,36 +44,61 @@
             color: rgb(221, 83, 49);
             border-color: rgb(221, 83, 49);
         }
-        .subject-container {
+        .question-container {
+            text-align: center;
+            margin: auto;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 700px;
+            background: rgb(27, 27, 27);
+            border: solid;
+            border-color: rgb(221, 83, 49);
+            margin-top: 250px;
         }
-        .subject-item {
+        .question-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 10px 0;
         }
-        .subject-button {
+        .question-text {
+            margin-right: 20px;
+            padding: 5px 10px;
             font-family: 'CustomFont';
-            font-size: 20pt;
+            font-size: 30pt;
             background-color: rgb(27, 27, 27);
-            color: rgb(221, 83, 49);
+            color:  rgb(221, 83, 49);
             border: solid;
             border-color: rgb(221, 83, 49);
             border-radius: 15px;
-            padding: 10px 20px;
             cursor: pointer;
-            width: 300px;
+            width: 400px;
         }
-        .subject-button:hover {
-            background-color: rgb(221, 83, 49);
-            color: rgb(27, 27, 27);
+        .edit-button {
+            padding: 5px 10px;
+            font-family: 'CustomFont';
+            font-size: 30pt;
+            background-color: rgb(27, 27, 27);
+            color:  rgb(221, 83, 49);
+            border: solid;
+            border-color: rgb(221, 83, 49);
+            border-radius: 15px;
+            cursor: pointer;
+            width: 200px;
+        }    
+        .edit-button:hover {
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
         }
     </style>
 </head>
 <body>
     <button class="back-button" onclick="window.history.back()">Back</button>
     
-    <div class="subject-container">
+    <div class="question-container">
         <?php
         // Include database connection file
         include "../conn.php";
@@ -82,18 +107,22 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Fetch subjects from database
-        $sql = "SELECT topic_id, topic_name FROM topic";
+        // Get the selected topic_id from the URL
+        $topic_id = $_GET['topic_id'];
+
+        // Fetch questions from database based on the selected topic_id
+        $sql = "SELECT question_ID, question FROM Questions WHERE topic_id = '$topic_id' ORDER BY question_ID";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo '<div class="subject-item">
-                        <button class="subject-button" onclick="window.location.href=\'View_Question.php?topic_id=' . $row["topic_id"] . '\'">' . htmlspecialchars($row["topic_name"]) . '</button>
+                echo '<div class="question-item">
+                        <div class="question-text">' . htmlspecialchars($row["question"]) . '</div>
+                        <button class="edit-button" onclick="window.location.href=\'Edit_Specific_Question.php?question_ID=' . $row["question_ID"] . '\'">Edit</button>
                       </div>';
             }
         } else {
-            echo "No subjects found.";
+            echo "No questions found for this subject.";
         }
 
         $conn->close();
