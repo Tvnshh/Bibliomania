@@ -57,9 +57,6 @@
             justify-content: center;
             margin: auto;
         }
-        .content {
-
-        }
         .slide-content  {
             color: rgb(221, 83, 49);
             transition: background-color, font-size 0.2s;
@@ -148,7 +145,7 @@
     <h1>Slides Content</h1>
     
     <div class="backbtn">
-        <button onclick="window.history.back();">BACK</button>
+        <button onclick="location.href='Slides_Library.php'">BACK</button>
     </div>
 
     <div class="container">
@@ -190,9 +187,10 @@
             ?>
         </div>
     </div>
+
     <div class="top-right-container">
         <div class="user-icon">
-            <span onclick="location.href='User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
+            <span onclick="location.href='Mod_User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
         </div>
         <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>  
     </div>
