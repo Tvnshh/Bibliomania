@@ -8,11 +8,13 @@
     <!-- Add the rest of your CSS and head elements here -->
 </head>
 <body>
+    <h1>Slides Content</h1>
+    
+    <div class="backbtn">
+        <button onclick="window.history.back();">BACK</button>
+    </div>
+    
     <div class="container">
-        <div class="header">
-            <button class="back-button" onclick="window.history.back();">Back</button>
-            <div class="header-title">Edit Slide Content</div>
-        </div>
         <div class="content">
             <?php
             include '../conn.php';
@@ -47,7 +49,7 @@
                 $update_stmt2->execute();
                 $update_stmt3->execute();
 
-                echo "<p>Content updated successfully!</p>";
+                header("Location: View_Slide.php?slide_id=$slides_id");
             }
 
             $result_1 = $conn->query("SELECT content FROM content WHERE content_id='" . $conn->real_escape_string($content_1) . "'");
@@ -65,7 +67,7 @@
             echo "<textarea name='content1'>" . htmlspecialchars($current_content_1) . "</textarea>";
             echo "<textarea name='content2'>" . htmlspecialchars($current_content_2) . "</textarea>";
             echo "<textarea name='content3'>" . htmlspecialchars($current_content_3) . "</textarea>";
-            echo "<input type='submit' value='Update Content'>";
+            echo "<button type='submit'>SAVE CHANGES</button>";
             echo "</form>";
             ?>
         </div>

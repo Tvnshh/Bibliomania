@@ -35,10 +35,11 @@ if(!isset($_SESSION['adminID'])){
         .container {
             background: rgb(27,27,27);
             border-radius: 1.5vw;
-            padding-top: 5vw;
-            padding-bottom: 5vw;
-            width: 50vw;
+            padding-top: 2.5vw;
+            padding-bottom: 2.5vw;
+            width: 45vw;
             margin: auto;
+            margin-top: 15vw;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -48,7 +49,7 @@ if(!isset($_SESSION['adminID'])){
             background-color: transparent;
             color: rgb(221, 83, 49);
             border-color: rgb(221, 83, 49);
-            width: 40vw;
+            width: 35vw;
             font-size: 2.5vw;
             margin: auto;
         }
@@ -57,7 +58,7 @@ if(!isset($_SESSION['adminID'])){
             color: rgb(27, 27, 27);
             border-color: rgb(27, 27, 27);
             -webkit-text-stroke: 0.1vw rgb(27, 27, 27);
-            font-size: 3vw;
+            font-size: 2.8vw;
         }
         .top-right-container {
             position: absolute;
