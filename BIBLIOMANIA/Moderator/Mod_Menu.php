@@ -17,6 +17,19 @@ if(!isset($_SESSION['modID'])){
         body {
             color: rgb(221, 83, 49);
         }
+        h1 {
+            position: relative;
+            top: 5vw;
+            display: block;
+            align-items: center;
+            border-radius: 0.5vw;
+            width: 35vw;
+            height: 5vw;
+            margin: auto;
+            text-align: center;
+            font-size: 3.3vw;
+            margin-bottom: 10vw;
+        }
         .top-right-container {
             position: absolute;
             top: 6.2vw;
@@ -53,11 +66,12 @@ if(!isset($_SESSION['modID'])){
     </style>
 </head>
 <body>
+    <h1>Welcome, <?php echo $_SESSION['name']?></h1>
     <center>
         <div class="container">
         <button style="margin: 1vw; width: 50vw;" onclick="location.href='Slides_Library.php'">Slides Library</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Slides.php'">Edit Slides</button>
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Question_Library.php'">Question Library</button>
+        <!-- <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Slides.php'">Edit Slides</button> -->
+        <!-- <button style="margin: 1vw; width: 50vw;" onclick="location.href='Question_Library.php'">Question Library</button> -->
         <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Questions.php'">Edit Question</button>
         </div>
     </center>

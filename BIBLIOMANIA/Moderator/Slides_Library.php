@@ -65,6 +65,9 @@
             border-color: rgb(221, 83, 49);
         }
         .content {
+            background: rgb(27, 27, 27);
+            border: solid;
+            box-shadow: 10px 10px 40px rgba(221, 83, 49, 0.5);
             display: flex;
             flex-direction: row;
             gap: 3vw;
@@ -79,6 +82,7 @@
             text-align: center;
             text-decoration: none;
             color: rgb(221, 83, 49);
+            border-radius: 0.5vw;
             cursor: pointer;
             font-size:2.5vw;
             transition: background-color, font-size 0.2s;
