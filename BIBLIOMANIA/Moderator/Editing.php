@@ -1,45 +1,60 @@
+<?php
+session_start();
+include("../conn.php");
+if(!isset($_SESSION['modID'])){
+    header("location:Login_Page.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Editing Questions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'CustomFont';
-            display: flex;
-            justify-content: center;
+            color: rgb(221, 83, 49);
+        }
+        h1 {
+            position: relative;
+            top: 5vw;
+            display: block;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
+            background-color: rgb(221, 83, 49);
+            color: black;
+            border-radius: 0.5vw;
+            width: 35vw;
+            height: 5vw;
+            margin: auto;
             text-align: center;
-            max-width: 700px;
-            background: rgb(27, 27, 27);
-            border: solid;
-            border-color: rgb(221, 83, 49);
-            padding: 20px;
-            border-radius: 15px;
-            position: relative;  
-            padding-top: 70px;  
+            font-size: 3.3vw;
+            margin-bottom: 10vw;
         }
-        .back-button {
+        .backbtn{
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 10vw;
+            left: 7vw;
+        }
+        .backbtn button {
             font-family: 'CustomFont';
             background-color: rgb(221, 83, 49);
+            align-items: center;
+            width: 11vw;
+            height: 3.5vw;  
+            justify-content: center;
+            font-size: 2vw;
             color: rgb(0, 0, 0);
-            border: solid 2px rgb(0, 0, 0);
-            border-radius: 10px;
-            padding: 10px 20px;
+            border-radius: 0.5vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
             cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
         }
-        .back-button:hover {
+        .backbtn button:hover {
+            font-size: 2.3vw;
             background-color: rgb(27, 27, 27);
             color: rgb(221, 83, 49);
             border-color: rgb(221, 83, 49);
@@ -51,52 +66,123 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 700px;
+            max-width: 65vw;
             background: rgb(27, 27, 27);
             border: solid;
             border-color: rgb(221, 83, 49);
-            margin-top: 250px;
+            border-radius: 2vw;
         }
         .question-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 10px 0;
+            margin: 1.5vw;
         }
         .question-text {
-            margin-right: 20px;
-            padding: 5px 10px;
+            margin-right: 1.5vw;
+            padding: 0.5vw;
             font-family: 'CustomFont';
-            font-size: 30pt;
+            font-size: 1.5vw;
             background-color: rgb(27, 27, 27);
             color:  rgb(221, 83, 49);
             border: solid;
             border-color: rgb(221, 83, 49);
             border-radius: 15px;
-            cursor: pointer;
-            width: 400px;
+            width: 45vw;
+            cursor: default;
         }
-        .edit-button {
-            padding: 5px 10px;
+        .editbtn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .editbtn button {
             font-family: 'CustomFont';
-            font-size: 30pt;
-            background-color: rgb(27, 27, 27);
-            color:  rgb(221, 83, 49);
-            border: solid;
-            border-color: rgb(221, 83, 49);
-            border-radius: 15px;
+            background-color: rgb(221, 83, 49);
+            align-items: center;
+            width: 11vw;
+            height: 3.5vw;  
+            justify-content: center;
+            font-size: 2vw;
+            color: rgb(0, 0, 0);
+            border-radius: 0.5vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
             cursor: pointer;
-            width: 200px;
-        }    
-        .edit-button:hover {
+        }
+        .editbtn button:hover {
+            font-size: 2.3vw;
             background-color: rgb(27, 27, 27);
             color: rgb(221, 83, 49);
             border-color: rgb(221, 83, 49);
         }
+        .pagination {
+            text-align: center;
+            margin-top: 2vw;
+            margin-bottom: 1vw;
+            border: solid;
+            border-radius: 2vw;
+            padding: 0.2vw;
+        }
+
+        .pagination button {
+            background-color: transparent;
+            cursor: default;
+            margin: 0 3vw;
+            border: none;
+        }
+        .pagination button i {
+            font-size: 3vw;
+            color: rgb(221, 83, 49);
+            cursor: pointer;
+        }
+
+        .pagination button i:hover {
+            color: grey;
+        }
+        .top-right-container {
+            position: absolute;
+            top: 6.2vw;
+            right: 15.4vw;
+            display: flex;
+            align-items: center;
+        }
+        .top-right-container button {
+            font-family: 'CustomFont';
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border: solid;
+            border-color: rgb(221, 83, 49);
+            cursor: pointer;
+            border-radius: 1vw;
+            font-size: 1.3vw; 
+            position: absolute;
+            left: 5.4vw; 
+            width: 7vw;
+            height: 3.5vw;
+            transition: font-size 0.2s ease;
+        }
+        .top-right-container button:hover {
+            font-size: 1.5vw;
+            -webkit-text-stroke: 0vw;
+        }
+        .user-icon {
+            cursor: pointer;
+            font-size: 1.5vw;
+        }
+        .user-icon:hover {
+            color: whitesmoke;
+        }
     </style>
 </head>
 <body>
-    <button class="back-button" onclick="window.history.back()">Back</button>
+    
+    <h1>Question Library</h1>
+    
+    <div class="backbtn">
+        <button onclick="location.href='Edit_Questions.php'">BACK</button>
+    </div>
     
     <div class="question-container">
         <?php
@@ -110,23 +196,56 @@
         // Get the selected topic_id from the URL
         $topic_id = $_GET['topic_id'];
 
-        // Fetch questions from database based on the selected topic_id
-        $sql = "SELECT question_ID, question FROM Questions WHERE topic_id = '$topic_id' ORDER BY question_ID";
+        // Determine the current page and set the number of questions per page
+        $questionsPerPage = 5;
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($page - 1) * $questionsPerPage;
+
+        // Fetch questions from the database with LIMIT and OFFSET
+        $sql = "SELECT question_ID, question FROM Questions WHERE topic_id = '$topic_id' ORDER BY question_ID LIMIT $questionsPerPage OFFSET $offset";
         $result = $conn->query($sql);
+
+        // Count total questions for the pagination
+        $totalQuestionsSql = "SELECT COUNT(*) as total FROM Questions WHERE topic_id = '$topic_id'";
+        $totalResult = $conn->query($totalQuestionsSql);
+        $totalQuestions = $totalResult->fetch_assoc()['total'];
+        $totalPages = ceil($totalQuestions / $questionsPerPage);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="question-item">
-                        <div class="question-text">' . htmlspecialchars($row["question"]) . '</div>
-                        <button class="edit-button" onclick="window.location.href=\'Edit_Specific_Question.php?question_ID=' . $row["question_ID"] . '\'">Edit</button>
-                      </div>';
+                <div class="question-text">' . htmlspecialchars($row["question"]) . '</div>
+                <div class="editbtn">
+                    <button class="edit-button" onclick="window.location.href=\'Edit_Specific_Question.php?question_ID=' . $row["question_ID"] . '\'">Edit</button>
+                </div>
+            </div>';
             }
         } else {
-            echo "No questions found for this subject.";
+            echo "No questions found for this topic.";
         }
+
+        // Display pagination controls
+        echo '<div class="pagination">';
+        if ($page > 1) {
+            echo '<button onclick="window.location.href=\'?topic_id=' . $topic_id . '&page=' . ($page - 1) . '\'"><i class="fas fa-chevron-circle-left"></i></button>';
+        }
+        if ($page < $totalPages) {
+            echo '<button onclick="window.location.href=\'?topic_id=' . $topic_id . '&page=' . ($page + 1) . '\'"><i class="fas fa-chevron-circle-right"></i></button>';
+        }
+        echo '</div>';
+
+        $_SESSION['page_num'] = $page;
+        $_SESSION['topicid'] = $topic_id;
 
         $conn->close();
         ?>
+    </div>
+
+    <div class="top-right-container">
+        <div class="user-icon">
+            <span onclick="location.href='Mod_User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
+        </div>
+        <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>  
     </div>
 </body>
 </html>

@@ -57,6 +57,11 @@
             justify-content: center;
             margin: auto;
         }
+        .content {
+            background: rgb(27, 27, 27);
+            border: solid;
+            box-shadow: 10px 10px 40px rgba(221, 83, 49, 0.5);
+        }
         .slide-content  {
             color: rgb(221, 83, 49);
             transition: background-color, font-size 0.2s;

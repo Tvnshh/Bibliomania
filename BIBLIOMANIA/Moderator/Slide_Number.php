@@ -72,6 +72,9 @@
             width: 70vw;
             height: 20vw;
             margin: auto;
+            box-shadow: 10px 10px 40px rgba(221, 83, 49, 0.5);
+            background: rgb(27, 27, 27);
+            border: solid;
         }
         .slide {
             background-color: rgb(27, 27, 27);
