@@ -10,7 +10,7 @@ if(!isset($_SESSION['modID'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>View Questions</title>
     <style>
         body {

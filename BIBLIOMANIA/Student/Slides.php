@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Slide Content</title>
     <style>
         body {

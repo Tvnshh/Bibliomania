@@ -13,7 +13,7 @@ if(!isset($_SESSION['adminID'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register New Moderator</title>
     <link rel="website icon" type="png" href="./Webpage_items/quiz_icon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <style>
         body {
         margin: 0;
