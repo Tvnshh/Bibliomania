@@ -1,5 +1,6 @@
 <?php
     session_start();
     session_destroy();
-    header("Location: index.php")
+    file_put_contents('Student/Unity_PHP/session_data.php', '');
+    header("Location: index.php");
 ?>

@@ -4,19 +4,12 @@ include("../conn.php");
 if(!isset($_SESSION['studentID'])){
     header("location:Login_Page.php");
 }
-$file = 'session_data.txt';
+$file = 'Unity_PHP/session_data.php';
 
-// Check if session variable 'studentID' is set
 if (isset($_SESSION['studentID'])) {
-    // Fetch user_id from the session
-    $user_id = $_SESSION['studentID'];
-
-    // Write the user_id to the text file
+    $user_id = "<?php echo '" . $_SESSION['studentID'] . "'";
     file_put_contents($file, $user_id);
-} else {
-    // If user_id is not set, write an error message to the file
-    file_put_contents($file, "Error: User ID not found");
-}
+} 
 ?>
 
 <!DOCTYPE html>
