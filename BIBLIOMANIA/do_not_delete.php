@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-image: url('images/index.png');
+            background-image: url('images/index-new.png');
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -63,7 +63,7 @@
             height: 7vw; 
         }
         .section {
-            background-image: url('images/index.png');
+            background-image: url('images/index-new.png');
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
