@@ -19,16 +19,46 @@ if(!isset($_SESSION['modID'])){
         }
         h1 {
             position: relative;
-            top: 5vw;
+            top: 4.6vw;
             display: block;
             align-items: center;
+            background-color: rgb(221, 83, 49);
+            color: black;
             border-radius: 0.5vw;
-            width: 35vw;
+            width: 40vw;
             height: 5vw;
             margin: auto;
             text-align: center;
             font-size: 3.3vw;
             margin-bottom: 10vw;
+        }
+        .container {
+            background: rgb(27,27,27);
+            border-radius: 1.5vw;
+            padding-top: 2.5vw;
+            padding-bottom: 2.5vw;
+            width: 45vw;
+            margin: auto;
+            margin-top: 15vw;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 5vw;
+        }
+        .container button {
+            background-color: transparent;
+            color: rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
+            width: 35vw;
+            font-size: 2.5vw;
+            margin: auto;
+        }
+        .container button:hover {
+            background-color: rgb(221, 83, 49);
+            color: rgb(27, 27, 27);
+            border-color: rgb(27, 27, 27);
+            -webkit-text-stroke: 0.1vw rgb(27, 27, 27);
+            font-size: 2.8vw;
         }
         .top-right-container {
             position: absolute;
@@ -66,13 +96,11 @@ if(!isset($_SESSION['modID'])){
     </style>
 </head>
 <body>
-    <h1>Welcome, <?php echo $_SESSION['name']?></h1>
+    <h1>WELCOME, <?php echo $_SESSION['name']?></h1>
     <center>
         <div class="container">
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Slides_Library.php'">Slides Library</button>
-        <!-- <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Slides.php'">Edit Slides</button> -->
-        <!-- <button style="margin: 1vw; width: 50vw;" onclick="location.href='Question_Library.php'">Question Library</button> -->
-        <button style="margin: 1vw; width: 50vw;" onclick="location.href='Edit_Questions.php'">Edit Question</button>
+            <button onclick="location.href='Slides_Library.php'">Slides Library</button>
+            <button onclick="location.href='Edit_Questions.php'">Edit Question</button>
         </div>
     </center>
 

@@ -1,4 +1,12 @@
 <?php
+session_start();
+include("../conn.php");
+if(!isset($_SESSION['adminID'])){
+    header("Location: Login_Page.php");
+}
+?>
+
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";

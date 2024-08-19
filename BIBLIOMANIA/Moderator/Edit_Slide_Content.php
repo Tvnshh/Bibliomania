@@ -1,4 +1,12 @@
 <?php
+session_start();
+include("../conn.php");
+if(!isset($_SESSION['modID'])){
+    header("location:Login_Page.php");
+}
+?>
+
+<?php
 include '../conn.php';
 
 $slides_id = $_GET['slide_id'] ?? '';
