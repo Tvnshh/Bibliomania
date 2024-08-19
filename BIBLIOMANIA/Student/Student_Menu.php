@@ -22,9 +22,22 @@ if (isset($_SESSION['studentID'])) {
     <title>Student Dashboard</title>
     <style>
         body {
-            background-color: #000;
-            color: #f05340;
+            color: rgb(221, 83, 49);
+        }
+        h1 {
+            position: relative;
+            top: 4.6vw;
+            display: block;
+            align-items: center;
+            background-color: rgb(221, 83, 49);
+            color: black;
+            border-radius: 0.5vw;
+            width: 45vw;
+            height: 5vw;
+            margin: auto;
             text-align: center;
+            font-size: 3.3vw;
+            margin-bottom: 10vw;
         }
         .container {
             width: 600px;
@@ -99,9 +112,9 @@ if (isset($_SESSION['studentID'])) {
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">Welcome, <?php echo $_SESSION['name']?></div>
 
+    <h1>WELCOME, <?php echo $_SESSION['name']?></h1>
+    <div class="container">
         <div class="grid-container">
             <div class="grid-item" onclick="location.href='Game/Topic_1'">SLIDE 1</div>
             <div class="grid-item" onclick="location.href='Quiz/Topic_1.php'">TEST 1</div>

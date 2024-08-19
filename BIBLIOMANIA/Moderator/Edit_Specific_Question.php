@@ -1,45 +1,67 @@
+<?php
+session_start();
+include("../conn.php");
+if(!isset($_SESSION['modID'])){
+    header("location:Login_Page.php");
+}
+?>
+
+<?php
+session_start();
+include("../conn.php");
+if(!isset($_SESSION['modID'])){
+    header("location:Login_Page.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Edit Specific Question</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'CustomFont';
-            display: flex;
-            justify-content: center;
+            color: rgb(221, 83, 49);
+        }
+        h1 {
+            position: relative;
+            top: 5vw;
+            display: block;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
+            background-color: rgb(221, 83, 49);
+            color: black;
+            border-radius: 0.5vw;
+            width: 35vw;
+            height: 5vw;
+            margin: auto;
             text-align: center;
-            max-width: 700px;
-            background: rgb(27, 27, 27);
-            border: solid;
-            border-color: rgb(221, 83, 49);
-            padding: 20px;
-            border-radius: 15px;
-            position: relative;  
-            padding-top: 70px;  
+            font-size: 3.3vw;
+            margin-bottom: 10vw;
         }
-        .back-button {
+        .backbtn{
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 10vw;
+            left: 7vw;
+        }
+        .backbtn button {
             font-family: 'CustomFont';
             background-color: rgb(221, 83, 49);
+            align-items: center;
+            width: 11vw;
+            height: 3.5vw;  
+            justify-content: center;
+            font-size: 2vw;
             color: rgb(0, 0, 0);
-            border: solid 2px rgb(0, 0, 0);
-            border-radius: 10px;
-            padding: 10px 20px;
+            border-radius: 0.5vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
             cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
         }
-        .back-button:hover {
+        .backbtn button:hover {
+            font-size: 2.3vw;
             background-color: rgb(27, 27, 27);
             color: rgb(221, 83, 49);
             border-color: rgb(221, 83, 49);
@@ -47,59 +69,103 @@
         .question-container {
             text-align: center;
             margin: auto;
-            text-align: center;
+            margin-top: 15vw;
+            padding: 1vw;
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 700px;
+            max-width: 40vw;
             background: rgb(27, 27, 27);
             border: solid;
             border-color: rgb(221, 83, 49);
-            margin-top: 250px;
-        }
-        .question-text {
-            margin-bottom: 20px;
-            font-family: 'CustomFont';
-            font-size: 20pt;
-            color:  rgb(221, 83, 49);
+            border-radius: 2vw;
         }
         .input-field {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 14pt;
-            border-radius: 5px;
-            border: solid 2px rgb(221, 83, 49);
-            background-color: rgb(27, 27, 27);
-            color: rgb(221, 83, 49);
+            margin: 1vw 0;
+            color: black;
+            background-color: whitesmoke;
+            font-size: 1.3vw;
+            border: solid;
+            width: 30vw;
+            height: 15vw;
+            padding: 0.5vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            border-radius: 0.5vw;
         }
         .submit-button {
             font-family: 'CustomFont';
-            font-size: 20pt;
             background-color: rgb(221, 83, 49);
-            color: rgb(27, 27, 27);
-            border: solid;
-            border-color: rgb(221, 83, 49);
-            border-radius: 15px;
-            padding: 10px 20px;
+            align-items: center;
+            width: 11vw;
+            height: 3.5vw;  
+            justify-content: center;
+            font-size: 2vw;
+            color: rgb(0, 0, 0);
+            border-radius: 0.5vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
             cursor: pointer;
-            margin-top: 20px;
+            margin: auto;
+            margin-top: 3vw;
         }
         .submit-button:hover {
+            font-size: 2.3vw;
             background-color: rgb(27, 27, 27);
             color: rgb(221, 83, 49);
             border-color: rgb(221, 83, 49);
         }
         .success-message {
-            color: #4CAF50;
+            color: red;
             font-family: 'CustomFont';
-            font-size: 16pt;
+            font-size: 1.5vw;
             margin-top: 20px;
+        }
+        .top-right-container {
+            position: absolute;
+            top: 6.2vw;
+            right: 15.4vw;
+            display: flex;
+            align-items: center;
+        }
+        .top-right-container button {
+            font-family: 'CustomFont';
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border: solid;
+            border-color: rgb(221, 83, 49);
+            cursor: pointer;
+            border-radius: 1vw;
+            font-size: 1.3vw; 
+            position: absolute;
+            left: 5.4vw; 
+            width: 7vw;
+            height: 3.5vw;
+            transition: font-size 0.2s ease;
+        }
+        .top-right-container button:hover {
+            font-size: 1.5vw;
+            -webkit-text-stroke: 0vw;
+        }
+        .user-icon {
+            cursor: pointer;
+            font-size: 1.5vw;
+        }
+        .user-icon:hover {
+            color: whitesmoke;
         }
     </style>
 </head>
 <body>
-    <button class="back-button" onclick="window.history.back()">Back</button>
+
+    <h1>Edit Question</h1>
+    
+    <div class="backbtn">
+        <button onclick="location.href='Editing.php?topic_id=<?php echo $_SESSION['topicid']; ?>&page=<?php echo $_SESSION['page_num']; ?>'">BACK</button>
+    </div>
     
     <div class="question-container">
         <?php
@@ -147,16 +213,22 @@
         ?>
 
         <!-- Display the current question and provide a form to edit it -->
-        <div class="question-text">Edit Question:</div>
         <form method="POST" action="">
             <textarea class="input-field" name="question" rows="4" required><?php echo htmlspecialchars($question); ?></textarea>
-            <button type="submit" class="submit-button">Update Question</button>
+            <button type="submit" class="submit-button">Save</button>
         </form>
 
         <!-- Display success message if the question is updated -->
         <?php if ($success_message): ?>
             <div class="success-message"><?php echo $success_message; ?></div>
         <?php endif; ?>
+    </div>
+
+    <div class="top-right-container">
+        <div class="user-icon">
+            <span onclick="location.href='Mod_User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
+        </div>
+        <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>  
     </div>
 </body>
 </html>

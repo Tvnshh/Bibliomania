@@ -1,3 +1,11 @@
+<?php
+session_start();
+include("../conn.php");
+if(!isset($_SESSION['modID'])){
+    header("location:Login_Page.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +64,11 @@
             align-items: center;
             justify-content: center;
             margin: auto;
+        }
+        .content {
+            background: rgb(27, 27, 27);
+            border: solid;
+            box-shadow: 10px 10px 40px rgba(221, 83, 49, 0.5);
         }
         .slide-content  {
             color: rgb(221, 83, 49);

@@ -1,4 +1,12 @@
 <?php
+session_start();
+include("../conn.php");
+if(!isset($_SESSION['modID'])){
+    header("location:Login_Page.php");
+}
+?>
+
+<?php
 include '../conn.php';
 
 $slides_id = $_GET['slide_id'] ?? '';
@@ -105,6 +113,11 @@ $current_content_3 = ($result_3 && $result_3->num_rows > 0) ? $result_3->fetch_a
             align-items: center;
             justify-content: center;
             margin: auto;
+        }
+        .content {
+            background: rgb(27, 27, 27);
+            border: solid;
+            box-shadow: 10px 10px 40px rgba(221, 83, 49, 0.5);
         }
         .slide-content  {
             color: rgb(221, 83, 49);
