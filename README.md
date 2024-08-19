@@ -1,35 +1,25 @@
 # Bibliomania
-SDP Work
-
 http://localhost/Bibliomania/BIBLIOMANIA/
 
+# Description
+Bibliomania is an educational platform designed for interactive learning through quizzes and games. It supports different user roles including students, moderators, and administrators, providing each with a tailored experience.
 
-First time -- Instructions
+# Features
+User roles (Admin, Moderator, Student)
+Quiz and slide management
+Game-based learning
+Leaderboards and progress tracking
 
-1) Download GIT from web
+# Installation and Coding
+1. Download GIT from Web
+Windows: https://git-scm.com/download/win
+Mac: https://git-scm.com/download/mac
 
-2) Clone repository to htdocs
+2. Clone Repo to htdocs folder in XAMPP
+3. Download and Import the SQL file to your PHPMyAdmin
+4. Open Folder in Visual Studio
+5. 'git status' - to check connection status and updates to the code
+6. 'git pull origin main' - to update the code
+7. 'git add .' && 'git commit -m "Message"' - to commit
+8. 'git push origin main' - push changes to main branch
 
-2) Ready to code
-
-Next usages -- Instruction
-
-1) 'git status' - to check connection status and updates to the code
-
-1) git pull origin main
-
-2) Ready to code
-
-Saving changes -- Instruction
-
-1) git add . 
-
-2) git commit -m "Message"
-
-3) git push origin main
-
--- If error --
-
-4) git pull origin main
-
-6) git push origin main
