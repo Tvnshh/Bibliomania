@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conn.php");
+include("../assets/conn.php");
 if(!isset($_SESSION['adminID'])){
     header("Location: Login_Page.php");
 }
@@ -13,7 +13,7 @@ if(!isset($_SESSION['adminID'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register New Moderator</title>
     <link rel="website icon" type="png" href="./Webpage_items/quiz_icon.png">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
     <style>
         body {
         margin: 0;
@@ -138,7 +138,7 @@ if(!isset($_SESSION['adminID'])){
         </div>
 
         <?php
-            include("../conn.php");
+            include("../assets/conn.php");
             $adminID = $_SESSION['adminID'];
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -1,5 +1,5 @@
 <?php
-    include("../../conn.php");
+    include("../../assets/conn.php");
     $fileContent = file_get_contents('http://localhost/bibliomania/BIBLIOMANIA/Student/Unity_PHP/session_data.php');    
     $fileContent = trim($fileContent); 
     $table = ($fileContent[0] == 'S') ? 'student' : 'guest';

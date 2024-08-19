@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
     <title>Slide Content</title>
     <style>
         body {
@@ -66,7 +66,7 @@
         <div class="slide-container">
             <?php
             // Include database connection file
-            include "../conn.php";
+            include "../assets/conn.php";
 
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);

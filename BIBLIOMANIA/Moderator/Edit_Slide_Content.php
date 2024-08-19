@@ -1,13 +1,13 @@
 <?php
 session_start();
-include("../conn.php");
+include("../assets/conn.php");
 if(!isset($_SESSION['modID'])){
     header("location:Login_Page.php");
 }
 ?>
 
 <?php
-include '../conn.php';
+include '../assets/conn.php';
 
 $slides_id = $_GET['slide_id'] ?? '';
 
@@ -61,7 +61,7 @@ $current_content_3 = ($result_3 && $result_3->num_rows > 0) ? $result_3->fetch_a
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Slide Content</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
@@ -227,7 +227,7 @@ $current_content_3 = ($result_3 && $result_3->num_rows > 0) ? $result_3->fetch_a
         <div class="user-icon">
             <span onclick="location.href='Mod_User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
         </div>
-        <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>  
+        <button class="logout-button" onclick="location.href='../auth/Logout_Page.php'">LOGOUT</button>  
     </div>
 </body>
 </html>

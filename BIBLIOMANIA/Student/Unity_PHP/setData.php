@@ -1,5 +1,5 @@
 <?php
-include("../../conn.php");
+include("../../assets/conn.php");
 $userID = $_POST['userID'];
 $checkpointID = $_POST['checkpointID'];
 

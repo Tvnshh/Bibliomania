@@ -154,7 +154,7 @@
         </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="assets/scripts.js"></script>
     <script>
         document.addEventListener('scroll', function() {
             const aboutUs1Section = document.getElementById('aboutUs1');

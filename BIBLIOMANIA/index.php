@@ -60,6 +60,6 @@
             <button onclick="window.location.href = 'Choose_Account.html';">LOGIN</button> 
         </div>
     </div>
-    <script src="scripts.js"></script>
+    <script src="assets/scripts.js"></script>
 </body>
 </html>

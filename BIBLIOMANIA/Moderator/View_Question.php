@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conn.php");
+include("../assets/conn.php");
 if(!isset($_SESSION['modID'])){
     header("location:Login_Page.php");
 }
@@ -91,7 +91,7 @@ if(!isset($_SESSION['modID'])){
     <div class="question-container">
         <?php
         // Include database connection file
-        include "../conn.php";
+        include "../assets/conn.php";
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);

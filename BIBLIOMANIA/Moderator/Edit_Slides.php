@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conn.php");
+include("../assets/conn.php");
 if(!isset($_SESSION['modID'])){
     header("location:Login_Page.php");
 }
@@ -12,7 +12,7 @@ if(!isset($_SESSION['modID'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slides Library</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
     <style>
         body { margin: 0; }
         .container {

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conn.php");
+include("../assets/conn.php");
 if(!isset($_SESSION['modID'])){
     header("location:Login_Page.php");
 }
@@ -10,7 +10,7 @@ if(!isset($_SESSION['modID'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
     <title>Question Library</title>
     <style>
         body {
@@ -119,7 +119,7 @@ if(!isset($_SESSION['modID'])){
     
     <div class="content">
         <?php
-        include "../conn.php";
+        include "../assets/conn.php";
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);

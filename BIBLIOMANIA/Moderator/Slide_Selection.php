@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conn.php");
+include("../assets/conn.php");
 if(!isset($_SESSION['modID'])){
     header("location:Login_Page.php");
 }
@@ -12,7 +12,7 @@ if(!isset($_SESSION['modID'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Slides</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
     <style>
         body { margin: 0; }
         .container {
@@ -77,7 +77,7 @@ if(!isset($_SESSION['modID'])){
         </div>
         <div class="content">
             <?php
-            include '../conn.php'; // Assuming your database connection file is conn.php
+            include '../assets/conn.php'; // Assuming your database connection file is conn.php
             $topic_id = $_GET['topic_id'] ?? 'T001'; // Default to T001 if no topic_id is provided
 
             $query = "SELECT slides_id, content_1, content_2, content_3 FROM Slides WHERE topic_id = ?";

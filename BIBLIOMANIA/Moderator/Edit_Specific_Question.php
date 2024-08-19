@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conn.php");
+include("../assets/conn.php");
 if(!isset($_SESSION['modID'])){
     header("location:Login_Page.php");
 }
@@ -8,7 +8,7 @@ if(!isset($_SESSION['modID'])){
 
 <?php
 session_start();
-include("../conn.php");
+include("../assets/conn.php");
 if(!isset($_SESSION['modID'])){
     header("location:Login_Page.php");
 }
@@ -18,7 +18,7 @@ if(!isset($_SESSION['modID'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
     <title>Edit Specific Question</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -170,7 +170,7 @@ if(!isset($_SESSION['modID'])){
     <div class="question-container">
         <?php
         // Include database connection file
-        include "../conn.php";
+        include "../assets/conn.php";
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -228,7 +228,7 @@ if(!isset($_SESSION['modID'])){
         <div class="user-icon">
             <span onclick="location.href='Mod_User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
         </div>
-        <button class="logout-button" onclick="location.href='../Logout_Page.php'">LOGOUT</button>  
+        <button class="logout-button" onclick="location.href='../auth/Logout_Page.php'">LOGOUT</button>  
     </div>
 </body>
 </html>

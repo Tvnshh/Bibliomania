@@ -1,5 +1,5 @@
 <?php
-    include("../../conn.php");
+    include("../../assets/conn.php");
 
     // Read file content
     $fileContent = file_get_contents('http://localhost/bibliomania/BIBLIOMANIA/Student/Unity_PHP/session_data.php');    
