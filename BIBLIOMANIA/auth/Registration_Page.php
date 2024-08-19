@@ -5,8 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Account</title>
     <link rel="website icon" type="png" href="./Webpage_items/quiz_icon.png">
-    <link rel="stylesheet" href="styles.css">
     <style>
+    @font-face {
+        font-family: 'CustomFont';
+        src: url(../font/SairaStencilOne-Regular.ttf) format('truetype');
+    }
+
+    body {
+        background-image: url('../images/background_image.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 100%;
+        font-family: 'CustomFont';
+        color: rgb(248, 0, 0);
+        height: 720px;
+        transition: font-size 0.2s ease;
+    }
+
+    .content {
+    padding: 1em;
+    margin: 1em;
+    background-color: hsl(0, 100%, 50%, 10%);
+    border-radius: 1vw;
+    }
+
+    .container button {
+    font-family: 'CustomFont';
+    position: relative;
+    background-color: #dd5331;
+    display: flex;
+    align-items: center;
+    width: 32vw;
+    height: 8vw;  
+    display: flex;
+    justify-content: center;
+    font-size: 4vw;
+    color: rgb(27, 27, 27);
+    border-radius: 1vw;
+    border-color: rgb(0, 0, 0);
+    transition: font-size 0.2s ease;
+    cursor: pointer;
+    }
+
+    .menu button {
+        font-family: 'CustomFont';
+        position: relative;
+        background-color: rgb(27, 27, 27);
+        display: flex;
+        align-items: center;
+        width: 25vw;
+        height: 6vw;  
+        justify-content: center;
+        font-size: 3.0vw;
+        color: rgb(221, 83, 49);
+        border-radius: 1vw;
+        border-color: rgb(221, 83, 49);
+        transition: font-size 0.2s ease;
+        cursor: pointer;
+    }
+
+
+    .container button:hover{
+    font-size: 4.3vw;
+    background-color: rgb(27, 27, 27);
+    color: rgb(221, 83, 49);
+    -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
+    border-color: rgb(221, 83, 49);
+    }
+
+    .menu button:hover{
+    font-size: 3.2vw;
+    background-color: rgb(221, 83, 49);
+    color: rgb(27, 27, 27);
+    -webkit-text-stroke: 0.1vw rgb(27, 27, 27);
+    }
+
+    a{
+    color: #dd5331;
+    }
+
+    a:hover {
+    color: rgb(27, 27, 27);
+    }
+
+    .title {
+        font-size: 6vw;
+    }
+
+    .popup {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .popup:target {
+    display: block;
+    }
+
+    .popup-content {
+    position: relative;
+    background-color: white;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 600px; /* Max width */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    text-align: center;
+    }
+
+    a {
+    text-decoration:none;
+    }
+
+    .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
     body {
         margin: 0;
         padding: 0;
@@ -129,7 +264,7 @@
 <body>
 
     <div class="image">
-        <img src="images/bibliomania-logo-2.png" alt="logo.png">
+        <img src="../images/bibliomania-logo-2.png" alt="logo.png">
     </div>
 
     <div class="container">
@@ -139,7 +274,7 @@
         </div>
 
         <?php
-            include("assets/conn.php");
+            include("../assets/conn.php");
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $name = $_POST['name'];
                 $email = $_POST['email'];
@@ -168,7 +303,7 @@
                     echo "<div class='message'>
                                 <p>Succesfully created account</p>
                             </div> <br/>";
-                    echo "<a href='Student/Login_page.php'><button>LOGIN NOW</button>";
+                    echo "<a href='../Student/Login_page.php'><button>LOGIN NOW</button>";
                 }
             }else{
 
@@ -199,7 +334,7 @@
         <br/>
 
         <div class="login">
-            <p>Have an account? <a href="Student/Login_Page.php">Login</a></p>
+            <p>Have an account? <a href="../Student/Login_Page.php">Login</a></p>
         </div>
         <?php } ?>
     </div>
