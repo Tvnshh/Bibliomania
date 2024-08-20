@@ -6,14 +6,6 @@ if(!isset($_SESSION['modID'])){
 }
 ?>
 
-<?php
-session_start();
-include("../assets/conn.php");
-if(!isset($_SESSION['modID'])){
-    header("location:Login_Page.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
