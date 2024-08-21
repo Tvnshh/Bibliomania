@@ -2,7 +2,7 @@
 session_start();
 include("../../assets/conn.php");
 if(!isset($_SESSION['studentID'])){
-    header("location:Login_Page.php");
+    header("location:../Login_Page.php");
     exit;
 }
 
@@ -60,7 +60,7 @@ function get_topic_by_slide($slides_id) {
 }
 
 $topic = get_topic_by_slide($slides_id);
-$game_page = $topic ? "Games/Topic_$topic.php" : '#';
+$game_page = $topic ? "../Games/Topic_$topic.php" : '#';
 ?>
 
 <!DOCTYPE html>

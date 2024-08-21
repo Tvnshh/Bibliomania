@@ -182,6 +182,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             height: 100%;
             background-color: black;
         }
+        .nextbtn {
+            margin-top: 10px; /* Space between iframe and button */
+            text-align: center;
+        }
+
+        .nextbtn button {
+            font-family: 'CustomFont';
+            background-color: rgb(221, 83, 49);
+            width: 10vw;
+            height: 4vw;
+            font-size: 20pt;
+            color: rgb(0, 0, 0);
+            border-radius: 1vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nextbtn button:hover {
+            font-size: 22pt;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
+        }
+
     </style>
 </head>
 <body>
@@ -198,8 +224,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container">
     <div class="gm">
-            <iframe src="Game_2_Build/index.html" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+        <iframe src="Game_2_Build/index.html" scrolling="no" style="width: 100%; height: 100%;"></iframe>
     </div>
+        <div class="nextbtn">
+    <!-- Hidden form to handle the submission -->
+    <form id="checkpointForm" action="../Unity_PHP/setData.php" method="post">
+        <input type="hidden" name="userID" id="userID" value="<?php $studentID = $_SESSION['studentID']; echo $studentID;?>">
+        <input type="hidden" name="checkpointID" id="checkpointID" value="T002">
+    </form>
+
+    <!-- Button to trigger the submission loop -->
+    <button type="button" onclick="submitCheckpoints()">Next</button>
+    </div>
+        
     <div id="pauseModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -225,6 +262,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
     <script>
+        function submitCheckpoints() {
+            const checkpoints = ['SL004_1','SL004_2','SL004_3','SL005_1','SL005_2','SL005_3','SL006_1','SL006_2','SL006_3']; // Array of all checkpoint IDs
+            const form = document.getElementById('checkpointForm');
+            const checkpointInput = document.getElementById('checkpointID');
+            let currentIndex = 0;
+
+            function submitNext() {
+                if (currentIndex < checkpoints.length) {
+                    checkpointInput.value = checkpoints[currentIndex];
+                    currentIndex++;
+                    
+                    // Submit the form using XMLHttpRequest to avoid page refresh
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("POST", form.action, true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            // Proceed to the next checkpoint
+                            submitNext();
+                        }
+                    };
+
+                    // Prepare form data
+                    const formData = new FormData(form);
+                    const params = new URLSearchParams(formData).toString();
+                    xhr.send(params);
+                } else {
+                    // Redirect or perform another action after all submissions are done
+                    window.location.href = 'Level_Complete_2.php';
+                }
+            }
+
+            // Start the submission loop
+            submitNext();
+        }
+
         function checkGameEndStatus() {
             var gameEnded = localStorage.getItem('GameEnded'); 
             if (gameEnded == '1') {

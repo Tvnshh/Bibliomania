@@ -171,7 +171,7 @@ if(!isset($_SESSION['studentID'])){
             <button class="btn" onclick="window.location.href='../Slide_Library_In_Game/Slides_Library.php';">Slide Library</button>
             <button class="btn" onclick="window.location.href='../Quiz/Topic_3.php';">I'm Ready</button>
             <button class="btn" onclick="window.location.href='Topic_3.php';" style="width:10vh;"><img src="../../images/reload.png" alt="Reload Button" style="height: 5vh;"></button>
-            <button class="btn" onclick="window.location.href='Student_Menu.php';" style="width:10vh;"><img src="../../images/logout.png" alt="Exit Button" style="height: 5vh;"></button>
+            <button class="btn" onclick="window.location.href='../Student_Menu.php';" style="width:10vh;"><img src="../../images/logout.png" alt="Exit Button" style="height: 5vh;"></button>
         </div>
     </div>
 

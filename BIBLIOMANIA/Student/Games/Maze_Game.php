@@ -191,7 +191,32 @@ if(!isset($_SESSION['studentID'])){
             height: 100%;
             background-color: black;
         }
-        
+        .nextbtn {
+            margin-top: 10px; /* Space between iframe and button */
+            text-align: center;
+        }
+
+        .nextbtn button {
+            font-family: 'CustomFont';
+            background-color: rgb(221, 83, 49);
+            width: 10vw;
+            height: 4vw;
+            font-size: 20pt;
+            color: rgb(0, 0, 0);
+            border-radius: 1vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nextbtn button:hover {
+            font-size: 22pt;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            -webkit-text-stroke: 0.1vw rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
+        }
+
     </style>
 </head>
 <body>
@@ -210,7 +235,11 @@ if(!isset($_SESSION['studentID'])){
         <div class="gm">
             <iframe src="Game_1_Build/index.html" scrolling="no" style="width: 100%; height: 100%;"></iframe>
         </div>
+        <div class="nextbtn">
+        <button onclick="window.location.href = 'Level_Complete_1.php';">Next</button>
+        </div>
     </div>
+
 
     <!-- Modal Menu -->
     <div id="pauseModal" class="modal">
@@ -218,7 +247,7 @@ if(!isset($_SESSION['studentID'])){
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Pause Menu</h2>
             <button onclick="closeModal()">Play</button>
-            <button class="button" onclick="window.location.href='Topic_1.php';">Restart</button>
+            <button class="button" onclick="window.location.href='Topic_.php';">Restart</button>
             <button onclick="window.location.href='../Student_Menu.php';">Exit</button>
         </div>
     </div>
@@ -238,15 +267,21 @@ if(!isset($_SESSION['studentID'])){
         }
     </script>
     <script>
-        function checkGameEndStatus() {
-            var gameEnded = localStorage.getItem('GameEnded'); 
-            if (gameEnded == 1) {
-                window.location.href = 'Level_Complete_1.php'; 
-                localStorage.setItem('GameEnded', 0);
-                console.log("Game has ended!");
+        function checkUnityData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "../Unity_PHP/UnityData.php", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                if (xhr.responseText.trim() === "true") {
+                    window.location.href = 'Level_Complete_1.php';
+                } else {
+                    alert("You cannot proceed yet!");
+                }
             }
-        }
-        setInterval(checkGameEndStatus, 1000);
+        };
+        xhr.send();
+    }
+
     </script>
 
 </body>
