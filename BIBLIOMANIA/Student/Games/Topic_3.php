@@ -11,7 +11,7 @@ if(!isset($_SESSION['studentID'])){
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../styles.css">
-    <title>The Maze Game</title>
+    <title>Space Dash</title>
     <style>
         body {
             margin: 0;
@@ -181,18 +181,17 @@ if(!isset($_SESSION['studentID'])){
     <div class="container">
 
         <div class="header">
-            <p>The Maze Game</p>
+            <p>Space Dash</p>
         </div>
 
         <div class="content">
-            <p>Collect all checkpoints to unlock the slide.</p> 
-            <p>Navigate through the maze carefully.</p>
-            <p>The slide unlocks once all levels are reached.</p>
-            <p>Use arrow keys to navigate through the maze.</p>
+            <p>Navigate through space debree by flapping your spaceship to avoid collisions.</p> 
+            <p>Reach checkpoints to unlock new slides.</p>
+            <p>Maintain your flight by using the SPACE key.</p>
         </div>
 
         <div class="playbtn">
-            <a href="Maze_Game.php">
+            <a href="Space_Dash.php">
                 <span></span>
             </a>
         </div>
@@ -202,8 +201,8 @@ if(!isset($_SESSION['studentID'])){
         <div class="about-us" id="aboutUs1">
             <img src="../../images/maze.png" alt="About Us Image">
             <div class="text">
-            <h2>How to play <br><span style="font-size:10vh;">THE MAZE GAME?</span></h2>
-            <p style="font-size:3vh;">You find yourself in a dark, mysterious maze with only the flicker of distant fires to guide your way. Your goal is to navigate the twisting paths, collecting all the fiery checkpoints to light your way forward. Once all the flames are gathered, a bright portal will appear, illuminating your path to the next level. The maze may be dark, but the fires you collect will lead you to the light beyond.</p>
+            <h2>How to play <br><span style="font-size:10vh;">SPACE DASH?</span></h2>
+            <p style="font-size:3vh;">After navigating the dark maze and gliding through Slide and Splash, you now venture into the depths of space with Space Dash. As a skilled space pilot, you must guide your spaceship through an asteroid field, dodging obstacles and reaching checkpoints to enhance your ship’s capabilities. Your goal is to keep your ship soaring through the stars, overcoming challenges and unlocking new galaxies as you continue your interstellar adventure.</p>
         </div>
     </div>
 

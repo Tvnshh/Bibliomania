@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $studentID = $_SESSION['studentID']; 
     $gameStatus = $_POST['status']; 
     if ($gameStatus == 'Game Completed'){
-        header('location:Level_Complete_1.php');
+        header('location:Level_Complete_3.php');
     }
 }
 ?>
@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container">
         <div class="gm">
-        <!--Game here-->
+    <!--Game here-->
         </div>
     </div>
 
@@ -208,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Pause Menu</h2>
             <button onclick="closeModal()">Play</button>
-            <button class="button" onclick="window.location.href='Topic_1.php';">Restart</button>
+            <button class="button" onclick="window.location.href='Topic_3.php';">Restart</button>
             <button onclick="window.location.href='../Student_Menu.php';">Exit</button>
         </div>
     </div>

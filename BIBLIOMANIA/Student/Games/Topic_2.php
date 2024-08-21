@@ -11,7 +11,7 @@ if(!isset($_SESSION['studentID'])){
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../styles.css">
-    <title>The Maze Game</title>
+    <title>Slide and Splash</title>
     <style>
         body {
             margin: 0;
@@ -181,18 +181,17 @@ if(!isset($_SESSION['studentID'])){
     <div class="container">
 
         <div class="header">
-            <p>The Maze Game</p>
+            <p>Slide and Splash</p>
         </div>
 
         <div class="content">
-            <p>Collect all checkpoints to unlock the slide.</p> 
-            <p>Navigate through the maze carefully.</p>
-            <p>The slide unlocks once all levels are reached.</p>
-            <p>Use arrow keys to navigate through the maze.</p>
+            <p>Navigate the platforms without falling to reach flags</p> 
+            <p>Travel through the portal to reach the next level.</p>
+            <p>Survive and navigate through the game using the SPACE key.</p>
         </div>
 
         <div class="playbtn">
-            <a href="Maze_Game.php">
+            <a href="Slide_and_Splash.php">
                 <span></span>
             </a>
         </div>
@@ -200,10 +199,10 @@ if(!isset($_SESSION['studentID'])){
     <div class="section">
         <div class="scroll-indicator" id="scrollIndicator"><i class='fas fa-chevron-down' style='font-size:2.5vw;color:rgb(221, 83, 49)'></i></div>
         <div class="about-us" id="aboutUs1">
-            <img src="../../images/maze.png" alt="About Us Image">
+            <img src="../../images/game-2.png" alt="GAME 2 IMAGE">
             <div class="text">
-            <h2>How to play <br><span style="font-size:10vh;">THE MAZE GAME?</span></h2>
-            <p style="font-size:3vh;">You find yourself in a dark, mysterious maze with only the flicker of distant fires to guide your way. Your goal is to navigate the twisting paths, collecting all the fiery checkpoints to light your way forward. Once all the flames are gathered, a bright portal will appear, illuminating your path to the next level. The maze may be dark, but the fires you collect will lead you to the light beyond.</p>
+            <h2>How to play <br><span style="font-size:10vh;">SLIDE AND SPLASH</span></h2>
+            <p style="font-size:3vh;">In Slide and Splash, you’re an adventurer balancing on perilous platforms high above the abyss. Carefully navigate each platform, collecting flags. One wrong move could send you plummeting, but if you succeed, you'll unlock the next thrilling challenge. The goal is simple: survive the heights!</p>
         </div>
     </div>
 

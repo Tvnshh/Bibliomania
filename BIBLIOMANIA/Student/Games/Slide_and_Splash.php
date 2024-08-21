@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $studentID = $_SESSION['studentID']; 
     $gameStatus = $_POST['status']; 
     if ($gameStatus == 'Game Completed'){
-        header('location:Level_Complete_1.php');
+        header('location:Level_Complete_2.php');
     }
 }
 ?>
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../styles.css">
-    <title>The Maze Game</title>
+    <title>Slide and Splash</title>
     <style>
         body {
             margin: 0;
@@ -197,18 +197,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="container">
-        <div class="gm">
-        <!--Game here-->
-        </div>
-    </div>
-
     <!-- Modal Menu -->
     <div id="pauseModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Pause Menu</h2>
             <button onclick="closeModal()">Play</button>
-            <button class="button" onclick="window.location.href='Topic_1.php';">Restart</button>
+            <button class="button" onclick="window.location.href='Topic_2.php';">Restart</button>
             <button onclick="window.location.href='../Student_Menu.php';">Exit</button>
         </div>
     </div>
