@@ -2,7 +2,7 @@
     function checkGameStatus() {
     // Send an AJAX request to the PHP script
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "check_status.php", true);
+    xhr.open("GET", "../Unity_PHP/gameEnd.php", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             if (xhr.responseText.includes("Game Completed")) {
@@ -12,9 +12,6 @@
     };
     xhr.send();
 }
-
-// Poll every 5 seconds
-setInterval(checkGameStatus, 5000);
 </script>
 <?php
 session_start();
@@ -240,5 +237,17 @@ if(!isset($_SESSION['studentID'])){
             }
         }
     </script>
+    <script>
+        function checkGameEndStatus() {
+            var gameEnded = localStorage.getItem('GameEnded'); 
+            if (gameEnded == 1) {
+                window.location.href = 'Level_Complete_1.php'; 
+                localStorage.setItem('GameEnded', 0);
+                console.log("Game has ended!");
+            }
+        }
+        setInterval(checkGameEndStatus, 1000);
+    </script>
+
 </body>
 </html>
