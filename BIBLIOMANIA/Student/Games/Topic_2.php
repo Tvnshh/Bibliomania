@@ -215,7 +215,7 @@ if(!isset($_SESSION['studentID'])){
     <div class="section">
         <div class="scroll-indicator" id="scrollIndicator"><i class='fas fa-chevron-down' style='font-size:2.5vw;color:rgb(221, 83, 49)'></i></div>
         <div class="about-us" id="aboutUs1">
-            <img src="../../images/game-2.png" alt="GAME 2 IMAGE">
+            <img src="../../images/Game-2.png" alt="GAME 2 IMAGE">
             <div class="text">
             <h2>How to play <br><span style="font-size:10vh;">SLIDE AND SPLASH</span></h2>
             <p style="font-size:3vh;">In Slide and Splash, you’re an adventurer balancing on perilous platforms high above the abyss. Carefully navigate each platform, collecting flags. One wrong move could send you plummeting, but if you succeed, you'll unlock the next thrilling challenge. The goal is simple: survive the heights!</p>
