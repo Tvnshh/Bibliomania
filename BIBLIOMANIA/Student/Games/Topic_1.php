@@ -25,10 +25,11 @@ if(!isset($_SESSION['studentID'])){
             max-width: 100vh;
             margin: auto;
             text-align: center;
-            padding-top: 100px;
+            padding-top: 10vw;
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 82vh; /*Change this to remove, if white background ocurs */
         }
         .backbtn{
             position: absolute;
@@ -128,16 +129,14 @@ if(!isset($_SESSION['studentID'])){
         }
 
         .section {
-            /* background-image: url('../../images/index-new.png'); */
+            background: url('../../images/bgimage.jpg');
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
             background-size: cover;
             padding: 2vw;
             margin: 0;
             position: relative;
             z-index: 1;
-            background: black;
         }
         .about-us {
             display: flex;

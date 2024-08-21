@@ -108,7 +108,7 @@ $score = $_GET['score_id'];
 <body>
 
     <div class="container">
-        <div class="header">Quiz Complete!</div>
+        <div class="header">Quiz Completed!</div>
 
         <div class="message">Congratulations! You’ve successfully answered all 15 questions.</div>
         <div class="message">Navigate to Menu to view slides or try different test. <br><br>Enough for today? Logout</div>

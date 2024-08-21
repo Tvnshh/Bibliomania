@@ -63,7 +63,7 @@
             height: 7vw; 
         }
         .section {
-            background-image: url('images/index-new.png');
+            background-image: url('../../images/index-new.png');
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;

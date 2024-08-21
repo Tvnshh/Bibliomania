@@ -93,14 +93,46 @@ if(!isset($_SESSION['modID'])){
         .user-icon:hover {
             color: whitesmoke;
         }
+        .grid-container {
+            display: grid;
+            gap: 2vw;
+            margin: auto;
+        }
+        .grid-item {
+            background-color: rgb(27, 27, 27);
+            padding: 20px;
+            width: 35vw;
+            text-align: center;
+            border-radius: 1vw;
+            cursor: pointer;
+            color: rgb(221, 83, 49);
+            border: solid;
+            border-color: rgb(221, 83, 49);
+            font-size: 2.5vw;
+            margin: auto;
+            transition: font-size 0.2s ease;
+        }
+        .grid-item:hover {
+            background-color: rgb(221, 83, 49);
+            color: rgb(27, 27, 27);
+            border-color: rgb(27, 27, 27);
+            -webkit-text-stroke: 0.1vw rgb(27, 27, 27);
+            font-size: 2.8vw;
+        }
     </style>
 </head>
 <body>
     <h1>WELCOME, <?php echo $_SESSION['name']?></h1>
     <center>
         <div class="container">
-            <button onclick="location.href='Slides_Library.php'">Slides Library</button>
-            <button onclick="location.href='Edit_Questions.php'">Edit Question</button>
+            <!-- <button onclick="location.href='Slides_Library.php'">Slides Library</button> -->
+            <!-- <button onclick="location.href='Edit_Questions.php'">Edit Question</button> -->
+            <!-- <button onclick="location.href='Edit_Questions.php'">Edit Question</button> -->
+            <div class="grid-container">
+                <div class="grid-item" onclick="location.href='Slides_Library.php'">Slides Library</div>
+                <div class="grid-item" onclick="location.href='Edit_Questions.php'">Edit Question</div>
+                <div class="grid-item" onclick="location.href='Question_Analysis.php'">Question Analysis</div>
+            </div>
         </div>
     </center>
 
