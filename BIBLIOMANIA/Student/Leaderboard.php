@@ -13,19 +13,18 @@ $type = ($user_id[0] == 'S') ? 'student' : 'guest';
 
 // Step 1: Query to get leaderboard data
 $query = "
-    SELECT s.student_id AS id, s.name, sc.total_score AS total_score, qt.total_time AS total_time
-    FROM student s
-    LEFT JOIN scores sc ON s.student_id = sc.student_id
-    LEFT JOIN quiz_times qt ON s.student_id = qt.student_id
-    GROUP BY s.student_id
-    UNION
-    SELECT g.guest_id AS id, g.name, sc.total_score AS total_score, qt.total_time AS total_time
-    FROM guest g
-    LEFT JOIN scores sc ON g.guest_id = sc.guest_id
-    LEFT JOIN quiz_times qt ON g.guest_id = qt.guest_id
-    GROUP BY g.guest_id
-    ORDER BY total_score DESC, total_time ASC
-";
+SELECT s.student_id AS id, s.name, 
+       (sc.topic_1 + sc.topic_2 + sc.topic_3 + sc.topic_4) AS total_score
+FROM student s
+LEFT JOIN scores sc ON s.student_id = sc.student_id
+GROUP BY s.student_id
+UNION
+SELECT g.guest_id AS id, g.name, 
+       (sc.topic_1 + sc.topic_2 + sc.topic_3 + sc.topic_4) AS total_score
+FROM guest g
+LEFT JOIN scores sc ON g.guest_id = sc.guest_id
+GROUP BY g.guest_id
+ORDER BY total_score DESC;";
 
 $result = mysqli_query($conn, $query);
 
@@ -213,7 +212,6 @@ while($row = mysqli_fetch_assoc($result)) {
                             <th>Rank</th>
                             <th>Name</th>
                             <th>Score</th>
-                            <th>Time</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -224,7 +222,6 @@ while($row = mysqli_fetch_assoc($result)) {
                             echo "<td width='80vw'>" . $rank . "</td>";
                             echo "<td width='370vw'>" . htmlspecialchars($entry['name']) . "</td>";
                             echo "<td>" . $entry['total_score'] . "</td>";
-                            echo "<td>" . $entry['total_time'] . "</td>";
                             echo "</tr>";
                             $rank++;
                         }
