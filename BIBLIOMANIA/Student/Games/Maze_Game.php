@@ -1,16 +1,28 @@
+<script>
+    function checkGameStatus() {
+    // Send an AJAX request to the PHP script
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "check_status.php", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            if (xhr.responseText.includes("Game Completed")) {
+                window.location.href = "Level_Complete_1.php";
+            }
+        }
+    };
+    xhr.send();
+}
+
+// Poll every 5 seconds
+setInterval(checkGameStatus, 5000);
+</script>
 <?php
 session_start();
 include("../../assets/conn.php");
+
 if(!isset($_SESSION['studentID'])){
     header("location:../Login_Page.php");
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $studentID = $_SESSION['studentID']; 
-    $gameStatus = $_POST['status']; 
-    if ($gameStatus == 'Game Completed'){
-        header('location:Level_Complete_1.php');
-    }
+    exit(); // Make sure to exit after redirecting
 }
 ?>
 <!DOCTYPE html>
@@ -182,6 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             height: 100%;
             background-color: black;
         }
+        
     </style>
 </head>
 <body>
@@ -198,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container">
         <div class="gm">
-            <iframe src="Game_1_Build/index.html" scrolling="no"></iframe>
+            <iframe src="Game_1_Build/index.html" scrolling="no" style="width: 100%; height: 100%;"></iframe>
         </div>
     </div>
 
