@@ -12,19 +12,24 @@ if(!isset($_SESSION['studentID'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../styles.css">
     <title>The Maze Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             margin: 0;
             padding: 0;
         }
+        body::-webkit-scrollbar {
+            display: none;
+        }
         .container {
             max-width: 100vh;
             margin: auto;
             text-align: center;
-            padding-top: 100px;
+            padding-top: 10vw;
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 82vh; /*Change this to remove, if white background ocurs */
         }
         .backbtn{
             position: absolute;
@@ -124,16 +129,14 @@ if(!isset($_SESSION['studentID'])){
         }
 
         .section {
-            /* background-image: url('../../images/index-new.png'); */
+            background: url('../../images/bgimage.jpg');
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
             background-size: cover;
             padding: 2vw;
             margin: 0;
             position: relative;
             z-index: 1;
-            background: black;
         }
         .about-us {
             display: flex;
@@ -170,7 +173,19 @@ if(!isset($_SESSION['studentID'])){
             opacity: 1;
             transition: opacity 0.6s ease, transform 0.6s ease;
             animation: bounce 1.5s infinite;
-        }    </style>
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-7px);
+            }
+        } 
+    </style>
 </head>
 <body>
 
