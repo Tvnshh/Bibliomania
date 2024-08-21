@@ -7,7 +7,7 @@ if(!isset($_SESSION['studentID'])){
 $file = 'Unity_PHP/session_data.php';
 
 if (isset($_SESSION['studentID'])) {
-    $user_id = "<?php echo '" . $_SESSION['studentID'] . "'";
+    $user_id = "<?php echo '" . $_SESSION['studentID'] . "';";
     file_put_contents($file, $user_id);
 } 
 ?>
@@ -116,13 +116,13 @@ if (isset($_SESSION['studentID'])) {
     <h1>WELCOME, <?php echo $_SESSION['name']?></h1>
     <div class="container">
         <div class="grid-container">
-            <div class="grid-item" onclick="location.href='Game/Topic_1'">SLIDE 1</div>
+            <div class="grid-item" onclick="location.href='Games/Topic_1.php'">SLIDE 1</div>
             <div class="grid-item" onclick="location.href='Quiz/Topic_1.php'">TEST 1</div>
-            <div class="grid-item" onclick="location.href='Game/Topic_2'">SLIDE 2</div>
+            <div class="grid-item" onclick="location.href='Games/Topic_2.php'">SLIDE 2</div>
             <div class="grid-item" onclick="location.href='Quiz/Topic_2.php'">TEST 2</div>
-            <div class="grid-item" onclick="location.href='Game/Topic_3'">SLIDE 3</div>
+            <div class="grid-item" onclick="location.href='Games/Topic_3.php'">SLIDE 3</div>
             <div class="grid-item" onclick="location.href='Quiz/Topic_3.php'">TEST 3</div>
-            <div class="grid-item" onclick="location.href='Quiz/Topic_4'">Final Test</div>
+            <div class="grid-item" onclick="location.href='Quiz/Topic_4.php'">Final Test</div>
         </div>
         
         <div class="top-right-container">
@@ -133,8 +133,8 @@ if (isset($_SESSION['studentID'])) {
         </div>
         
         <div class="icon-container">
-            <span style="cursor:pointer" onclick="location.href='Slides_Library.php'">&#128278;</span>
-            <span style="cursor:pointer" onclick="location.href='Leaderboard.html'" style="margin-left: 20px;">&#128101;</span>
+            <span style="cursor:pointer" onclick="location.href='Slide_Library/Slides_Library.php'">&#128278;</span>
+            <span style="cursor:pointer" onclick="location.href='Leaderboard.php'" style="margin-left: 20px;">&#128101;</span>
         </div>
     </div>
 </body>

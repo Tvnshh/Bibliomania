@@ -57,7 +57,7 @@
 <body>
     <div class="container">
         <div class="menu2">
-            <button onclick="window.location.href = 'Choose_Account.html';">LOGIN</button> 
+            <button onclick="window.location.href = 'auth/Choose_Account.html';">LOGIN</button> 
         </div>
     </div>
     <script src="assets/scripts.js"></script>
