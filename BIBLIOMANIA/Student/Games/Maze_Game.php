@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container">
         <div class="gm">
-        <!--Game here-->
+            <iframe src="Game_1_Build/index.html" scrolling="no"></iframe>
         </div>
     </div>
 
