@@ -193,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="backbtn">
-        <button onclick="window.location.href = '../Slides_Library.php';">SLIDES</button>
+        <button onclick="window.location.href = '../Slide_Library_In_Game/Slides_Library.php';">SLIDES</button>
     </div>
 
     <div class="container">

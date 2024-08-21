@@ -199,7 +199,7 @@ if(!isset($_SESSION['studentID'])){
     <div class="section">
         <div class="scroll-indicator" id="scrollIndicator"><i class='fas fa-chevron-down' style='font-size:2.5vw;color:rgb(221, 83, 49)'></i></div>
         <div class="about-us" id="aboutUs1">
-            <img src="../../images/maze.png" alt="About Us Image">
+            <img src="../../images/game-3.png" alt=" Game 3 Pic">
             <div class="text">
             <h2>How to play <br><span style="font-size:10vh;">SPACE DASH?</span></h2>
             <p style="font-size:3vh;">After navigating the dark maze and gliding through Slide and Splash, you now venture into the depths of space with Space Dash. As a skilled space pilot, you must guide your spaceship through an asteroid field, dodging obstacles and reaching checkpoints to enhance your ship’s capabilities. Your goal is to keep your ship soaring through the stars, overcoming challenges and unlocking new galaxies as you continue your interstellar adventure.</p>
