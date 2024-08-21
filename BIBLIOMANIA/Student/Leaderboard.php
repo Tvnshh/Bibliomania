@@ -74,35 +74,38 @@ while($row = mysqli_fetch_assoc($result)) {
             flex-direction: column;
             width: 100%;
             max-width: 1200px;
-            height: 100%;
+            height: 60%;
             padding: 20px;
             box-sizing: border-box;
+            margin: auto;
         }
 
         /* Back Button */
-        .backbtn {
-            display: flex;
-            justify-content: flex-start;
-            margin-bottom: 20px;
+        .backbtn{
+            position: absolute;
+            top: 10vw;
+            left: 7vw;
         }
-
         .backbtn button {
-            background-color: #DD5331;
-            width: 120px;
-            height: 40px;
-            font-size: 16px;
-            color: #000;
-            border-radius: 5px;
-            border: none;
+            font-family: 'CustomFont';
+            background-color: rgb(221, 83, 49);
+            align-items: center;
+            width: 11vw;
+            height: 3.5vw;  
+            justify-content: center;
+            font-size: 2vw;
+            color: rgb(0, 0, 0);
+            border-radius: 0.5vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
-
         .backbtn button:hover {
-            font-size: 18px;
-            background-color: #1b1b1b;
-            color: #DD5331;
-            border-color: #DD5331;
+            font-size: 2.3vw;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
         }
 
         /* Main Content Layout */
