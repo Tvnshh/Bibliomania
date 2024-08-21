@@ -197,7 +197,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="container">
-    <!-- Modal Menu -->
+    <div class="gm">
+            <iframe src="Game_2_Build/index.html" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+    </div>
     <div id="pauseModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
