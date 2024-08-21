@@ -66,15 +66,21 @@
             border: solid;
             border-color: rgb(221, 83, 49);
             border-radius: 0;
-            width: 90%;
-            height: 400px;
+            width: 38vw;
+            height: 25vw;
             padding: 0px 5px 0px 10px;
             font-size: 23pt;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .content p {
-            text-align: left;
             margin-top: 0;
-            margin-bottom: 20px;
+            max-width: 33vw;
+        }
+        .p-three {
+            text-align: justify;
         }
         .playbtn {
             display: inline-block;
@@ -129,14 +135,13 @@
         </div>
 
         <div class="content">
-            <p>Play minigames to earn slides.</p> 
-            <p>Study the slides for upcoming quizzes after the minigame.</p>
-            <p>Do well enough correctly to move to the next level.</p>
-            <p>If you do well enough, you'll face the final boss...</p>
+            <p>TEST 3</p> 
+            <p>Answer all 15 questions</p>
+            <p class="p-three">Try to get all questions correct so you will be ranked high among others.</p>
         </div>
 
         <div class="playbtn">
-            <a href="Game.html">
+            <a href="Quiz_3.php?topic_id=T003">
                 <span></span>
             </a>
         </div>
