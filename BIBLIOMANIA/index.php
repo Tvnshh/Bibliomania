@@ -139,7 +139,7 @@
             <img src="images/bibliomania-logo-2.png" alt="About Us Image">
             <div class="text">
                 <h2>What is ARS?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Curabitur lacinia nunc nec urna sollicitudin, nec gravida sapien consequat.</p>
+                <p>Academic research skills involve the ability to systematically investigate, analyze, and evaluate information to answer specific questions or solve problems. These skills are essential for producing credible, evidence-based conclusions in academic work.</p>
             </div>
         </div>
     </div>
@@ -148,7 +148,7 @@
         <div class="about-us" id="aboutUs2">
             <div class="text">
                 <h2>About Us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Curabitur lacinia nunc nec urna sollicitudin, nec gravida sapien consequat.</p>
+                <p>Group E, creators of Bibliomania, is a dedicated team of passionate developers focused on enhancing the reading experience through innovative digital solutions. Their project, Bibliomania, aims to provide readers with an engaging and seamless platform to explore and enjoy a wide range of literary content.</p>
             </div>
             <img src="images/bibliomania-logo-2.png" alt="About Us Image">
         </div>
