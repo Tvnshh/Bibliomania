@@ -161,26 +161,19 @@ if(!isset($_SESSION['modID'])){
     
     <div class="question-container">
         <?php
-        // Include database connection file
         include "../assets/conn.php";
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Get the question_ID from the URL
         $question_id = $_GET['question_ID'];
 
-        // Initialize variables for success message and form data
         $success_message = '';
         $question = '';
 
-        // Check if the form has been submitted
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Get the updated question from the form input
             $updated_question = $_POST['question'];
-
-            // Update the question in the database
             $update_sql = "UPDATE Questions SET question = '$updated_question' WHERE question_ID = '$question_id'";
 
             if ($conn->query($update_sql) === TRUE) {
@@ -204,13 +197,11 @@ if(!isset($_SESSION['modID'])){
         $conn->close();
         ?>
 
-        <!-- Display the current question and provide a form to edit it -->
         <form method="POST" action="">
             <textarea class="input-field" name="question" rows="4" required><?php echo htmlspecialchars($question); ?></textarea>
             <button type="submit" class="submit-button">Save</button>
         </form>
 
-        <!-- Display success message if the question is updated -->
         <?php if ($success_message): ?>
             <div class="success-message"><?php echo $success_message; ?></div>
         <?php endif; ?>
