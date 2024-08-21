@@ -51,20 +51,22 @@ if (isset($_SESSION['studentID'])) {
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 1vw;
         }
         .grid-item {
-            background-color: #333;
-            color: #f05340;
-            padding: 20px;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            padding: 1.5vw;
             text-align: center;
-            font-size: 18px;
+            font-size: 1.8vw;
             border-radius: 5px;
             cursor: pointer;
+            transition: font-size 0.2s ease;
         }
         .grid-item:hover {
-            background-color: #f05340;
-            color: #000;
+            font-size: 2vw;
+            background-color: rgb(221, 83, 49);
+            color: black;
         }
         .grid-item2{
             background-color: transparent;

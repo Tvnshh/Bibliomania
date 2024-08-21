@@ -224,7 +224,7 @@ if(!isset($_SESSION['modID'])){
             echo "No questions found for this topic.";
         }
 
-        // Display pagination controls
+
         echo '<div class="pagination">';
         if ($page > 1) {
             echo '<button onclick="window.location.href=\'?topic_id=' . $topic_id . '&page=' . ($page - 1) . '\'"><i class="fas fa-chevron-circle-left"></i></button>';
