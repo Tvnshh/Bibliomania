@@ -18,7 +18,7 @@ if(!isset($_SESSION['studentID'])){
             padding: 0;
         }
         .container {
-            max-width: 500px;
+            max-width: 100vh;
             margin: auto;
             text-align: center;
             padding-top: 100px;
@@ -74,7 +74,7 @@ if(!isset($_SESSION['studentID'])){
             border: solid;
             border-color: rgb(221, 83, 49);
             border-radius: 0;
-            width: 90%;
+            width: 100%;
             height: 400px;
             padding: 0px 5px 0px 10px;
             font-size: 23pt;
@@ -140,13 +140,13 @@ if(!isset($_SESSION['studentID'])){
             align-items: center;
             justify-content: space-between;
             padding: 4vw;
-            background-color:;
+            background-color: #491105;
             border-radius: 1vw;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 4vw 0;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 2.5s ease, transform 0.6s ease;
         }
         .about-us img {
             width: 40%;
@@ -175,7 +175,7 @@ if(!isset($_SESSION['studentID'])){
 <body>
 
     <div class="backbtn">
-        <button onclick="history.back()">BACK</button>
+        <button onclick="location.href='../Student_Menu.php'">BACK</button>
     </div>
 
     <div class="container">
@@ -188,6 +188,7 @@ if(!isset($_SESSION['studentID'])){
             <p>Collect all checkpoints to unlock the slide.</p> 
             <p>Navigate through the maze carefully.</p>
             <p>The slide unlocks once all levels are reached.</p>
+            <p>Use arrow keys to navigate through the maze.</p>
         </div>
 
         <div class="playbtn">
@@ -201,8 +202,8 @@ if(!isset($_SESSION['studentID'])){
         <div class="about-us" id="aboutUs1">
             <img src="../../images/maze.png" alt="About Us Image">
             <div class="text">
-            <h2>What is ARS?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Curabitur lacinia nunc nec urna sollicitudin, nec gravida sapien consequat.</p>
+            <h2>How to play <br><span style="font-size:10vh;">THE MAZE GAME?</span></h2>
+            <p style="font-size:3vh;">You find yourself in a dark, mysterious maze with only the flicker of distant fires to guide your way. Your goal is to navigate the twisting paths, collecting all the fiery checkpoints to light your way forward. Once all the flames are gathered, a bright portal will appear, illuminating your path to the next level. The maze may be dark, but the fires you collect will lead you to the light beyond.</p>
         </div>
     </div>
 
