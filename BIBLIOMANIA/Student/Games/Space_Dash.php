@@ -227,5 +227,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     </script>
-</body>
+    <script>
+        function checkGameEndStatus() {
+            var gameEnded = localStorage.getItem('GameEnded'); 
+            if (gameEnded == 1) {
+                window.location.href = 'Level_Complete_3.php'; 
+                localStorage.setItem('GameEnded', 0);
+                console.log("Game has ended!");
+            }
+        }
+        setInterval(checkGameEndStatus, 1000);
+    </script>
+    </body>
 </html>
