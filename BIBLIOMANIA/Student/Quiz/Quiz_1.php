@@ -116,7 +116,7 @@ if (isset($_POST['answer'])) {
         unset($_SESSION['current_question']);
         unset($_SESSION['score']);
 
-        echo "<h2>Quiz Completed! Your score: $score</h2>";
+        header("Location: Quiz_Complete.php?score_id=" . $score);
         exit();
     } else {
         header("Location: Quiz_1.php?topic_id=" . $_SESSION['topic_id']);
@@ -130,44 +130,120 @@ if (isset($_POST['answer'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles.css">
     <title>Quiz</title>
     <style>
-        /* Add your CSS styles here */
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'CustomFont';
+            color: rgb(221, 83, 49);
         }
+
+        .form-container {
+            max-width: 45vw;
+            margin: auto;
+            margin-top: 10vw;
+            
+        }
+
         h2 {
-            font-size: 24px;
-            color: #333;
+            font-size: 2vw;
+            margin-bottom: 4vw;
+            cursor: default;
         }
+
         form {
-            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
         }
-        input[type="radio"] {
-            margin: 10px 0;
+
+        .options-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2vw;
+            margin-bottom: 4vw;
+            background-color: rgb(27, 27, 27);
+            border: solid;
+            border-radius: 1vw;
+            box-shadow: 10px 10px 40px rgba(221, 83, 49, 0.5);
+            padding: 2vw;            
         }
+
+        .option-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .option-item label {
+            font-size: 1.7vw; /* Increase font size here */
+        }
+
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
+            font-family: 'CustomFont';
+            background-color: rgb(221, 83, 49);
+            align-items: center;
+            width: 15vw;
+            height: 3.5vw;  
+            justify-content: center;
+            font-size: 2vw;
+            color: rgb(0, 0, 0);
+            border-radius: 0.5vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
             cursor: pointer;
+            margin: auto;
         }
+
         button:hover {
-            background-color: #45a049;
+            font-size: 2.3vw;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
         }
     </style>
 </head>
 <body>
+<div class="form-container">
     <h2><?php echo $question_text; ?></h2>
     <form method="POST" action="Quiz_1.php?topic_id=<?php echo $topic_id; ?>">
-        <input type="radio" name="answer" value="1"> <?php echo $option_1; ?><br>
-        <input type="radio" name="answer" value="2"> <?php echo $option_2; ?><br>
-        <input type="radio" name="answer" value="3"> <?php echo $option_3; ?><br>
-        <input type="radio" name="answer" value="4"> <?php echo $option_4; ?><br>
+        <div class="options-container">
+            <div class="option-column">
+                <div class="option-item">
+                    <input type="radio" name="answer" value="1"> 
+                    <label><?php echo $option_1; ?></label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" name="answer" value="2"> 
+                    <label><?php echo $option_2; ?></label>
+                </div>
+            </div>
+            <div class="option-column">
+                <div class="option-item">
+                    <input type="radio" name="answer" value="3"> 
+                    <label><?php echo $option_3; ?></label>
+                </div>
+                <div class="option-item">
+                    <input type="radio" name="answer" value="4"> 
+                    <label><?php echo $option_4; ?></label>
+                </div>
+            </div>
+        </div>
         <button type="submit"><?php echo ($_SESSION['current_question'] == $total_questions_count) ? 'SUBMIT' : 'NEXT'; ?></button>
     </form>
+</div>
 </body>
 </html>
