@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../styles.css">
-    <title>The Maze Game</title>
+    <title>Space Dash</title>
     <style>
         body {
             margin: 0;
@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container">
         <div class="gm">
-    <!--Game here-->
+            <iframe src="Game_3_Build/index.html" scrolling="no" style="width: 100%; height: 100%;"></iframe>
         </div>
     </div>
 
