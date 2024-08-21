@@ -12,10 +12,14 @@ if(!isset($_SESSION['studentID'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../styles.css">
     <title>The Maze Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             margin: 0;
             padding: 0;
+        }
+        body::-webkit-scrollbar {
+            display: none;
         }
         .container {
             max-width: 100vh;
@@ -170,7 +174,19 @@ if(!isset($_SESSION['studentID'])){
             opacity: 1;
             transition: opacity 0.6s ease, transform 0.6s ease;
             animation: bounce 1.5s infinite;
-        }    </style>
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-7px);
+            }
+        } 
+    </style>
 </head>
 <body>
 
