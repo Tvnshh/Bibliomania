@@ -136,7 +136,7 @@
         </div>
 
         <div class="playbtn">
-            <a href="Game.html">
+            <a href="Quiz_2.php?topic_id=T002">
                 <span></span>
             </a>
         </div>
