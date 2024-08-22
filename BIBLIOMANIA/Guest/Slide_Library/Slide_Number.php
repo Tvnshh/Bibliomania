@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../assets/conn.php");
+include("../../assets/conn.php");
 if(!isset($_SESSION['studentID'])){
     header("location:Login_Page.php");
 }
@@ -140,7 +140,7 @@ if(!isset($_SESSION['studentID'])){
     <h1>Slides Library</h1>
     
     <div class="backbtn">
-        <button onclick="location.href='Slide_Library.php'">BACK</button>
+        <button onclick="location.href='Slides_Library.php'">BACK</button>
     </div>
 
     <p>Select Slide:</p>
