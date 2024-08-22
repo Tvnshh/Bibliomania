@@ -169,7 +169,7 @@ $game_page = $topic ? "../Games/Topic_$topic.php" : '#';
     <h1>Slides Content</h1>
     
     <div class="backbtn">
-        <button onclick="location.href='Slides_Library.php'">BACK</button>
+        <button onclick="location.href='<?php echo $last_page; ?>'">BACK</button>
     </div>
 
     <div class="container">
