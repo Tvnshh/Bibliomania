@@ -12,6 +12,11 @@
     };
     xhr.send();
 }
+$current_page = basename($_SERVER['PHP_SELF']);
+
+// Store the current page as the last accessed page in the session
+$_SESSION['last_page'] = $current_page;
+
 </script>
 <?php
 session_start();

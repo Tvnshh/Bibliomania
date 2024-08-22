@@ -4,6 +4,11 @@ include("../../assets/conn.php");
 if(!isset($_SESSION['studentID'])){
     header("location:../Login_Page.php");
 }
+$current_page = basename($_SERVER['PHP_SELF']);
+
+// Store the current page as the last accessed page in the session
+$_SESSION['last_page'] = $current_page;
+
 ?>
 
 <!DOCTYPE html>
@@ -190,7 +195,7 @@ if(!isset($_SESSION['studentID'])){
 <body>
 
     <div class="backbtn">
-        <button onclick="location.href='../Student_Menu.php'">BACK</button>
+        <button onclick="location.href='../Guest_Menu.php'">BACK</button>
     </div>
 
     <div class="container">

@@ -24,11 +24,9 @@ if (isset($_GET["id"])) {
 
         if ($result_stu-> num_rows > 0) {
 
-            $sql_student_quizresult = "DELETE FROM quiz_results WHERE student_id='$id'";
-            $conn->query($sql_student_quizresult);
 
-            $sql_student_quiztime = "DELETE FROM quiz_times WHERE student_id='$id'";
-            $conn->query($sql_student_quiztime);
+            $sql_student_unlocks = "DELETE FROM unlocks WHERE student_id='$id'";
+            $conn->query($sql_student_unlocks);
 
             $sql_student_score = "DELETE FROM scores WHERE student_id='$id'";
             $conn->query($sql_student_score);
