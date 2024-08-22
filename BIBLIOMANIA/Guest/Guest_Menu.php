@@ -51,20 +51,22 @@ if (isset($_SESSION['studentID'])) {
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 1vw;
         }
         .grid-item {
-            background-color: #333;
-            color: #f05340;
-            padding: 20px;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            padding: 1.5vw;
             text-align: center;
-            font-size: 18px;
+            font-size: 1.8vw;
             border-radius: 5px;
             cursor: pointer;
+            transition: font-size 0.2s ease;
         }
         .grid-item:hover {
-            background-color: #f05340;
-            color: #000;
+            font-size: 2vw;
+            background-color: rgb(221, 83, 49);
+            color: black;
         }
         .top-right-container {
             position: absolute;
@@ -122,7 +124,6 @@ if (isset($_SESSION['studentID'])) {
             <div class="grid-item" onclick="location.href='Quiz/Topic_2.php'">TEST 2</div>
             <div class="grid-item" onclick="location.href='Games/Topic_3.php'">SLIDE 3</div>
             <div class="grid-item" onclick="location.href='Quiz/Topic_3.php'">TEST 3</div>
-            <div class="grid-item" onclick="location.href='Quiz/Topic_4.php'">Final Test</div>
         </div>
         
         <div class="top-right-container">

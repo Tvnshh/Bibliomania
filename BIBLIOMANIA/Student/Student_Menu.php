@@ -68,9 +68,6 @@ if (isset($_SESSION['studentID'])) {
             background-color: rgb(221, 83, 49);
             color: black;
         }
-        .grid-item2{
-            background-color: transparent;
-        }
         .top-right-container {
             position: absolute;
             top: 6.2vw;
@@ -127,8 +124,6 @@ if (isset($_SESSION['studentID'])) {
             <div class="grid-item" onclick="location.href='Quiz/Topic_2.php'">TEST 2</div>
             <div class="grid-item" onclick="location.href='Games/Topic_3.php'">SLIDE 3</div>
             <div class="grid-item" onclick="location.href='Quiz/Topic_3.php'">TEST 3</div>
-            <div class="grid-item2" onclick="location.href='Quiz/Topic_4.php'"></div>
-            <div class="grid-item" onclick="location.href='Quiz/Topic_4.php'">Final Test</div>
         </div>
         
         <div class="top-right-container">
