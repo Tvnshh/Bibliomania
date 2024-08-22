@@ -42,10 +42,10 @@ if (!$question) {
 
     if ($result_score->num_rows == 0) {
         // Insert score
-        $insert_score = mysqli_query($conn,"INSERT INTO scores (guest_id, topic_1) VALUES('$guest_id','$score')");
+        $insert_score = mysqli_query($conn,"INSERT INTO scores (guest_id, topic_2) VALUES('$guest_id','$score')");
     } else {
         // Update score
-        $update_score = mysqli_query($conn,"UPDATE scores SET topic_1='$score' WHERE guest_id='$guest_id'");
+        $update_score = mysqli_query($conn,"UPDATE scores SET topic_2='$score' WHERE guest_id='$guest_id'");
     }
 
     // Clear session variables
@@ -106,10 +106,10 @@ if (isset($_POST['answer'])) {
 
         if ($result_score->num_rows == 0) {
             // Insert score
-            $insert_score = mysqli_query($conn,"INSERT INTO scores (guest_id, topic_1) VALUES('$guest_id','$score')");
+            $insert_score = mysqli_query($conn,"INSERT INTO scores (guest_id, topic_2) VALUES('$guest_id','$score')");
         } else {
             // Update score
-            $update_score = mysqli_query($conn,"UPDATE scores SET topic_1='$score' WHERE guest_id='$guest_id'");
+            $update_score = mysqli_query($conn,"UPDATE scores SET topic_2='$score' WHERE guest_id='$guest_id'");
         }
 
         // Clear session variables
