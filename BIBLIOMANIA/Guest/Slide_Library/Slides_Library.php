@@ -141,7 +141,7 @@ if(!isset($_SESSION['studentID'])){
     <h1>Slides Library</h1>
     
     <div class="backbtn">
-        <button onclick="location.href='../Student_Menu.php'">BACK</button>
+        <button onclick="location.href='../Guest_Menu.php'">BACK</button>
     </div>
 
     <p>Select Topic:</p>

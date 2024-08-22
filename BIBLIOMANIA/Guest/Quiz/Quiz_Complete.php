@@ -118,7 +118,7 @@ $score = $_GET['score_id'];
 
 
         <div class="actions">
-            <button class="btn" onclick="window.location.href='../Student_Menu.php';">Student Menu</button>
+            <button class="btn" onclick="window.location.href='../Guest_Menu.php';">Guest Menu</button>
             <button class="btn2" onclick="window.location.href='../../auth/Logout_Page.php';" style="width:10vh;"><img src="../../images/logout.png" alt="Exit Button" style="height: 5vh;"></button>
         </div>
     </div>

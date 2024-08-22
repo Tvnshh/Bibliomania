@@ -13,19 +13,18 @@ $type = ($user_id[0] == 'S') ? 'student' : 'guest';
 
 // Step 1: Query to get leaderboard data
 $query = "
-    SELECT s.student_id AS id, s.name, sc.total_score AS total_score, qt.total_time AS total_time
-    FROM student s
-    LEFT JOIN scores sc ON s.student_id = sc.student_id
-    LEFT JOIN quiz_times qt ON s.student_id = qt.student_id
-    GROUP BY s.student_id
-    UNION
-    SELECT g.guest_id AS id, g.name, sc.total_score AS total_score, qt.total_time AS total_time
-    FROM guest g
-    LEFT JOIN scores sc ON g.guest_id = sc.guest_id
-    LEFT JOIN quiz_times qt ON g.guest_id = qt.guest_id
-    GROUP BY g.guest_id
-    ORDER BY total_score DESC, total_time ASC
-";
+SELECT s.student_id AS id, s.name, 
+       (sc.topic_1 + sc.topic_2 + sc.topic_3 + sc.topic_4) AS total_score
+FROM student s
+LEFT JOIN scores sc ON s.student_id = sc.student_id
+GROUP BY s.student_id
+UNION
+SELECT g.guest_id AS id, g.name, 
+       (sc.topic_1 + sc.topic_2 + sc.topic_3 + sc.topic_4) AS total_score
+FROM guest g
+LEFT JOIN scores sc ON g.guest_id = sc.guest_id
+GROUP BY g.guest_id
+ORDER BY total_score DESC;";
 
 $result = mysqli_query($conn, $query);
 
@@ -75,35 +74,38 @@ while($row = mysqli_fetch_assoc($result)) {
             flex-direction: column;
             width: 100%;
             max-width: 1200px;
-            height: 100%;
+            height: 60%;
             padding: 20px;
             box-sizing: border-box;
+            margin: auto;
         }
 
         /* Back Button */
-        .backbtn {
-            display: flex;
-            justify-content: flex-start;
-            margin-bottom: 20px;
+        .backbtn{
+            position: absolute;
+            top: 10vw;
+            left: 7vw;
         }
-
         .backbtn button {
-            background-color: #DD5331;
-            width: 120px;
-            height: 40px;
-            font-size: 16px;
-            color: #000;
-            border-radius: 5px;
-            border: none;
+            font-family: 'CustomFont';
+            background-color: rgb(221, 83, 49);
+            align-items: center;
+            width: 11vw;
+            height: 3.5vw;  
+            justify-content: center;
+            font-size: 2vw;
+            color: rgb(0, 0, 0);
+            border-radius: 0.5vw;
+            border-color: rgb(0, 0, 0);
+            transition: font-size 0.2s ease;
+            display: flex;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
-
         .backbtn button:hover {
-            font-size: 18px;
-            background-color: #1b1b1b;
-            color: #DD5331;
-            border-color: #DD5331;
+            font-size: 2.3vw;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
+            border-color: rgb(221, 83, 49);
         }
 
         /* Main Content Layout */
@@ -198,7 +200,7 @@ while($row = mysqli_fetch_assoc($result)) {
 <body>
     <div class="container">
         <div class="backbtn">
-            <button onclick="location.href='Student_Menu.php'">BACK</button>
+            <button onclick="history.back()">BACK</button>
         </div>
         <div class="content">
             <div class="current-rank">
@@ -213,7 +215,6 @@ while($row = mysqli_fetch_assoc($result)) {
                             <th>Rank</th>
                             <th>Name</th>
                             <th>Score</th>
-                            <th>Time</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -224,7 +225,6 @@ while($row = mysqli_fetch_assoc($result)) {
                             echo "<td width='80vw'>" . $rank . "</td>";
                             echo "<td width='370vw'>" . htmlspecialchars($entry['name']) . "</td>";
                             echo "<td>" . $entry['total_score'] . "</td>";
-                            echo "<td>" . $entry['total_time'] . "</td>";
                             echo "</tr>";
                             $rank++;
                         }

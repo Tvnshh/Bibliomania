@@ -1,1 +1,1 @@
-<?php echo 'G010';
+<?php echo 'G006';
