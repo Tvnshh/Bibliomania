@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2024 at 12:10 AM
+-- Generation Time: Aug 22, 2024 at 07:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -61,33 +61,33 @@ CREATE TABLE `content` (
 --
 
 INSERT INTO `content` (`content_id`, `content`) VALUES
-('SL001_1', 'HIIIII, Nama Syaa upin'),
-('SL001_2', 'Dan nama saya ipin'),
-('SL001_3', 'Content for Topic 1 Slide 1'),
-('SL002_1', 'Content for Topic 1 Slide 2'),
-('SL002_2', 'Content for Topic 1 Slide 2'),
-('SL002_3', 'Content for Topic 1 Slide 2'),
-('SL003_1', 'Content for Topic 1 Slide 3'),
-('SL003_2', 'Content for Topic 1 Slide 3'),
-('SL003_3', 'Content for Topic 1 Slide 3'),
-('SL004_1', 'Content for Topic 2 Slide 1'),
-('SL004_2', 'Content for Topic 2 Slide 1'),
-('SL004_3', 'Content for Topic 2 Slide 1'),
-('SL005_1', 'Content for Topic 2 Slide 2'),
-('SL005_2', 'Content for Topic 2 Slide 2'),
-('SL005_3', 'Content for Topic 2 Slide 2'),
-('SL006_1', 'Content for Topic 2 Slide 3'),
-('SL006_2', 'Content for Topic 2 Slide 3'),
-('SL006_3', 'Content for Topic 2 Slide 3'),
-('SL007_1', 'Content for Topic 3 Slide 1'),
-('SL007_2', 'Content for Topic 3 Slide 1'),
-('SL007_3', 'Content for Topic 3 Slide 1'),
-('SL008_1', 'Content for Topic 3 Slide 2'),
-('SL008_2', 'Content for Topic 3 Slide 2'),
-('SL008_3', 'Content for Topic 3 Slide 2'),
-('SL009_1', 'Content for Topic 3 Slide 3'),
-('SL009_2', 'Content for Topic 3 Slide 3'),
-('SL009_3', 'Content for Topic 3 Slide 3');
+('SL001_1', 'Definition: Quantitative research involves the systematic investigation of phenomena by gathering quantifiable data and performing statistical, mathematical, or computational techniques.'),
+('SL001_2', 'Purpose: To test hypotheses, examine relationships, and make predictions about variables using numerical data.'),
+('SL001_3', 'Characteristics: Structured and standardized methods. Focus on objectivity and replicability. Results presented in the form of statistics, tables, and graphs.'),
+('SL002_1', 'Descriptive Research: Aims to describe characteristics of a population or phenomenon.'),
+('SL002_2', 'Correlational Research: Examines the relationship between two or more variables without establishing cause and effect.'),
+('SL002_3', 'Experimental Research: Involves manipulating one variable to determine its effect on another (cause-and-effect relationship).'),
+('SL003_1', 'Surveys/Questionnaires: Collect data from a large sample using structured questions; allows for statistical analysis.'),
+('SL003_2', 'Experiments: Conduct controlled tests to observe effects of manipulated variables on dependent variables.'),
+('SL003_3', 'Observation: Systematically recording behavior or phenomena in a structured environment, often using checklists or rating scales.'),
+('SL004_1', 'Definition: Qualitative research designs focus on exploring and understanding the meaning individuals or groups ascribe to a social or human problem.'),
+('SL004_2', 'Purpose: To gain in-depth insights into participants\' experiences, behaviors, and interactions within their natural settings.'),
+('SL004_3', 'Characteristics: Emphasis on context and depth. Flexible and adaptive research process. Data is typically non-numerical and rich in detail.'),
+('SL005_1', 'Case Study: In-depth exploration of a single case or multiple cases over time.'),
+('SL005_2', 'Ethnography: Detailed study of cultures or communities through participant observation.'),
+('SL005_3', 'Phenomenology: Focuses on exploring and understanding the lived experiences of individuals.'),
+('SL006_1', 'Interviews: Conducting one-on-one or group interviews to gather detailed, narrative data.'),
+('SL006_2', 'Focus Groups: Facilitating group discussions to explore collective views and experiences.'),
+('SL006_3', 'Observations: Recording behaviors and interactions in their natural setting, often over an extended period.'),
+('SL007_1', 'Definition: Surveys are research tools used to collect data from a predefined group of respondents to gain information and insights on various topics of interest.'),
+('SL007_2', 'Purpose: To gather quantitative or qualitative data that can be analyzed to identify trends, opinions, behaviors, or characteristics of a population.'),
+('SL007_3', 'Applications: Commonly used in social sciences, market research, public health, and education.'),
+('SL008_1', 'Question Types: Closed-Ended Questions: Provide specific answer choices (e.g., multiple-choice, Likert scales). Open-Ended Questions: Allow respondents to answer in their own words, providing richer detail.'),
+('SL008_2', 'Question Clarity: Ensure questions are clear, concise, and unambiguous to avoid confusion. Logical Flow: Organize questions in a logical sequence, starting with general questions and moving to more specific ones.'),
+('SL008_3', 'Pretesting: Conduct a pilot test of the questionnaire to identify and correct any issues before full deployment.'),
+('SL009_1', 'Modes of Administration: Online Surveys: Efficient for reaching large audiences quickly, with automated data collection. Telephone Surveys: Useful for reaching respondents who may not have internet access, though potentially more costly.'),
+('SL009_2', 'Face-to-Face Surveys: Allow for in-depth interaction and clarification but can be time-consuming. Mail Surveys: Provide a physical option but may suffer from low response rates.'),
+('SL009_3', 'Sampling Techniques: Ensure a representative sample by using random sampling, stratified sampling, or systematic sampling methods.');
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,14 @@ CREATE TABLE `guest` (
 INSERT INTO `guest` (`guest_id`, `name`) VALUES
 ('G001', 'Guest1'),
 ('G002', 'Guest2'),
-('G003', 'Guest3');
+('G003', 'Guest3'),
+('G004', 'Sai'),
+('G005', 'Sai'),
+('G006', 'Sailess'),
+('G007', 'Sailess'),
+('G008', 'Sai'),
+('G009', 'Tarun'),
+('G010', 'Oolala');
 
 -- --------------------------------------------------------
 
