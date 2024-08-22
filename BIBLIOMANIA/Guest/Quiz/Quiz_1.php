@@ -42,7 +42,9 @@ if (!$question) {
 
     if ($result_score->num_rows == 0) {
         // Insert score
-        $insert_score = mysqli_query($conn,"INSERT INTO scores (guest_id, topic_1) VALUES('$guest_id','$score')");
+        $insert_score = $conn->prepare("INSERT INTO scores (guest_id, topic_2) VALUES (?, ?)");
+        $insert_score->bind_param("si", $guest_id, $score); // Bind guest_id as string and score as integer
+        $insert_score->execute();
     } else {
         // Update score
         $update_score = mysqli_query($conn,"UPDATE scores SET topic_1='$score' WHERE guest_id='$guest_id'");
@@ -105,8 +107,9 @@ if (isset($_POST['answer'])) {
         $result_score = $check_score->get_result();
 
         if ($result_score->num_rows == 0) {
-            // Insert score
-            $insert_score = mysqli_query($conn,"INSERT INTO scores (guest_id, topic_1) VALUES('$guest_id','$score')");
+            $insert_score = $conn->prepare("INSERT INTO scores (guest_id, topic_2) VALUES (?, ?)");
+            $insert_score->bind_param("si", $guest_id, $score); // Bind guest_id as string and score as integer
+            $insert_score->execute();
         } else {
             // Update score
             $update_score = mysqli_query($conn,"UPDATE scores SET topic_1='$score' WHERE guest_id='$guest_id'");

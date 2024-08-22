@@ -4,7 +4,7 @@ include("../assets/conn.php");
 if(!isset($_SESSION['studentID'])){
     header("location:../index.php");
 }
-$file = 'Unity_PHP/session_data.php';
+$file = '../Student/Unity_PHP/session_data.php';
 
 if (isset($_SESSION['studentID'])) {
     $user_id = "<?php echo '" . $_SESSION['studentID'] . "';";
