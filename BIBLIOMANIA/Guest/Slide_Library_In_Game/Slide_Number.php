@@ -140,7 +140,7 @@ if(!isset($_SESSION['studentID'])){
     <h1>Slides Library</h1>
     
     <div class="backbtn">
-        <button onclick="location.href='Slide_Library.php'">BACK</button>
+        <button onclick="location.href='<?php echo $last_page; ?>'">BACK</button>
     </div>
 
     <p>Select Slide:</p>

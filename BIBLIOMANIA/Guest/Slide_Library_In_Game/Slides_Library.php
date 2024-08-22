@@ -3,7 +3,8 @@ session_start();
 include("../../assets/conn.php");
 if(!isset($_SESSION['studentID'])){
     header("location:../Login_Page.php");
-}
+}// Store the current page as the last accessed page in the session
+$last_page = $_SESSION['last_page'];
 ?>
 
 <!DOCTYPE html>
@@ -141,7 +142,7 @@ if(!isset($_SESSION['studentID'])){
     <h1>Slides Library</h1>
     
     <div class="backbtn">
-        <button onclick="history.back()">BACK</button>
+        <button onclick="location.href='<?php echo '../Games/'.$last_page; ?>'">BACK</button>
     </div>
 
     <p>Select Topic:</p>
