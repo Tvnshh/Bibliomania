@@ -12,7 +12,7 @@ if(!isset($_SESSION['studentID'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slides Library</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
@@ -148,7 +148,7 @@ if(!isset($_SESSION['studentID'])){
     <div class="container">
         <div class="content">
             <?php
-            include '../assets/conn.php'; // Assuming your database connection file is conn.php
+            include '../../assets/conn.php'; // Assuming your database connection file is conn.php
             $topic_id = $_GET['topic_id'] ?? 'T001'; // Default to T001 if no topic_id is provided
 
             $query = "SELECT slides_id, content_1, content_2, content_3 FROM Slides WHERE topic_id = ?";

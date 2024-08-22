@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../assets/conn.php");
+include("../../assets/conn.php");
 if(!isset($_SESSION['studentID'])){
     header("location:Login_Page.php");
     exit;
@@ -69,7 +69,7 @@ $game_page = $topic ? "../Games/Topic_$topic.php" : '#';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Slide</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
