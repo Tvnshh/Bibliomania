@@ -68,8 +68,8 @@ if (isset($_SESSION['studentID'])) {
         }
         .top-right-container {
             position: absolute;
-            top: 6.2vw;
-            right: 15.4vw;
+            top: 8vw;
+            right: 18vw;
             display: flex;
             align-items: center;
         }
@@ -113,7 +113,7 @@ if (isset($_SESSION['studentID'])) {
 </head>
 <body>
 
-    <h1>WELCOME, <?php echo $_SESSION['name']?></h1>
+    <h1>WELCOME, <?php echo $_SESSION['guestName']?></h1>
     <div class="container">
         <div class="grid-container">
             <div class="grid-item" onclick="location.href='Games/Topic_1.php'">SLIDE 1</div>
@@ -126,9 +126,6 @@ if (isset($_SESSION['studentID'])) {
         </div>
         
         <div class="top-right-container">
-            <div class="user-icon">
-                <span onclick="location.href='User_Profile.php'"><i style="font-size:3.5vw" class="fa">&#xf2bd;</i></span>
-            </div>
             <button onclick="location.href='../auth/Logout_Page.php'">LOGOUT</button>
         </div>
         

@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Store session ID
     $_SESSION['studentID'] = $new_guest_id;
+    $_SESSION['guestName'] =  $guest_name;
+
 
     // Insert the guest's name into the database
     $stmt = $conn->prepare("INSERT INTO guest (guest_id, name) VALUES (?, ?)");
