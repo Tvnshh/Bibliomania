@@ -5,22 +5,22 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $guest_name = $_POST['guest_name'];
 
-    // Retrieve the last guest record from the database
-    $result = $conn->query("SELECT guest_id FROM guest ORDER BY id DESC LIMIT 1");
-    $last_id = $result->fetch_assoc()['id'] ?? 0; // Default to 0 if no records exist
+    // Retrieve the last guest_id from the database
+    $result = $conn->query("SELECT guest_id FROM guest ORDER BY guest_id DESC LIMIT 1");
+    $last_guest_id = $result->fetch_assoc()['guest_id'] ?? 'G000';
 
-    // Generate the new session ID
-    $new_session_id = 'G' . str_pad($last_id + 1, 3, '0', STR_PAD_LEFT);
+    // Generate the new guest ID
+    $new_guest_id = 'G' . str_pad((int)substr($last_guest_id, 1) + 1, 3, '0', STR_PAD_LEFT);
 
     // Store session ID
-    $_SESSION['session_id'] = $new_session_id;
+    $_SESSION['studentID'] = $new_guest_id;
 
     // Insert the guest's name into the database
-    $stmt = $conn->prepare("INSERT INTO guests (session_id, name) VALUES (?, ?)");
-    $stmt->bind_param("ss", $new_session_id, $guest_name);
+    $stmt = $conn->prepare("INSERT INTO guest (guest_id, name) VALUES (?, ?)");
+    $stmt->bind_param("ss", $new_guest_id, $guest_name);
     $stmt->execute();
+    header("Location: Guest_Menu.php");
 
-    echo "Welcome, $guest_name! Your session ID is $new_session_id.";
 }
 ?>
 
