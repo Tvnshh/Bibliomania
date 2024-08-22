@@ -60,7 +60,7 @@ function get_topic_by_slide($slides_id) {
 }
 
 $topic = get_topic_by_slide($slides_id);
-$game_page = $topic ? "Games/Topic_$topic.php" : '#';
+$game_page = $topic ? "../Games/Topic_$topic.php" : '#';
 ?>
 
 <!DOCTYPE html>
@@ -177,7 +177,6 @@ $game_page = $topic ? "Games/Topic_$topic.php" : '#';
             <?php if (empty($unlocked_content)): ?>
                 <center>
                 <p style="font-size:2vw;">You have not unlocked any slides.</p>
-                <a href="<?= $game_page ?>"><button class="unlock-button" style="font-size:2vw; width:20vw; height:5vw;">Unlock Slides</button></a>
                 </center>
             <?php else: ?>
                 <div class='slide-content'>

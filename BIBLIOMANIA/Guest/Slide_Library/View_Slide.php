@@ -60,7 +60,7 @@ function get_topic_by_slide($slides_id) {
 }
 
 $topic = get_topic_by_slide($slides_id);
-$game_page = $topic ? "Games/Topic_$topic.php" : '#';
+$game_page = $topic ? "../Games/Topic_$topic.php" : '#';
 ?>
 
 <!DOCTYPE html>
