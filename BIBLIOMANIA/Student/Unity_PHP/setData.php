@@ -16,6 +16,6 @@ $query = "
     )
 ";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("ssss", $userID, $checkpointID, $userID, $checkpointID); // 'ss' specifies that both parameters are strings
+$stmt->bind_param("ssss", $userID, $checkpointID, $userID, $checkpointID);  
 $stmt->execute();
 
