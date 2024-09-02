@@ -115,7 +115,7 @@ if (isset($_SESSION['studentID'])) {
 </head>
 <body>
 
-    <h1>WELCOME, <?php echo $_SESSION['guestName']?></h1>
+    <h1>WELCOME, <?php echo $_SESSION['studentID']?></h1>
     <div class="container">
         <div class="grid-container">
             <div class="grid-item" onclick="location.href='Games/Topic_1.php'">SLIDE 1</div>

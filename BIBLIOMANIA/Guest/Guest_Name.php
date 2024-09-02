@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("ss", $new_guest_id, $guest_name);
     $stmt->execute();
     header("Location: Guest_Menu.php");
-
+    
 }
 ?>
 

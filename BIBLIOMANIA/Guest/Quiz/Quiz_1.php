@@ -29,6 +29,15 @@ $query->execute();
 $result = $query->get_result();
 $question = $result->fetch_assoc();
 
+$result = mysqli_query($conn,"SELECT MAX(CAST(SUBSTRING(student_id, 2) AS UNSIGNED)) AS max_num FROM scores");
+                    
+$row = $result->fetch_assoc();
+$maxNum = $row['max_num'] ?? 0; // Default to 0 if no rows are returned
+
+// Generate the new username
+$newNum = str_pad($maxNum + 1, 3, '0', STR_PAD_LEFT); // Format as 3-digit number
+$username = 'SC' . $newNum;
+
 if (!$question) {
     // If there are no more questions, mark the quiz as complete and store the score
     $guest_id = $_SESSION['studentID']; // Changed from student_id to guest_id
@@ -42,7 +51,7 @@ if (!$question) {
 
     if ($result_score->num_rows == 0) {
         // Insert score
-        $insert_score = mysqli_query($conn,"INSERT INTO scores (guest_id, topic_1) VALUES('$guest_id','$score')");
+        $insert_score = mysqli_query($conn,"INSERT INTO scores (score_id, guest_id, topic_1) VALUES('$username','$guest_id','$score')");
     } else {
         // Update score
         $update_score = mysqli_query($conn,"UPDATE scores SET topic_1='$score' WHERE guest_id='$guest_id'");
@@ -106,7 +115,7 @@ if (isset($_POST['answer'])) {
 
         if ($result_score->num_rows == 0) {
             // Insert score
-            $insert_score = mysqli_query($conn,"INSERT INTO scores (guest_id, topic_1) VALUES('$guest_id','$score')");
+            $insert_score = mysqli_query($conn,"INSERT INTO scores (score_id,guest_id, topic_1) VALUES('$username','$guest_id','$score')");
         } else {
             // Update score
             $update_score = mysqli_query($conn,"UPDATE scores SET topic_1='$score' WHERE guest_id='$guest_id'");
