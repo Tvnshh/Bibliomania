@@ -11,9 +11,8 @@ if(!isset($_SESSION['modID'])){
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles.css">
-    <title>Question Analysis</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Edit Questions</title>
     <style>
         body {
             color: rgb(221, 83, 49);
@@ -32,6 +31,22 @@ if(!isset($_SESSION['modID'])){
             text-align: center;
             font-size: 3.3vw;
             margin-bottom: 10vw;
+        }
+        p {
+            text-align: center;
+            font-size: 2.5vw;
+            margin-top: 12vw;
+        }
+        .container {
+            text-align: center;
+            max-width: 700px;
+            background: rgb(27, 27, 27);
+            border: solid;
+            border-color: rgb(221, 83, 49);
+            padding: 20px;
+            border-radius: 15px;
+            position: relative;  
+            padding-top: 70px;  
         }
         .backbtn{
             position: absolute;
@@ -59,61 +74,42 @@ if(!isset($_SESSION['modID'])){
             color: rgb(221, 83, 49);
             border-color: rgb(221, 83, 49);
         }
-        .question-container {
-            text-align: center;
-            margin: auto;
-            text-align: center;
+        .content {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            max-width: 65vw;
-            background: rgb(27, 27, 27);
-            border: solid;
-            border-color: rgb(221, 83, 49);
-            border-radius: 2vw;
-        }
-        .question-item {
-            display: flex;
-            align-items: center;
             justify-content: center;
-            margin: 1.5vw;
-        }
-        .question-text {
-            margin-right: 1.5vw;
-            padding: 0.5vw;
-            font-family: 'CustomFont';
-            font-size: 1.5vw;
+            align-items: center;
             background-color: rgb(27, 27, 27);
-            color:  rgb(221, 83, 49);
+            gap: 1vw;
+            width: 20vw;
+            height: 25vw;
+            margin: auto;
+            border: solid;
+            box-shadow: 10px 10px 40px rgba(221, 83, 49, 0.5);
+        }
+        .subject-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: auto;
+        }
+        .subject-button {
+            font-family: 'CustomFont';
+            font-size: 1.7vw;
+            background-color: rgb(27, 27, 27);
+            color: rgb(221, 83, 49);
             border: solid;
             border-color: rgb(221, 83, 49);
-            border-radius: 15px;
-            width: 45vw;
-            cursor: default;
-        }
-        .pagination {
-            text-align: center;
-            margin-top: 2vw;
-            margin-bottom: 1vw;
-            border: solid;
-            border-radius: 2vw;
-            padding: 0.2vw;
-        }
-
-        .pagination button {
-            background-color: transparent;
-            cursor: default;
-            margin: 0 3vw;
-            border: none;
-        }
-        .pagination button i {
-            font-size: 3vw;
-            color: rgb(221, 83, 49);
+            border-radius: 1vw;
+            padding: 0.5vw;
             cursor: pointer;
+            width: 18vw;
+            transition: background-color, font-size 0.2s;
         }
-
-        .pagination button i:hover {
-            color: grey;
+        .subject-button:hover {
+            background-color: rgb(221, 83, 49);
+            color: rgb(27, 27, 27);
+            font-size: 2vw;
         }
         .top-right-container {
             position: absolute;
@@ -148,27 +144,19 @@ if(!isset($_SESSION['modID'])){
         .user-icon:hover {
             color: whitesmoke;
         }
-        .percentage {
-            font-size: 1.7vw;
-            color: rgb(27, 27, 27);
-            background-color: rgb(221, 83, 49);
-            padding: 0.5vw 1vw;
-            border-radius: 0.5vw;
-            border: solid 1px rgb(27, 27, 27);
-            text-align: center;
-            width: 7vw;
-        }
     </style>
 </head>
 <body>
-    
+
     <h1>Question Analysis</h1>
-    
+
     <div class="backbtn">
-        <button onclick="location.href='Question_Analysis2.php'">BACK</button>
+        <button onclick="location.href='Mod_Menu.php'">BACK</button>
     </div>
+
+    <p>Select Level:</p>
     
-    <div class="question-container">
+    <div class="content">
         <?php
         // Include database connection file
         include "../assets/conn.php";
@@ -177,50 +165,19 @@ if(!isset($_SESSION['modID'])){
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Get the selected topic_id from the URL
-        $topic_id = $_GET['topic_id'];
-
-        // Determine the current page and set the number of questions per page
-        $questionsPerPage = 5;
-        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $offset = ($page - 1) * $questionsPerPage;
-
-        // Fetch questions from the database with LIMIT and OFFSET
-        $sql = "SELECT question_ID, question, correct_attempts, total_attempts FROM Questions WHERE topic_id = '$topic_id' ORDER BY question_ID LIMIT $questionsPerPage OFFSET $offset";
+        // Fetch topics from database
+        $sql = "SELECT topic_id, topic_name FROM topic";
         $result = $conn->query($sql);
-
-        // Count total questions for the pagination
-        $totalQuestionsSql = "SELECT COUNT(*) as total FROM Questions WHERE topic_id = '$topic_id'";
-        $totalResult = $conn->query($totalQuestionsSql);
-        $totalQuestions = $totalResult->fetch_assoc()['total'];
-        $totalPages = ceil($totalQuestions / $questionsPerPage);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $correctAttempts = $row['correct_attempts'];
-                $totalAttempts = $row['total_attempts'];
-                $percentage = $totalAttempts > 0 ? ($correctAttempts / $totalAttempts) * 100 : 0;
-
-                echo '<div class="question-item">
-                <div class="question-text">' . htmlspecialchars($row["question"]) . '</div>
-                <div class="percentage">' . number_format($percentage) . '%</div>
-            </div>';
+                echo '<div class="subject-item">
+                        <button class="subject-button" onclick="window.location.href=\'Question_Analysis.php?topic_id=' . $row["topic_id"] . '\'">' . htmlspecialchars($row["topic_name"]) . '</button>
+                      </div>';
             }
         } else {
-            echo "No questions found for this topic.";
+            echo "No subjects found.";
         }
-
-        // Display pagination controls
-        echo '<div class="pagination">';
-        if ($page > 1) {
-            echo '<button onclick="window.location.href=\'?topic_id=' . $topic_id . '&page=' . ($page - 1) . '\'"><i class="fas fa-chevron-circle-left"></i></button>';
-        }
-        if ($page < $totalPages) {
-            echo '<button onclick="window.location.href=\'?topic_id=' . $topic_id . '&page=' . ($page + 1) . '\'"><i class="fas fa-chevron-circle-right"></i></button>';
-        }
-        echo '</div>';
-
-        $_SESSION['page_num'] = $page;
 
         $conn->close();
         ?>

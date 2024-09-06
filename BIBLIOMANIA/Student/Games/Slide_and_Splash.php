@@ -24,6 +24,7 @@ $_SESSION['last_page'] = $current_page;
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Slide and Splash</title>
     <style>
         body {
@@ -136,7 +137,7 @@ $_SESSION['last_page'] = $current_page;
         }
 
         .modal-content {
-            background-color: rgb(27, 27, 27);
+            background-color: transparent;
             margin: auto;
             padding: 20px;
             border: solid 2px rgb(221, 83, 49);
@@ -144,10 +145,16 @@ $_SESSION['last_page'] = $current_page;
             text-align: center;
             color: rgb(221, 83, 49);
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center
         }
 
         .modal-content h2 {
             margin-bottom: 20px;
+            margin-top: -10px;
+            font-size: 3vw;
         }
 
         .modal-content button {
@@ -157,32 +164,32 @@ $_SESSION['last_page'] = $current_page;
             padding: 10px 20px;
             margin: 10px 0;
             cursor: pointer;
-            width: 80%;
-            font-size: 16pt;
+            width: 15vw;
+            height: 4.5vw;
+            font-size: 2.3vw;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: font-size 0.3s ease;
         }
 
         .modal-content button:hover {
             background-color: rgb(27, 27, 27);
             color: rgb(221, 83, 49);
+            font-size: 2.6vw;
             border: 1px solid rgb(221, 83, 49);
         }
 
         .modal-content .close {
             color: rgb(221, 83, 49);
             float: right;
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 3vw;
         }
 
         .modal-content .close:hover,
         .modal-content .close:focus {
-            color: #000;
+            color: red;
             text-decoration: none;
             cursor: pointer;
         }
-
         .gm {
             width: 100%;
             height: 100%;
@@ -245,7 +252,7 @@ $_SESSION['last_page'] = $current_page;
         
     <div id="pauseModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeModal()"><i class="fa">&#xf00d;</i></span>
             <h2>Pause Menu</h2>
             <button onclick="closeModal()">Play</button>
             <button class="button" onclick="window.location.href='Topic_2.php';">Restart</button>

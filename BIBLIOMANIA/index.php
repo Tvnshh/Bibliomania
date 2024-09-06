@@ -55,7 +55,7 @@
         .menu2 {
             display: flex;
             margin: auto;
-            margin-bottom: 3vw;
+            margin-bottom: 8vw;
         }
         .menu2 button {
             cursor: pointer;
@@ -88,11 +88,14 @@
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .about-us img {
-            width: 40%;
+
             border-radius: 1vw;
         }
         .about-us .text {
             width: 55%;
+            text-align: justify;
+            font-size: 1.5vw;
+            padding: 1.5vw;
         }
         .about-us.visible {
             opacity: 1;
@@ -136,7 +139,7 @@
     <div class="section">
     <div class="scroll-indicator" id="scrollIndicator"><i class='fas fa-chevron-down' style='font-size:2.5vw;color:rgb(221, 83, 49)'></i></div>
         <div class="about-us" id="aboutUs1">
-            <img src="images/bibliomania-logo-2.png" alt="About Us Image">
+            <img src="images/ARS.png" width="30%" alt="ARS logo">
             <div class="text">
                 <h2>What is ARS?</h2>
                 <p>Academic research skills involve the ability to systematically investigate, analyze, and evaluate information to answer specific questions or solve problems. These skills are essential for producing credible, evidence-based conclusions in academic work.</p>
@@ -150,7 +153,7 @@
                 <h2>About Us</h2>
                 <p>Group E, creators of Bibliomania, is a dedicated team of passionate developers focused on enhancing the reading experience through innovative digital solutions. Their project, Bibliomania, aims to provide readers with an engaging and seamless platform to explore and enjoy a wide range of literary content.</p>
             </div>
-            <img src="images/bibliomania-logo-2.png" alt="About Us Image">
+            <img src="images/bibliomania-logo-2.png" width="40%" alt="About Us Image">
         </div>
     </div>
 

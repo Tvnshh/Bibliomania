@@ -131,7 +131,7 @@ if(!isset($_SESSION['modID'])){
             <div class="grid-container">
                 <div class="grid-item" onclick="location.href='Slides_Library.php'">Slides Library</div>
                 <div class="grid-item" onclick="location.href='Edit_Questions.php'">Edit Question</div>
-                <div class="grid-item" onclick="location.href='Question_Analysis.php'">Question Analysis</div>
+                <div class="grid-item" onclick="location.href='Question_Analysis2.php'">Question Analysis</div>
             </div>
         </div>
     </center>
